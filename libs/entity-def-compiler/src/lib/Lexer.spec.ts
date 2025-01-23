@@ -36,8 +36,8 @@ describe('Lexer', () => {
       {
         loc: {
           end: { col: 2, line: 1 },
-          lexeme: '}',
-          start: { col: 1, line: 1 },
+          lexeme: '',
+          start: { col: 2, line: 1 },
         },
         type: 'EOF',
       },
@@ -53,9 +53,9 @@ describe('Lexer', () => {
     expect(lexer.tokens.map((t) => t.toString())).toEqual([
       'ENTITY_DEF entityDef 1:0 - 1:9',
       'STRING mysprite 1:10 - 1:20',
-      'LEFT_BRACE { 1:21 - 1:21',
-      'RIGHT_BRACE } 1:22 - 1:22',
-      'EOL  1:23 - 1:23',
+      'LEFT_BRACE { 1:21 - 1:22',
+      'RIGHT_BRACE } 1:22 - 1:23',
+      'EOF  1:23 - 1:23',
     ]);
 
     // expect(lexer.tokens).toEqual([

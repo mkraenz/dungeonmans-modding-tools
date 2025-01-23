@@ -29,7 +29,7 @@ export class Lexer {
       this.start = this.current;
       this.scanToken();
     }
-    this.addToken('EOF');
+    this.addEOF();
   }
 
   private scanToken() {
@@ -55,6 +55,16 @@ export class Lexer {
           return this.identifier();
         }
     }
+  }
+
+  private addEOF() {
+    this.#tokens.push(
+      new Token('EOF', {
+        lexeme: '',
+        start: { col: this.current, line: this.line },
+        end: { col: this.current, line: this.line },
+      })
+    );
   }
 
   private identifier() {
@@ -102,10 +112,7 @@ export class Lexer {
       new Token(type, {
         lexeme: forceLexeme ?? lexeme,
         start: { col: this.start, line: this.line },
-        end: {
-          col: this.current,
-          line: this.line,
-        },
+        end: { col: this.current, line: this.line },
       })
     );
   }
