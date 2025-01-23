@@ -41,7 +41,7 @@ class Token implements IToken {
 export class Lexer {
   static keywords = new Map<string, TokenType>([
     ['entityDef', 'ENTITY_DEF'],
-    ['entitydef', 'ENTITY_DEF'], // TODO ask Jim whether entitydef is case sensitive
+    ['entitydef', 'ENTITY_DEF'], // TODO @Jim whether entitydef is case sensitive
     ['true', 'TRUE'],
     ['false', 'FALSE'],
   ]);
@@ -76,7 +76,7 @@ export class Lexer {
       case '"':
         return this.stringToken();
       case '-':
-        return this.number();
+        return this.numberOrString();
 
       case ' ':
       case '\r':
@@ -88,7 +88,7 @@ export class Lexer {
         this.line++;
         return;
       default:
-        if (isDigit(char)) return this.number();
+        if (isDigit(char)) return this.numberOrString();
         if (isAlpha(char)) return this.identifier();
     }
   }
@@ -98,7 +98,7 @@ export class Lexer {
   }
 
   private identifier() {
-    while (isAlphaNumeric(this.peek())) this.advance();
+    while (!isWhitespace(this.peek()) && !this.isAtEnd()) this.advance();
 
     const lexeme = this.source.substring(this.start, this.current);
     const keyword = Lexer.keywords.get(lexeme);
@@ -106,9 +106,13 @@ export class Lexer {
     else this.addToken('IDENTIFIER');
   }
 
-  private number() {
-    while (isDigit(this.peek())) this.advance();
-    this.addToken('NUMBER');
+  private numberOrString() {
+    while (!isWhitespace(this.peek()) && !this.isAtEnd()) this.advance();
+    const lexeme = this.source.substring(this.start, this.current);
+    const realNumberRegex =
+      /^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/;
+    if (realNumberRegex.test(lexeme)) this.addToken('NUMBER');
+    else this.addToken('STRING');
   }
 
   private stringToken() {
@@ -144,6 +148,9 @@ export class Lexer {
     this.#tokens.push(new Token(type, this.start, this.current - this.start));
   }
 }
+
+const whitespaces = new Set([' ', '\r', '\t', '\n']);
+const isWhitespace = (char: string) => whitespaces.has(char);
 
 const isAlphaNumeric = (char: string) => isAlpha(char) || isDigit(char);
 

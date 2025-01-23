@@ -94,6 +94,32 @@ describe('Lexer', () => {
     ]);
   });
 
+  it(`works for string with commas 'meleedamage_01 melee,1,0`, () => {
+    const source = 'meleedamage_01 melee,1,0';
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+      'IDENTIFIER meleedamage_01 1:1 - 1:15',
+      'IDENTIFIER melee,1,0 1:16 - 1:25',
+      'EOF  1:25 - 1:25',
+    ]);
+  });
+
+  it(`works for dice roll 'modmans_mod_mold	1d4+1`, () => {
+    const source = 'modmans_mod_mold 1d4+1';
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+      'IDENTIFIER modmans_mod_mold 1:1 - 1:17',
+      'STRING 1d4+1 1:18 - 1:23',
+      'EOF  1:23 - 1:23',
+    ]);
+  });
+
   it('works for a sprite entityDef', () => {
     // from https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
     const source = `entitydef "modmans_mod_mold_sprite"
