@@ -41,6 +41,7 @@ class Token implements IToken {
 export class Lexer {
   static keywords = new Map<string, TokenType>([
     ['entityDef', 'ENTITY_DEF'],
+    ['entitydef', 'ENTITY_DEF'], // TODO ask Jim whether entitydef is case sensitive
     ['true', 'TRUE'],
     ['false', 'FALSE'],
   ]);

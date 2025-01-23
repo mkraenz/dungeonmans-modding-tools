@@ -81,22 +81,43 @@ describe('Lexer', () => {
     ]);
   });
 
-  it('works for an empty multiline entityDef', () => {
-    const source = `entityDef "mysprite"
+  it('works for a sprite entityDef', () => {
+    // from https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
+    const source = `entitydef "modmans_mod_mold_sprite"
 {
+  texturename monster_sprites
+  xloc 0
+  yloc 0
+  width 80
+  height 128
 }`;
     const lexer = new Lexer(source);
 
     lexer.tokenize();
 
     expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
-      'ENTITY_DEF entityDef 1:1 - 1:10',
-      'STRING "mysprite" 1:11 - 1:21',
+      'ENTITY_DEF entitydef 1:1 - 1:10',
+      'STRING "modmans_mod_mold_sprite" 1:11 - 1:36',
       'EOL  2:0 - 2:1',
       'LEFT_BRACE { 2:1 - 2:2',
       'EOL  3:0 - 3:1',
-      'RIGHT_BRACE } 3:1 - 3:2',
-      'EOF  3:2 - 3:2',
+      'IDENTIFIER texturename 3:3 - 3:14',
+      'IDENTIFIER monster_sprites 3:15 - 3:30',
+      'EOL  4:0 - 4:1',
+      'IDENTIFIER xloc 4:3 - 4:7',
+      'NUMBER 0 4:8 - 4:9',
+      'EOL  5:0 - 5:1',
+      'IDENTIFIER yloc 5:3 - 5:7',
+      'NUMBER 0 5:8 - 5:9',
+      'EOL  6:0 - 6:1',
+      'IDENTIFIER width 6:3 - 6:8',
+      'NUMBER 80 6:9 - 6:11',
+      'EOL  7:0 - 7:1',
+      'IDENTIFIER height 7:3 - 7:9',
+      'NUMBER 128 7:10 - 7:13',
+      'EOL  8:0 - 8:1',
+      'RIGHT_BRACE } 8:1 - 8:2',
+      'EOF  8:2 - 8:2',
     ]);
   });
 });
