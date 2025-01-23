@@ -81,6 +81,19 @@ describe('Lexer', () => {
     ]);
   });
 
+  it(`works for identifier with subscript 'meleedamage_01 123`, () => {
+    const source = 'meleedamage_01 123';
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+      'IDENTIFIER meleedamage_01 1:1 - 1:15',
+      'NUMBER 123 1:16 - 1:19',
+      'EOF  1:19 - 1:19',
+    ]);
+  });
+
   it('works for a sprite entityDef', () => {
     // from https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
     const source = `entitydef "modmans_mod_mold_sprite"
