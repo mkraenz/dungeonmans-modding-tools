@@ -10,7 +10,7 @@ const spriteDef = `entitydef "modmans_mod_mold_sprite"
 }`;
 
 describe('Lexer', () => {
-  it('should work for "{}"', () => {
+  it('works for "{}"', () => {
     const source = '{}';
     const lexer = new Lexer(source);
 
@@ -44,7 +44,7 @@ describe('Lexer', () => {
     ]);
   });
 
-  it(`should work for 'entityDef "mysprite" {}'`, () => {
+  it(`works for 'entityDef "mysprite" {}'`, () => {
     const source = 'entityDef "mysprite" {}';
     const lexer = new Lexer(source);
 
@@ -57,48 +57,47 @@ describe('Lexer', () => {
       'RIGHT_BRACE } 1:22 - 1:23',
       'EOF  1:23 - 1:23',
     ]);
+  });
 
-    // expect(lexer.tokens).toEqual([
-    //   {
-    //     loc: {
-    //       lexeme: 'entityDef',
-    //       start: { col: 0, line: 1 },
-    //       end: { col: 9, line: 1 },
-    //     },
-    //     type: 'ENTITY_DEF',
-    //   },
-    //   {
-    //     loc: {
-    //       lexeme: 'mysprite',
-    //       start: { col: 10, line: 1 },
-    //       end: { col: 20, line: 1 },
-    //     },
-    //     type: 'STRING',
-    //   },
-    //   {
-    //     loc: {
-    //       lexeme: '{',
-    //       start: { col: 21, line: 1 },
-    //       end: { col: 22, line: 1 },
-    //     },
-    //     type: 'LEFT_BRACE',
-    //   },
-    //   {
-    //     loc: {
-    //       lexeme: '}',
-    //       start: { col: 22, line: 1 },
-    //       end: { col: 23, line: 1 },
-    //     },
-    //     type: 'RIGHT_BRACE',
-    //   },
-    //   {
-    //     loc: {
-    //       lexeme: '',
-    //       start: { col: 24, line: 1 },
-    //       end: { col: 24, line: 1 },
-    //     },
-    //     type: 'EOF',
-    //   },
-    // ]);
+  it(`works for 'health 15'`, () => {
+    const source = 'health 15';
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toString())).toEqual([
+      'IDENTIFIER health 1:0 - 1:6',
+      'NUMBER 15 1:7 - 1:9',
+      'EOF  1:9 - 1:9',
+    ]);
+  });
+
+  it(`works for negative number '-15'`, () => {
+    const source = '-15';
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toString())).toEqual([
+      'NUMBER -15 1:0 - 1:3',
+      'EOF  1:3 - 1:3',
+    ]);
+  });
+
+  it('works for a multiline entityDef', () => {
+    const source = `entityDef "mysprite"
+    {
+    }`;
+    const lexer = new Lexer(source);
+
+    lexer.tokenize();
+
+    expect(lexer.tokens.map((t) => t.toString())).toEqual([
+      'ENTITY_DEF entityDef 1:0 - 1:9',
+      'STRING mysprite 1:10 - 1:20',
+      'LEFT_BRACE { 2:0 - 2:1',
+      'RIGHT_BRACE } 3:0 - 1:1',
+      'EOF  3:0 - 3:0',
+    ]);
   });
 });

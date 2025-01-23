@@ -10,7 +10,11 @@ class Token implements IToken {
 }
 
 export class Lexer {
-  static keywords = new Map<string, TokenType>([['entityDef', 'ENTITY_DEF']]);
+  static keywords = new Map<string, TokenType>([
+    ['entityDef', 'ENTITY_DEF'],
+    ['true', 'TRUE'],
+    ['false', 'FALSE'],
+  ]);
 
   private start = 0;
   private current = 0;
@@ -41,6 +45,8 @@ export class Lexer {
         return this.addToken('RIGHT_BRACE');
       case '"':
         return this.stringToken();
+      case '-':
+        return this.number();
 
       case ' ':
       case '\r':
@@ -51,9 +57,8 @@ export class Lexer {
         this.line++;
         return;
       default:
-        if (isAlpha(char)) {
-          return this.identifier();
-        }
+        if (isDigit(char)) return this.number();
+        if (isAlpha(char)) return this.identifier();
     }
   }
 
@@ -74,6 +79,11 @@ export class Lexer {
     const keyword = Lexer.keywords.get(lexeme);
     if (keyword) this.addToken(keyword);
     else this.addToken('IDENTIFIER');
+  }
+
+  private number() {
+    while (isDigit(this.peek())) this.advance();
+    this.addToken('NUMBER');
   }
 
   private stringToken() {

@@ -17,9 +17,12 @@ export type Position = {
 };
 
 export type TokenType =
-  | 'LEFT_BRACE'
-  | 'RIGHT_BRACE'
-  | 'EOF'
   | 'ENTITY_DEF'
   | 'IDENTIFIER'
-  | 'STRING';
+  | 'LEFT_BRACE'
+  | 'RIGHT_BRACE'
+  | 'TRUE'
+  | 'FALSE'
+  | 'NUMBER'
+  | 'STRING'
+  | 'EOF';
