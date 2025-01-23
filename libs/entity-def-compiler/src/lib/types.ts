@@ -1,6 +1,7 @@
 export type IToken = {
   type: TokenType;
-  loc: SourceLocation | null;
+  offset: number;
+  length: number;
 };
 
 export type SourceLocation = {
@@ -10,9 +11,9 @@ export type SourceLocation = {
 };
 
 export type Position = {
-  /** 0-based */
+  /** 1-based */
   line: number;
-  /** column, 0-based */
+  /** column, 1-based */
   col: number;
 };
 

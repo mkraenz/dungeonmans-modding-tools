@@ -1,11 +1,39 @@
 import { IToken, SourceLocation, TokenType } from './types';
 
 class Token implements IToken {
-  constructor(readonly type: TokenType, readonly loc: SourceLocation | null) {}
+  constructor(
+    readonly type: TokenType,
+    /** The offset from the beginning of the source file  */
+    readonly offset: number,
+    /** length of the lexeme starting from the offset */
+    readonly length: number
+  ) {}
 
   toString() {
-    const { loc } = this;
-    return `${this.type} ${loc?.lexeme} ${loc?.start.line}:${loc?.start.col} - ${loc?.end.line}:${loc?.end.col}`;
+    const { type, length, offset } = this;
+    return `${type} ${offset} ${length}`;
+  }
+
+  toHumanReadable(source: string) {
+    const loc = this.toSourceLocation(source);
+    return `${this.type} ${loc.lexeme} ${loc.start.line}:${loc.start.col} - ${loc.end.line}:${loc.end.col}`;
+  }
+
+  toSourceLocation(source: string): SourceLocation {
+    const lexeme = source.slice(this.offset, this.offset + this.length);
+    const everythingUntilLexeme = source.slice(0, this.offset + this.length);
+    const linesUntilLexemeIncl = everythingUntilLexeme.split('\n');
+    const [_lineWithLexeme, ...otherLines] = linesUntilLexemeIncl.toReversed();
+    const charsUntilLineWithLexeme =
+      otherLines.length > 0 ? otherLines.join('\n').length : -1; // when the lexeme is in the very first line, we would get an off-by-one error without the correction
+    const startCol = this.offset - charsUntilLineWithLexeme;
+    const endCol = this.offset + this.length - charsUntilLineWithLexeme;
+
+    return {
+      lexeme,
+      start: { line: linesUntilLexemeIncl.length, col: startCol },
+      end: { line: linesUntilLexemeIncl.length, col: endCol },
+    };
   }
 }
 
@@ -63,13 +91,7 @@ export class Lexer {
   }
 
   private addEOF() {
-    this.#tokens.push(
-      new Token('EOF', {
-        lexeme: '',
-        start: { col: this.current, line: this.line },
-        end: { col: this.current, line: this.line },
-      })
-    );
+    this.#tokens.push(new Token('EOF', this.current, 0));
   }
 
   private identifier() {
@@ -96,11 +118,10 @@ export class Lexer {
         `Missing closing quotes matching ${this.line}:${this.start}`
       );
     }
-    // The closing ".
+    // The closing "
     this.advance();
 
-    const str = this.source.substring(this.start + 1, this.current - 1);
-    this.addToken('STRING', str);
+    this.addToken('STRING');
   }
 
   private advance() {
@@ -116,15 +137,8 @@ export class Lexer {
     return this.source.charAt(this.current);
   }
 
-  private addToken(type: TokenType, forceLexeme?: string) {
-    const lexeme = this.source.substring(this.start, this.current);
-    this.#tokens.push(
-      new Token(type, {
-        lexeme: forceLexeme ?? lexeme,
-        start: { col: this.start, line: this.line },
-        end: { col: this.current, line: this.line },
-      })
-    );
+  private addToken(type: TokenType) {
+    this.#tokens.push(new Token(type, this.start, this.current - this.start));
   }
 }
 
