@@ -92,24 +92,9 @@ describe('Lexer', () => {
     expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
       'ENTITY_DEF entityDef 1:1 - 1:10',
       'STRING "mysprite" 1:11 - 1:21',
+      'EOL  2:0 - 2:1',
       'LEFT_BRACE { 2:1 - 2:2',
-      'RIGHT_BRACE } 3:1 - 3:2',
-      'EOF  3:2 - 3:2',
-    ]);
-  });
-
-  it('works for an empty multiline entityDef', () => {
-    const source = `entityDef "mysprite"
-{
-}`;
-    const lexer = new Lexer(source);
-
-    lexer.tokenize();
-
-    expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
-      'ENTITY_DEF entityDef 1:1 - 1:10',
-      'STRING "mysprite" 1:11 - 1:21',
-      'LEFT_BRACE { 2:1 - 2:2',
+      'EOL  3:0 - 3:1',
       'RIGHT_BRACE } 3:1 - 3:2',
       'EOF  3:2 - 3:2',
     ]);

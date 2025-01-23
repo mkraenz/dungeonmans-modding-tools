@@ -26,4 +26,5 @@ export type TokenType =
   | 'FALSE'
   | 'NUMBER'
   | 'STRING'
+  | 'EOL'
   | 'EOF';

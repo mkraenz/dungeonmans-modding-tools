@@ -16,7 +16,8 @@ class Token implements IToken {
 
   toHumanReadable(source: string) {
     const loc = this.toSourceLocation(source);
-    return `${this.type} ${loc.lexeme} ${loc.start.line}:${loc.start.col} - ${loc.end.line}:${loc.end.col}`;
+    const lexeme = this.type === 'EOL' ? '' : loc.lexeme;
+    return `${this.type} ${lexeme} ${loc.start.line}:${loc.start.col} - ${loc.end.line}:${loc.end.col}`;
   }
 
   toSourceLocation(source: string): SourceLocation {
@@ -82,6 +83,7 @@ export class Lexer {
         // Ignore whitespace.
         return;
       case '\n':
+        this.addToken('EOL');
         this.line++;
         return;
       default:
