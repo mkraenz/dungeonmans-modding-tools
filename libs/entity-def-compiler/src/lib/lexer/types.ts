@@ -28,3 +28,4 @@ export type TokenType =
   | 'STRING'
   | 'EOL'
   | 'EOF';
+/** TODO @Jim can there be comments? */

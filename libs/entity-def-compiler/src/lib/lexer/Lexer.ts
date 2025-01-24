@@ -15,7 +15,7 @@ class Token implements IToken {
     return `${type} ${offset} ${length}`;
   }
 
-  toHumanReadable(source: string) {
+  prettyPrint(source: string) {
     const loc = this.toSourceLocation(source);
     const lexeme = this.type === 'EOL' ? '' : this.lexeme; // don't actually print new lines in the console. its bloating up stuff
     return `${this.type} ${lexeme} ${loc.start.line}:${loc.start.col} - ${loc.end.line}:${loc.end.col}`;

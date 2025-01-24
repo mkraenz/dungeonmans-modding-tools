@@ -3,18 +3,18 @@ import { Lexer } from './Lexer';
 it('works for a sprite entityDef', () => {
   // from https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
   const source = `entitydef "modmans_mod_mold_sprite"
-{
-  texturename monster_sprites
-  xloc 0
-  yloc 0
-  width 80
-  height 128
-}`;
+  {
+    texturename monster_sprites
+    xloc 0
+    yloc 0
+    width 80
+    height 128
+  }`;
   const lexer = new Lexer(source);
 
   lexer.tokenize();
 
-  expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+  expect(lexer.tokens.map((t) => t.prettyPrint(source))).toEqual([
     'ENTITY_DEF entitydef 1:1 - 1:10',
     'STRING "modmans_mod_mold_sprite" 1:11 - 1:36',
     'EOL  2:0 - 2:1',
@@ -81,7 +81,7 @@ it('works for a monster entityDef', () => {
 
   lexer.tokenize();
 
-  expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+  expect(lexer.tokens.map((t) => t.prettyPrint(source))).toEqual([
     'ENTITY_DEF entityDef 1:1 - 1:10',
     'STRING "modmans_mod_mold" 1:11 - 1:29',
     'EOL  2:0 - 2:1',
@@ -181,7 +181,7 @@ it('works for monster tables', () => {
 
   lexer.tokenize();
 
-  expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+  expect(lexer.tokens.map((t) => t.prettyPrint(source))).toEqual([
     'ENTITY_DEF entityDef 1:1 - 1:10',
     'STRING "modmans_warrens_encounters" 1:11 - 1:39',
     'EOL  2:0 - 2:1',
