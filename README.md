@@ -1,4 +1,4 @@
-# Dungeonmans Mod Tools
+# Dungeonmans Modding Tools
 
 Disclaimer: This is a fan-project and not affiliated with the original owner, copyright holders, nor license holders of Dungeonmans. If any of the content in this repo is not in agreement with any licenses etc, please contact me.
 
@@ -10,7 +10,7 @@ Disclaimer: This is a fan-project and not affiliated with the original owner, co
 - [EntityDef Lexer](./libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts)
   - Turns Entity Def files into tokens for further analysis, etc.
   - Usable: 🟡
-    - Several results from real world entityDef examples are shown in the [spec files](./libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts). Before I can put a 🟢 on this though, I would need to battle test it by using other tools built on top of this, and clarifying some remaining questions regarding the syntax of entityDefs.
+    - Several results from real world entityDef examples are shown in the [spec files](./libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts). Before I can put a 🟢 on this though, I would need to battle test it by using other tools built on top of this, clarify some remaining questions regarding the syntax of entityDefs, and package it into a lib for anyone else to use.
 
 ## Repo Oerview
 

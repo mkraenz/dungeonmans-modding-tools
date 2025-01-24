@@ -1,5 +1,5 @@
 {
-  "name": "@dungeonmans-mod-tools/entity-def-compiler",
+  "name": "@dungeonmans-modding-tools/entity-def-compiler",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
