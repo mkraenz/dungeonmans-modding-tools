@@ -109,9 +109,7 @@ export class Lexer {
   private numberOrString() {
     while (!isWhitespace(this.peek()) && !this.isAtEnd()) this.advance();
     const lexeme = this.source.substring(this.start, this.current);
-    const realNumberRegex =
-      /^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/;
-    if (realNumberRegex.test(lexeme)) this.addToken('NUMBER');
+    if (isNumeric(lexeme)) this.addToken('NUMBER');
     else this.addToken('STRING');
   }
 
@@ -162,4 +160,11 @@ const isAlpha = (char: string) => {
 
 const isDigit = (char: string) => {
   return char >= '0' && char <= '9';
+};
+
+// https://github.com/validatorjs/validator.js/blob/master/src/lib/isNumeric.js
+const numberRegex = new RegExp(`^[+-]?([0-9]*[.])?[0-9]+$`);
+
+const isNumeric = (n: string) => {
+  return numberRegex.test(n);
 };
