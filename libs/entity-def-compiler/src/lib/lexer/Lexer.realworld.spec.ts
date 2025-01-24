@@ -263,3 +263,27 @@ it('works for tables using results from other tables', () => {
     'EOF  13:3 - 13:3',
   ]);
 });
+
+it('works banter with code-driven substitution', () => {
+  const source = `entityDef "decoy_not_fooled_banter_common"
+{
+	"^5[s1]^7 chuckles: ^3Fool me once...!^7"									1
+}`;
+
+  const lexer = new Lexer(source);
+
+  lexer.tokenize();
+
+  expect(lexer.tokens.map((t) => t.prettyPrint(source))).toEqual([
+    'ENTITY_DEF entityDef 1:1 - 1:10',
+    'STRING "decoy_not_fooled_banter_common" 1:11 - 1:43',
+    'EOL  2:0 - 2:1',
+    'LEFT_BRACE { 2:1 - 2:2',
+    'EOL  3:0 - 3:1',
+    'STRING "^5[s1]^7 chuckles: ^3Fool me once...!^7" 3:2 - 3:43',
+    'NUMBER 1 3:52 - 3:53',
+    'EOL  4:0 - 4:1',
+    'RIGHT_BRACE } 4:1 - 4:2',
+    'EOF  4:2 - 4:2',
+  ]);
+});
