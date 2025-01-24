@@ -3,13 +3,13 @@ import { Lexer } from './Lexer';
 it('works for a sprite entityDef', () => {
   // from https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
   const source = `entitydef "modmans_mod_mold_sprite"
-  {
-    texturename monster_sprites
-    xloc 0
-    yloc 0
-    width 80
-    height 128
-  }`;
+{
+  texturename monster_sprites
+  xloc 0
+  yloc 0
+  width 80
+  height 128
+}`;
   const lexer = new Lexer(source);
 
   lexer.tokenize();
@@ -205,5 +205,61 @@ it('works for monster tables', () => {
     'EOL  9:0 - 9:1',
     'RIGHT_BRACE } 9:1 - 9:2',
     'EOF  9:2 - 9:2',
+  ]);
+});
+
+it('works for tables using results from other tables', () => {
+  const source = `entityDef "bandit_name_chart"
+{
+   table_1 humanoid_bandit_firstname
+   table_2 humanoid_bandit_nickname
+   table_3 humanoid_bandit_lastname
+   table_4 backer_enemy_human
+
+   "[t1] ''[t2]'' [t3]"   10
+   "[t2] [t1]"             5
+   "[t2] [t3]"             5
+   "[t4]"             2
+ 
+ }`; // the "[t1] ''[t2]'' [t3]" looks troublesome but seems to be fine
+
+  const lexer = new Lexer(source);
+
+  lexer.tokenize();
+
+  expect(lexer.tokens.map((t) => t.prettyPrint(source))).toEqual([
+    'ENTITY_DEF entityDef 1:1 - 1:10',
+    'STRING "bandit_name_chart" 1:11 - 1:30',
+    'EOL  2:0 - 2:1',
+    'LEFT_BRACE { 2:1 - 2:2',
+    'EOL  3:0 - 3:1',
+    'IDENTIFIER table_1 3:4 - 3:11',
+    'IDENTIFIER humanoid_bandit_firstname 3:12 - 3:37',
+    'EOL  4:0 - 4:1',
+    'IDENTIFIER table_2 4:4 - 4:11',
+    'IDENTIFIER humanoid_bandit_nickname 4:12 - 4:36',
+    'EOL  5:0 - 5:1',
+    'IDENTIFIER table_3 5:4 - 5:11',
+    'IDENTIFIER humanoid_bandit_lastname 5:12 - 5:36',
+    'EOL  6:0 - 6:1',
+    'IDENTIFIER table_4 6:4 - 6:11',
+    'IDENTIFIER backer_enemy_human 6:12 - 6:30',
+    'EOL  7:0 - 7:1',
+    'EOL  8:0 - 8:1',
+    `STRING "[t1] ''[t2]'' [t3]" 8:4 - 8:24`,
+    'NUMBER 10 8:27 - 8:29',
+    'EOL  9:0 - 9:1',
+    'STRING "[t2] [t1]" 9:4 - 9:15',
+    'NUMBER 5 9:28 - 9:29',
+    'EOL  10:0 - 10:1',
+    'STRING "[t2] [t3]" 10:4 - 10:15',
+    'NUMBER 5 10:28 - 10:29',
+    'EOL  11:0 - 11:1',
+    'STRING "[t4]" 11:4 - 11:10',
+    'NUMBER 2 11:23 - 11:24',
+    'EOL  12:0 - 12:1',
+    'EOL  13:0 - 13:1',
+    'RIGHT_BRACE } 13:2 - 13:3',
+    'EOF  13:3 - 13:3',
   ]);
 });
