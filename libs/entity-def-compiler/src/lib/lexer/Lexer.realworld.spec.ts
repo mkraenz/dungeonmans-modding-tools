@@ -166,7 +166,7 @@ it('works for a monster entityDef', () => {
   ]);
 });
 
-it('works for tables', () => {
+it('works for monster tables', () => {
   const source = `entityDef "modmans_warrens_encounters"
 {
 	addtotable_01	encounter_list_scrobold_01

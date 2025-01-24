@@ -152,8 +152,6 @@ export class Lexer {
 const whitespaces = new Set([' ', '\r', '\t', '\n']);
 const isWhitespace = (char: string) => whitespaces.has(char);
 
-const isAlphaNumeric = (char: string) => isAlpha(char) || isDigit(char);
-
 const isAlpha = (char: string) => {
   return (
     (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char == '_'
