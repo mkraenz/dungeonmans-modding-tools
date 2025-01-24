@@ -60,9 +60,9 @@ nx test entity-def-compiler
 Following this [nomenclature](https://craftinginterpreters.com/representing-code.html) (which is close to the [Backus-Naur form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)) and using the TokenTypes defined in the lexer within this project.
 
 ```txt
-Expression -> ENTITYDEF STRING EOL LEFT_BRACE EOL statement* RIGHT_BRACE EOL
-#
-Statement -> STRING (STRING | NUMBER | TRUE | FALSE)
+entityDefExpression -> ENTITYDEF name EOL LEFT_BRACE EOL keyValuePair* RIGHT_BRACE EOL* EOF
+name -> STRING
+keyValuePair -> STRING (STRING | NUMBER | TRUE | FALSE) EOL
 ```
 
-where the `*` in `statements*` means there can be zero to however many statements.
+where the `*` in `keyValuePairs*` means there can be zero to however many keyValuePairs.
