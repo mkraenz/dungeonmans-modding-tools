@@ -7,9 +7,9 @@ it('returns the correct tokens "{}"', () => {
   lexer.tokenize();
 
   expect(lexer.tokens).toEqual([
-    { type: 'LEFT_BRACE', offset: 0, length: 1 },
-    { type: 'RIGHT_BRACE', offset: 1, length: 1 },
-    { type: 'EOF', offset: 2, length: 0 },
+    { type: 'LEFT_BRACE', offset: 0, length: 1, lexeme: '{' },
+    { type: 'RIGHT_BRACE', offset: 1, length: 1, lexeme: '}' },
+    { type: 'EOF', offset: 2, length: 0, lexeme: '' },
   ]);
 });
 

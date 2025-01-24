@@ -165,3 +165,45 @@ it('works for a monster entityDef', () => {
     'EOF  35:2 - 35:2',
   ]);
 });
+
+it('works for tables', () => {
+  const source = `entityDef "modmans_warrens_encounters"
+{
+	addtotable_01	encounter_list_scrobold_01
+	addtotable_02	encounter_list_scrobold_02
+	addtotable_03	encounter_list_scrobold_03
+
+	"one_modmold"		10
+	"some_modmolds"		10
+}`;
+
+  const lexer = new Lexer(source);
+
+  lexer.tokenize();
+
+  expect(lexer.tokens.map((t) => t.toHumanReadable(source))).toEqual([
+    'ENTITY_DEF entityDef 1:1 - 1:10',
+    'STRING "modmans_warrens_encounters" 1:11 - 1:39',
+    'EOL  2:0 - 2:1',
+    'LEFT_BRACE { 2:1 - 2:2',
+    'EOL  3:0 - 3:1',
+    'IDENTIFIER addtotable_01 3:2 - 3:15',
+    'IDENTIFIER encounter_list_scrobold_01 3:16 - 3:42',
+    'EOL  4:0 - 4:1',
+    'IDENTIFIER addtotable_02 4:2 - 4:15',
+    'IDENTIFIER encounter_list_scrobold_02 4:16 - 4:42',
+    'EOL  5:0 - 5:1',
+    'IDENTIFIER addtotable_03 5:2 - 5:15',
+    'IDENTIFIER encounter_list_scrobold_03 5:16 - 5:42',
+    'EOL  6:0 - 6:1',
+    'EOL  7:0 - 7:1',
+    'STRING "one_modmold" 7:2 - 7:15', // keys can apparently also be quoted sometimes. TODO @Jim is there any syntactic difference between quoted keys and unquoted keys?
+    'NUMBER 10 7:17 - 7:19',
+    'EOL  8:0 - 8:1',
+    'STRING "some_modmolds" 8:2 - 8:17',
+    'NUMBER 10 8:19 - 8:21',
+    'EOL  9:0 - 9:1',
+    'RIGHT_BRACE } 9:1 - 9:2',
+    'EOF  9:2 - 9:2',
+  ]);
+});

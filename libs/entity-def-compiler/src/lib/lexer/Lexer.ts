@@ -6,7 +6,8 @@ class Token implements IToken {
     /** The offset from the beginning of the source file  */
     readonly offset: number,
     /** length of the lexeme starting from the offset */
-    readonly length: number
+    readonly length: number,
+    readonly lexeme: string
   ) {}
 
   toString() {
@@ -16,12 +17,11 @@ class Token implements IToken {
 
   toHumanReadable(source: string) {
     const loc = this.toSourceLocation(source);
-    const lexeme = this.type === 'EOL' ? '' : loc.lexeme;
+    const lexeme = this.type === 'EOL' ? '' : this.lexeme; // don't actually print new lines in the console. its bloating up stuff
     return `${this.type} ${lexeme} ${loc.start.line}:${loc.start.col} - ${loc.end.line}:${loc.end.col}`;
   }
 
   toSourceLocation(source: string): SourceLocation {
-    const lexeme = source.slice(this.offset, this.offset + this.length);
     const everythingUntilLexeme = source.slice(0, this.offset + this.length);
     const linesUntilLexemeIncl = everythingUntilLexeme.split('\n');
     const [_lineWithLexeme, ...otherLines] = linesUntilLexemeIncl.toReversed();
@@ -31,7 +31,6 @@ class Token implements IToken {
     const endCol = this.offset + this.length - charsUntilLineWithLexeme;
 
     return {
-      lexeme,
       start: { line: linesUntilLexemeIncl.length, col: startCol },
       end: { line: linesUntilLexemeIncl.length, col: endCol },
     };
@@ -94,7 +93,7 @@ export class Lexer {
   }
 
   private addEOF() {
-    this.#tokens.push(new Token('EOF', this.current, 0));
+    this.#tokens.push(new Token('EOF', this.current, 0, ''));
   }
 
   private identifier() {
@@ -143,7 +142,10 @@ export class Lexer {
   }
 
   private addToken(type: TokenType) {
-    this.#tokens.push(new Token(type, this.start, this.current - this.start));
+    const lexeme = this.source.slice(this.start, this.current);
+    this.#tokens.push(
+      new Token(type, this.start, this.current - this.start, lexeme)
+    );
   }
 }
 

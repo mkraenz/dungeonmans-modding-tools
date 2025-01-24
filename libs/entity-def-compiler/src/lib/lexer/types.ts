@@ -2,10 +2,10 @@ export type IToken = {
   type: TokenType;
   offset: number;
   length: number;
+  lexeme: string;
 };
 
 export type SourceLocation = {
-  lexeme: string | null;
   start: Position;
   end: Position;
 };
