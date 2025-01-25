@@ -1,4 +1,6 @@
-export type DmItemSprite = {
+export type DmItemSprite = DmSpriteBase;
+
+export type DmSpriteBase = {
   /** filename *without* the .png file ending inside textures/ */
   texturename: string;
   /** @asType integer */

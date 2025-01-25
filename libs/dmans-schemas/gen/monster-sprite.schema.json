@@ -6,13 +6,16 @@
       "additionalProperties": false,
       "properties": {
         "height": {
-          "type": "integer"
+          "const": 128,
+          "type": "number"
         },
         "texturename": {
+          "description": "filename *without* the .png file ending inside textures/",
           "type": "string"
         },
         "width": {
-          "type": "integer"
+          "const": 80,
+          "type": "number"
         },
         "xloc": {
           "type": "integer"
@@ -22,11 +25,11 @@
         }
       },
       "required": [
+        "height",
         "texturename",
-        "xloc",
-        "yloc",
         "width",
-        "height"
+        "xloc",
+        "yloc"
       ],
       "type": "object"
     }
