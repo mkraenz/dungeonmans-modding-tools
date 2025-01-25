@@ -6,23 +6,23 @@
     },
     {
       "fileMatch": ["**/encounterdata/*.json"],
-      "url": "./libs/dmans-schemas/gen/encounter.schema.json"
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/encounter.schema.json"
     },
     {
       "fileMatch": ["**/tabledata/*.json"],
-      "url": "./libs/dmans-schemas/gen/encounter-table.schema.json"
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/encounter-table.schema.json"
     },
     {
       "fileMatch": ["**/spritedata/*.monster.json"],
-      "url": "./libs/dmans-schemas/gen/monster-sprite.schema.json"
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/monster-sprite.schema.json"
     },
     {
       "fileMatch": ["**/spritedata/*.item.json"],
-      "url": "./libs/dmans-schemas/gen/item-sprite.schema.json"
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/item-sprite.schema.json"
     },
     {
       "fileMatch": ["**/actordata/*.json"],
-      "url": "./libs/dmans-schemas/gen/monster.schema.json"
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/monster.schema.json"
     }
   ]
 }
