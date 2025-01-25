@@ -34,7 +34,7 @@ graph LR;
     A[entity def] -->|Lexer| B(tokens)
     B -->|Parser| C(AST)
     C -->|Transpiler| D[json]
-    D -->|Json schema| E[type validation]
+    D -->|Type Checker| E[type checks]
 ```
 
 And vice versa for the inverse tool chain.
@@ -62,7 +62,22 @@ Following this [nomenclature](https://craftinginterpreters.com/representing-code
 ```txt
 entityDefExpression -> ENTITYDEF name EOL LEFT_BRACE EOL keyValuePair* RIGHT_BRACE EOL* EOF
 name -> STRING
-keyValuePair -> STRING (STRING | NUMBER | TRUE | FALSE) EOL
+keyValuePair -> STRING value EOL
+value -> STRING | NUMBER | TRUE | FALSE
 ```
 
 where the `*` in `keyValuePairs*` means there can be zero to however many keyValuePairs.
+
+## Resources
+
+- [TypeScript AST Viewer](https://ts-ast-viewer.com/#code/MYewdgzgLgBAHjAvDA5ACwJYoNwCgC2AphBAIYDmhAFHAJR64BmArmMFBuDESRdeQCdChDmHIAuGNAEYxtGAG9cMGKEggANoQB0GkOSqDho8vVwBfIA)
+- [TypeScript Playground with Scanner/Lexer tokens](https://www.typescriptlang.org/play/?#code/MYewdgzgLgBAHjAvDA5ACwJYoNwCgC2AphBAIYDmhAFHAJR64BmArmMFBuDESRdeQCdChDmHIAuGNAEYxtGAG9cMGKEggANoQB0GkOSqDho8vVwBfIA) - under Settings -> Plugins -> Enable 'Ts Scanner by orta'
+- [TypeScript Compiler Pipeline Video with Diagrams](https://youtu.be/X8k_4tZ16qU?si=mxcXJ7TpOLjt60zb)
+- [Anders Hejlsberg on Modern Compiler Construction](https://learn.microsoft.com/en-us/shows/seth-juarez/anders-hejlsberg-on-modern-compiler-construction)
+- [unist](https://github.com/syntax-tree/unist) & [unist-builder](https://github.com/syntax-tree/unist-builder)
+- [asty](https://www.npmjs.com/package/asty) & [asty-astq](https://www.npmjs.com/package/asty-astq)
+- [JSON grammar in BNF](https://stackoverflow.com/a/51407679)
+
+## Learnings
+
+- TS seems to build a Concrete Syntax Tree instead of an AST by incorporating `WhitespaceTrivia` tokens.
