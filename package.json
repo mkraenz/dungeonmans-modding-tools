@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "json-to-yaml:watch": "tsx ./tools/json-to-yaml-watcher.ts"
+    "json-to-yaml:watch": "tsx ./tools/json-to-yaml-watcher.ts",
+    "jsonschema:gen:monster": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/actordata/monster.ts' --type 'DmMonster' > 'libs/dmans-schemas/gen/monster.schema.json'",
+    "jsonschema:gen:monster-sprite": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/spritedata/monster-sprite.ts' --type 'DmMonsterSprite' > 'libs/dmans-schemas/gen/monster-sprite.schema.json'",
+    "jsonschema:gen:item-sprite": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/spritedata/item-sprite.ts' --type 'DmItemSprite' > 'libs/dmans-schemas/gen/item-sprite.schema.json'",
+    "jsonschema:gen:encounter": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/encounterdata/encounter.ts' --type 'DmEncounter' > 'libs/dmans-schemas/gen/encounter.schema.json'",
+    "jsonschema:gen:encounter-table": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/tabledata/encounter-table.ts' --type 'DmEncounterTable' > 'libs/dmans-schemas/gen/encounter-table.schema.json'",
+    "jsonschema:gen:plot": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/plotdata/plot-threads.ts' --type 'DmPlot' > 'libs/dmans-schemas/gen/plot.schema.json'"
   },
   "private": true,
   "devDependencies": {

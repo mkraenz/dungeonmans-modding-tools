@@ -1,1 +1,1 @@
-export * from './lib/plot-threads.js';
+export * from './lib/plotdata/plot-threads.js';

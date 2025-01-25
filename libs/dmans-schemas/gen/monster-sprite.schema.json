@@ -1,0 +1,34 @@
+{
+  "$ref": "#/definitions/DmMonsterSprite",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmMonsterSprite": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "texturename": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "xloc": {
+          "type": "integer"
+        },
+        "yloc": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "texturename",
+        "xloc",
+        "yloc",
+        "width",
+        "height"
+      ],
+      "type": "object"
+    }
+  }
+}
