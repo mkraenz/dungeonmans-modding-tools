@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./libs/entity-def-compiler"
+    },
+    {
+      "path": "./libs/yaml-to-entitydef"
     }
   ]
 }

@@ -111,6 +111,12 @@ importers:
         specifier: ^2.3.0
         version: 2.8.1
 
+  libs/yaml-to-entitydef:
+    dependencies:
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
 packages:
 
   '@ampproject/remapping@2.3.0':
