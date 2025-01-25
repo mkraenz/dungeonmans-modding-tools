@@ -1,0 +1,165 @@
+{
+  "$ref": "#/definitions/DmPlot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmPlot": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "classType": {
+                "const": "dmPlotThread",
+                "type": "string"
+              },
+              "dialogHooks": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "dialogOptions": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          },
+                          "responseScript": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message",
+                          "responseScript"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "stateEquals": {
+                      "type": "string"
+                    },
+                    "targetArc": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "targetArc",
+                    "stateEquals",
+                    "dialogOptions"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "plotStateLookup": {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "properties": {
+                  "unstarted": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "unstarted"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "classType",
+              "plotStateLookup",
+              "dialogHooks"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "classType": {
+                "const": "dmPlotScript",
+                "type": "string"
+              },
+              "dialogArchetype": {
+                "type": "string"
+              },
+              "removeItems": {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              "setThisState": {
+                "type": "string"
+              },
+              "tossItems": {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "classType",
+              "setThisState",
+              "dialogArchetype",
+              "removeItems",
+              "tossItems"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "classType": {
+                "const": "dmDialogData",
+                "type": "string"
+              },
+              "instigatorSprite": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "responses": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "responseScript": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "responseScript"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "soundToPlay": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "classType",
+              "title",
+              "message",
+              "soundToPlay",
+              "instigatorSprite",
+              "responses"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "object"
+    }
+  }
+}

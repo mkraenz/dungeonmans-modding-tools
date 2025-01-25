@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["**/plotdata/*.json"],
+      "url": "./libs/dmans-schemas/gen/plot.schema.json"
+    }
+  ]
+}

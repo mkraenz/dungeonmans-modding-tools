@@ -1,0 +1,34 @@
+{
+  "tstt-testplotthread": {
+    "classType": "dmPlotThread",
+    "dialogHooks": [
+      {
+        "targetArc": "",
+        "dialogOptions": [{ "message": "", "responseScript": "" }],
+        "stateEquals": ""
+      }
+    ],
+    "plotStateLookup": {
+      "unstarted": 0
+    }
+  },
+  "tstt-testplotscript": {
+    "classType": "dmPlotScript",
+    "dialogArchetype": "",
+    "removeItems": {
+      "gsdfs": 12
+    },
+    "setThisState": "",
+    "tossItems": {
+      "asdf": 123
+    }
+  },
+  "tstt-testdialogdata": {
+    "classType": "dmDialogData",
+    "instigatorSprite": "",
+    "message": "",
+    "responses": [{ "message": "", "responseScript": "" }],
+    "soundToPlay": "",
+    "title": ""
+  }
+}

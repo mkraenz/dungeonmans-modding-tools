@@ -34,6 +34,7 @@
     "prettier": "^2.6.2",
     "react-refresh": "~0.14.0",
     "ts-jest": "^29.1.0",
+    "ts-json-schema-generator": "^2.3.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "tsx": "^4.19.2",

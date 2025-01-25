@@ -8,6 +8,9 @@
     },
     {
       "path": "./libs/yaml-to-entitydef"
+    },
+    {
+      "path": "./libs/dmans-schemas"
     }
   ]
 }
