@@ -2,21 +2,48 @@
 
 Disclaimer: This is a fan-project and not affiliated with the original owner, copyright holders, nor license holders of Dungeonmans. If any of the content in this repo is not in agreement with any licenses etc, please contact me.
 
-- [Modding Dungeonmans docs](https://dungeonmans.fandom.com/wiki/Mod_Packages)
 - [Dungeonmans on Steam](https://store.steampowered.com/app/288120/Dungeonmans/)
+- [Modding Dungeonmans docs](https://dungeonmans.fandom.com/wiki/Mod_Packages)
+- [Example mod repo by the Dungeonmans Creator](https://github.com/jim-adventureprogames/dmans-tutorial-mod/tree/main)
+
+## Terms
+
+- entity defs, entity definitions = text-based file format to define monsters/items/sprites/dungeons etc. inside of Dungeonmans
+  - exception: [Plot Threads](https://dungeonmans.fandom.com/wiki/Plot_Threads) use JSON instead of entity def text fle
+  - one `.txt` file can contain multiple entity defs
 
 ## Current Status
 
-- [EntityDef Lexer](./libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts)
-  - Turns Entity Def files into tokens for further analysis, etc.
+### Content Creation
+
+- 🟢 [JSON schemas](libs/dmans-schemas/gen/monster.schema.json) for selected entity defs and plot theads as JSON
+  - Provides autocompletion and validation when creating or editing JSONs that are going to be converted into entity def txt files
+  - Check [vscode workspace settings'](.vscode/settings.json) `json.schemas` property on how to set up your editor to automatically make.
+- 🔴 JSON to entity def text file
+  - Turns your JSONs into
+
+### Low-level
+
+- 🟡 [EntityDef Lexer](libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts)
+  - Turns Entity Def txt files into tokens for further analysis, etc.
   - Usable: 🟡
-    - Several results from real world entityDef examples are shown in the [spec files](./libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts). Before I can put a 🟢 on this though, I would need to battle test it by using other tools built on top of this, clarify some remaining questions regarding the syntax of entityDefs, and package it into a lib for anyone else to use.
+    - Several results from real world entityDef examples are shown in the [spec files](libs/entity-def-compiler/src/lib/lexer/Lexer.realworld.spec.ts). Before I can put a 🟢 on this though, I would need to battle test it by using other tools built on top of this, clarify some remaining questions regarding the syntax of entityDefs, and package it into a lib for anyone else to use.
+  - TODO
+    - tokenize `WhitespaceTrivia` (to create Concrete Syntax Tree)
+    - allow comments `// ignore all this` (again, tokenize `CommentTrivia`)
+- 🔴 [EntityDef Parser](libs/entity-def-compiler/src/lib/ast-parser/Parser.ts)
+  - Leverages tokens created by Lexer to create a Syntax Tree
+  - TODO
+    - research good libs for AST node creation that also supports operations on those nodes
+    - implementation (see unfinished/skipped test cases in spec file)
 
 ## Repo Oerview
 
 ```sh
 npx nx graph
 ```
+
+At this point, I am really just throwing in stuff without much thought. Using those creative energies to pump out tools. The repo structure has to change for sure by moving things like the Lexer into `packages/` among other things in order to be reused by other modders.
 
 ## Finish your CI setup
 

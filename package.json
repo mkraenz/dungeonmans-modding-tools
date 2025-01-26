@@ -9,7 +9,8 @@
     "jsonschema:gen:item-sprite": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/spritedata/item-sprite.ts' --type 'DmItemSprite' > 'libs/dmans-schemas/gen/item-sprite.schema.json'",
     "jsonschema:gen:encounter": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/encounterdata/encounter.ts' --type 'DmEncounter' > 'libs/dmans-schemas/gen/encounter.schema.json'",
     "jsonschema:gen:encounter-table": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/tabledata/encounter-table.ts' --type 'DmEncounterTable' > 'libs/dmans-schemas/gen/encounter-table.schema.json'",
-    "jsonschema:gen:plot": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/plotdata/plot-threads.ts' --type 'DmPlot' > 'libs/dmans-schemas/gen/plot.schema.json'"
+    "jsonschema:gen:plot": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/plotdata/plot-threads.ts' --type 'DmPlot' > 'libs/dmans-schemas/gen/plot.schema.json'",
+    "init:mod": "tsx tools/init-mod-dir.ts"
   },
   "private": true,
   "devDependencies": {
