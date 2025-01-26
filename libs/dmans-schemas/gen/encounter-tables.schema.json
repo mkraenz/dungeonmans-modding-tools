@@ -4,7 +4,7 @@
   "definitions": {
     "DmEncounterTables": {
       "additionalProperties": {
-        "$ref": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/encounter-tables.schema.json"
+        "$ref": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/encounter-table.schema.json"
       },
       "description": "A map from entityDefName to the values inside that entitydef. The name will appear in in `entityDef \"<NAME_HERE>\". The value is used to generate the body of the entityDef.",
       "type": "object"
