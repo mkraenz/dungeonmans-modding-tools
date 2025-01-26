@@ -11,9 +11,9 @@
     "jsonschema:gen:encounter-table": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/tabledata/encounter-table.ts' --type 'DmEncounterTable' > 'libs/dmans-schemas/gen/encounter-table.schema.json'",
     "jsonschema:gen:plot": "ts-json-schema-generator --path 'libs/dmans-schemas/src/lib/plotdata/plot-threads.ts' --type 'DmPlot' > 'libs/dmans-schemas/gen/plot.schema.json'",
     "init:mod": "tsx tools/init-mod-dir.ts",
-    "build:mod": "tsx tools/build-json-to-entity-def.ts",
+    "build:mod": "tsx tools/build-mod.ts",
     "init:mod:testmodname": "tsx tools/init-mod-dir.ts",
-    "build:mod:testmodname": "tsx tools/build-json-to-entity-def.ts mods/testmodname/src mods/testmodname/dist"
+    "build:mod:testmodname": "tsx tools/build-mod.ts mods/testmodname/src mods/testmodname/dist"
   },
   "private": true,
   "devDependencies": {

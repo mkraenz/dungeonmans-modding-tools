@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { jsToEntitydef } from '../libs/yaml-to-entitydef/src';
 
-/** Usage: tsx tools/build-json-to-entity-def.ts mods/testmodname/src mods/testmodname/dist */
+/** Usage: tsx tools/build-mod.ts mods/testmodname/src mods/testmodname/dist */
 
 /**
  *
@@ -35,7 +35,7 @@ const main = async () => {
     await fs.promises.mkdir(outDir, { recursive: true });
   const dir = await fs.promises.opendir(srcDir);
   for await (const dirent of dir) {
-    if (isFile(dirent, '.txt')) {
+    if (isFile(dirent, '.txt') || isFile(dirent, '.png')) {
       const srcPath = path.join(srcDir, dirent.name);
       const destPath = path.join(outDir, dirent.name);
       await fs.promises.copyFile(srcPath, destPath);
@@ -50,7 +50,7 @@ const main = async () => {
         await fs.promises.mkdir(path.join(path.join(outDir, dirent.name)), {
           recursive: true,
         });
-        if (isFile(subdirent, '.txt')) {
+        if (isFile(subdirent, '.txt') || isFile(subdirent, '.png')) {
           const srcPath = path.join(srcDir, dirent.name, subdirent.name);
           const destPath = path.join(outDir, dirent.name, subdirent.name);
           await fs.promises.copyFile(srcPath, destPath);
