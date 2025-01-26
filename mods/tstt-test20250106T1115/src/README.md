@@ -10,6 +10,8 @@ If you prefer to write entityDefs instead, you can do that as well by writing th
 Once you want to test your mod in the game, you build your mod into formats that Dungeonmans understands with
 
 ```sh
+# clean
+rm -r mods/tstt-test20250106T1115/dist
 # build the mod
 pnpm run build:mod mods/tstt-test20250106T1115/src mods/tstt-test20250106T1115/dist
 ```

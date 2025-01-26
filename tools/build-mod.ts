@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { jsToEntitydef } from '../libs/yaml-to-entitydef/src';
+import { jsToManyEntityDefs } from '../libs/yaml-to-entitydef/src';
 
 /** Usage: tsx tools/build-mod.ts mods/testmodname/src mods/testmodname/dist */
 
@@ -50,11 +50,17 @@ const main = async () => {
         await fs.promises.mkdir(path.join(path.join(outDir, dirent.name)), {
           recursive: true,
         });
-        if (isFile(subdirent, '.txt') || isFile(subdirent, '.png')) {
+        if (
+          isFile(subdirent, '.txt') ||
+          isFile(subdirent, '.png') ||
+          // plotdata in dungeonmans supports JSON natively. no conversion needed
+          (dirent.name === 'plotdata' && isFile(subdirent, '.json'))
+        ) {
           const srcPath = path.join(srcDir, dirent.name, subdirent.name);
           const destPath = path.join(outDir, dirent.name, subdirent.name);
           await fs.promises.copyFile(srcPath, destPath);
           log('Written', destPath);
+          continue;
         }
         if (isFile(subdirent, '.json')) {
           const srcPath = path.join(srcDir, dirent.name, subdirent.name);
@@ -69,7 +75,7 @@ const main = async () => {
           });
           try {
             const json = JSON.parse(jsonFile);
-            const entityDef = jsToEntitydef(filebasename, json);
+            const entityDef = jsToManyEntityDefs(json);
             await fs.promises.writeFile(destPath, entityDef);
             log('Written', destPath);
           } catch (error) {

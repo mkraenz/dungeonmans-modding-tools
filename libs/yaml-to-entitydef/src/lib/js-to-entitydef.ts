@@ -1,8 +1,8 @@
-type Value = number | boolean | string;
+export type EntityDefKeyValuePairValue = number | boolean | string;
 
 export function jsToEntitydef(
   name: string,
-  keyValuePairs: Record<string, Value>
+  keyValuePairs: Record<string, EntityDefKeyValuePairValue>
 ): string {
   const header = `entityDef "${name}"`;
   const rows = Object.entries(keyValuePairs).map(
@@ -18,7 +18,7 @@ function toPrintedKey(key: string) {
   return key;
 }
 
-function toPrintedValue(val: Value) {
+function toPrintedValue(val: EntityDefKeyValuePairValue) {
   if (typeof val === 'string') return `"${val}"`;
   return val;
 }
