@@ -6,5 +6,5 @@ export const jsToManyEntityDefs = (
   const entityDefs = Object.entries(definitions).map(
     ([entityDefName, definition]) => jsToEntitydef(entityDefName, definition)
   );
-  return entityDefs.join('');
+  return entityDefs.join('\n');
 };
