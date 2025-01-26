@@ -7,14 +7,6 @@ import path from 'node:path';
 const watchedDir = path.join('mods', 'testplotthread');
 const outDir = path.join(watchedDir, 'out');
 
-/**
- * filepath : mods/testplotthread/sub/asdf.json
- * expected outdir: mods/testplotthread/out/sub/asdf.json
- *
- * subpath = filepath.slice(watchedDir.length)
- * out =
- */
-
 const watcher = chokidar.watch(watchedDir, {
   ignored: (path, stats) => Boolean(stats?.isFile() && !path.endsWith('.json')),
 });
