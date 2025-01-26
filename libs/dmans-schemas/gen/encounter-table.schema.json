@@ -9,53 +9,6 @@
             "type": "number"
           },
           "properties": {
-            "addtotable_00": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "description": "entitydefs from Dungeonmans/Content/Tables/Dungeon Encounter Tables/generic_encounters.txt",
-                  "enum": [
-                    "undead_boss",
-                    "purple_unique_bosses",
-                    "generic_dungeon_master_table",
-                    "purple_dungeon_master_table",
-                    "sanctum_purple_dungeon_master_table",
-                    "generic_encounter_01",
-                    "generic_encounter_02",
-                    "generic_encounter_03",
-                    "generic_encounter_04",
-                    "generic_encounter_05",
-                    "generic_encounter_06",
-                    "generic_encounter_07",
-                    "generic_encounter_08",
-                    "generic_encounter_09",
-                    "generic_encounter_10",
-                    "generic_encounter_11",
-                    "generic_encounter_12",
-                    "generic_encounter_13",
-                    "generic_encounter_15",
-                    "generic_encounter_purple",
-                    "difficult_encounter_purple",
-                    "final_foom_trash",
-                    "debugmix_dungeon_master_table",
-                    "table_lizardmens_reinforcements",
-                    "generic_humanoid_boss",
-                    "test_table",
-                    "humanoid_bosses_03",
-                    "humanoid_bosses_05",
-                    "humanoid_bosses_07",
-                    "humanoid_bosses_09",
-                    "humanoid_bosses_11",
-                    "humanoid_bosses_13",
-                    "mountain_fortress_skybridge_melee",
-                    "mountain_fortress_skybridge_ranged"
-                  ],
-                  "type": "string"
-                }
-              ]
-            },
             "addtotable_01": {
               "anyOf": [
                 {
@@ -4663,53 +4616,6 @@
               ]
             },
             "addtotable_99": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "description": "entitydefs from Dungeonmans/Content/Tables/Dungeon Encounter Tables/generic_encounters.txt",
-                  "enum": [
-                    "undead_boss",
-                    "purple_unique_bosses",
-                    "generic_dungeon_master_table",
-                    "purple_dungeon_master_table",
-                    "sanctum_purple_dungeon_master_table",
-                    "generic_encounter_01",
-                    "generic_encounter_02",
-                    "generic_encounter_03",
-                    "generic_encounter_04",
-                    "generic_encounter_05",
-                    "generic_encounter_06",
-                    "generic_encounter_07",
-                    "generic_encounter_08",
-                    "generic_encounter_09",
-                    "generic_encounter_10",
-                    "generic_encounter_11",
-                    "generic_encounter_12",
-                    "generic_encounter_13",
-                    "generic_encounter_15",
-                    "generic_encounter_purple",
-                    "difficult_encounter_purple",
-                    "final_foom_trash",
-                    "debugmix_dungeon_master_table",
-                    "table_lizardmens_reinforcements",
-                    "generic_humanoid_boss",
-                    "test_table",
-                    "humanoid_bosses_03",
-                    "humanoid_bosses_05",
-                    "humanoid_bosses_07",
-                    "humanoid_bosses_09",
-                    "humanoid_bosses_11",
-                    "humanoid_bosses_13",
-                    "mountain_fortress_skybridge_melee",
-                    "mountain_fortress_skybridge_ranged"
-                  ],
-                  "type": "string"
-                }
-              ]
-            },
-            "replacetable_00": {
               "anyOf": [
                 {
                   "type": "string"
@@ -9415,53 +9321,6 @@
         {
           "additionalProperties": false,
           "properties": {
-            "addtotable_00": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "description": "entitydefs from Dungeonmans/Content/Tables/Dungeon Encounter Tables/generic_encounters.txt",
-                  "enum": [
-                    "undead_boss",
-                    "purple_unique_bosses",
-                    "generic_dungeon_master_table",
-                    "purple_dungeon_master_table",
-                    "sanctum_purple_dungeon_master_table",
-                    "generic_encounter_01",
-                    "generic_encounter_02",
-                    "generic_encounter_03",
-                    "generic_encounter_04",
-                    "generic_encounter_05",
-                    "generic_encounter_06",
-                    "generic_encounter_07",
-                    "generic_encounter_08",
-                    "generic_encounter_09",
-                    "generic_encounter_10",
-                    "generic_encounter_11",
-                    "generic_encounter_12",
-                    "generic_encounter_13",
-                    "generic_encounter_15",
-                    "generic_encounter_purple",
-                    "difficult_encounter_purple",
-                    "final_foom_trash",
-                    "debugmix_dungeon_master_table",
-                    "table_lizardmens_reinforcements",
-                    "generic_humanoid_boss",
-                    "test_table",
-                    "humanoid_bosses_03",
-                    "humanoid_bosses_05",
-                    "humanoid_bosses_07",
-                    "humanoid_bosses_09",
-                    "humanoid_bosses_11",
-                    "humanoid_bosses_13",
-                    "mountain_fortress_skybridge_melee",
-                    "mountain_fortress_skybridge_ranged"
-                  ],
-                  "type": "string"
-                }
-              ]
-            },
             "addtotable_01": {
               "anyOf": [
                 {
@@ -14069,53 +13928,6 @@
               ]
             },
             "addtotable_99": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "description": "entitydefs from Dungeonmans/Content/Tables/Dungeon Encounter Tables/generic_encounters.txt",
-                  "enum": [
-                    "undead_boss",
-                    "purple_unique_bosses",
-                    "generic_dungeon_master_table",
-                    "purple_dungeon_master_table",
-                    "sanctum_purple_dungeon_master_table",
-                    "generic_encounter_01",
-                    "generic_encounter_02",
-                    "generic_encounter_03",
-                    "generic_encounter_04",
-                    "generic_encounter_05",
-                    "generic_encounter_06",
-                    "generic_encounter_07",
-                    "generic_encounter_08",
-                    "generic_encounter_09",
-                    "generic_encounter_10",
-                    "generic_encounter_11",
-                    "generic_encounter_12",
-                    "generic_encounter_13",
-                    "generic_encounter_15",
-                    "generic_encounter_purple",
-                    "difficult_encounter_purple",
-                    "final_foom_trash",
-                    "debugmix_dungeon_master_table",
-                    "table_lizardmens_reinforcements",
-                    "generic_humanoid_boss",
-                    "test_table",
-                    "humanoid_bosses_03",
-                    "humanoid_bosses_05",
-                    "humanoid_bosses_07",
-                    "humanoid_bosses_09",
-                    "humanoid_bosses_11",
-                    "humanoid_bosses_13",
-                    "mountain_fortress_skybridge_melee",
-                    "mountain_fortress_skybridge_ranged"
-                  ],
-                  "type": "string"
-                }
-              ]
-            },
-            "replacetable_00": {
               "anyOf": [
                 {
                   "type": "string"

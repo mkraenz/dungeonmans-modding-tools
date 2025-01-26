@@ -62,9 +62,6 @@
         "level": {
           "type": "integer"
         },
-        "meleedamage_00": {
-          "type": "string"
-        },
         "meleedamage_01": {
           "type": "string"
         },
@@ -368,9 +365,6 @@
         "nametable": {
           "type": "string"
         },
-        "power_00": {
-          "type": "string"
-        },
         "power_01": {
           "type": "string"
         },
@@ -666,9 +660,6 @@
           "type": "string"
         },
         "power_99": {
-          "type": "string"
-        },
-        "rangeDamage_00": {
           "type": "string"
         },
         "rangeDamage_01": {
