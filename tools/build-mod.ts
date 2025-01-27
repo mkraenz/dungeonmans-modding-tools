@@ -29,6 +29,11 @@ const logError = (...msgs: string[]) => {
 
 let errors = 0;
 
+const dmansDirectoriesThatSupportJsonNatively = [
+  'plotdata',
+  'overworldgenerationdata',
+];
+
 const main = async () => {
   log('🔨 Building your Dungeonmans mod...');
   if (!fs.existsSync(outDir))
@@ -53,8 +58,8 @@ const main = async () => {
         if (
           isFile(subdirent, '.txt') ||
           isFile(subdirent, '.png') ||
-          // plotdata in dungeonmans supports JSON natively. no conversion needed
-          (dirent.name === 'plotdata' && isFile(subdirent, '.json'))
+          (dmansDirectoriesThatSupportJsonNatively.includes(dirent.name) &&
+            isFile(subdirent, '.json'))
         ) {
           const srcPath = path.join(srcDir, dirent.name, subdirent.name);
           const destPath = path.join(outDir, dirent.name, subdirent.name);
