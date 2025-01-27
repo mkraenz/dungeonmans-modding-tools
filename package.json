@@ -23,6 +23,7 @@
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@nx/esbuild": "20.3.2",
     "@nx/eslint": "20.3.2",
     "@nx/eslint-plugin": "20.3.2",
     "@nx/jest": "20.3.2",
@@ -40,6 +41,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "22.10.10",
     "chokidar": "^4.0.3",
+    "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
     "jest": "^29.7.0",
@@ -55,5 +57,9 @@
     "tsx": "^4.19.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.13.0"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^13.1.0",
+    "commander": "^13.1.0"
   }
 }

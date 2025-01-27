@@ -1,0 +1,9 @@
+{
+  "name": "@dungeonmans-modding-tools/cli",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@commander-js/extra-typings": "*",
+    "commander": "*"
+  }
+}
