@@ -2,53 +2,134 @@ export function dmansSchemas(): string {
   return 'dmans-schemas';
 }
 
+/**
+ * Dictionary of keys to DmPlotThread, DmPlotScript, DmDialogData, or an array of DmDropItemHook.
+ * Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads
+ */
 export type DmPlot = {
-  [key: string]: DmPlotThread | DmPlotScript | DmDialogData | DmDropItemHook[];
+  [key: string]: DmPlotThread | DmPlotScript | DmDialogData | DmDropItemHooks;
 };
 
+/** A dmPlotThread base object that maintains all the world changes that your plot entails. */
 export type DmPlotThread = {
+  /** The type of class. Constant. */
   classType: 'dmPlotThread';
   plotStateLookup: DmPlotStateLookup;
-  dialogHooks: DmDialogHook[];
+  dialogHooks: DialogHooks;
 };
+
+/**
+ * The collection of states that the plot thread can be in.
+ * Dictionary of states to numbers. The numbers do not really matter but
+ * it should be unique within the plotStateLookup.
+ * Every plot thread should start with `"unstarted"`.
+ */
 export type DmPlotStateLookup = {
+  /** Every plot thread starts in the `"unstarted"` state. */
   unstarted: 0;
 } & Record<string, number>;
+
+/**
+ * A DialogHook allows the game to hook special dialogs into NPCs when
+ * the plot thread is in a given state.
+ */
+export type DialogHooks = DmDialogHook[];
+
+/**
+ * A DialogHook allows the game to hook special dialogs into NPCs when
+ * the plot thread is in a given state.
+ */
 export type DmDialogHook = {
+  /** The Archetype name of the NPC to be affected. */
   targetArc: string;
+  /**
+   * The state that the plot thread must be in to trigger this dialog.
+   * Must match a key in a `dmPlotThread`'s `"plotStateLookup"`, for example `"unstarted"`.
+   */
   stateEquals: string;
+  /** Array of things you can offer the player to choose from. */
   dialogOptions: DmDialogOption[];
 };
+
+/**
+ * A dialog choice for the player.
+ */
 export type DmDialogOption = {
+  /** What is being said. */
   message: string;
-  responseScript: string;
+  /** Either `"none"` if there is no further dialog, or a reference to a root-level key in a json in `plotdata/` with `"classType": "dmPlotScript"`. */
+  responseScript: (string & {}) | 'none';
 };
 
+/** @asType integer */
+type Integer = number;
+
+/** A dmPlotScript is a collection of information that can cause the world to change when run. */
 export type DmPlotScript = {
+  /** The type of class. Constant. */
   classType: 'dmPlotScript';
+  /**
+   * Sets the plot state to this value. This is how you can progress a plot.
+   * Must match a key in a `dmPlotThread`'s `"plotStateLookup"`, for example `"unstarted"`.
+   */
   setThisState: string;
+  /**
+   * Which dialog to trigger.
+   * A a reference to a root-level key in a json in `plotdata/` with `"classType": "dmDialogData"`
+   */
   dialogArchetype: string;
-  removeItems: Record<string, number>;
-  tossItems: Record<string, number>;
+  /**
+   * Remove items from the player inventory.
+   * Dictionary of names of entityDefs in `itemdata/` to how many should be removed.
+   */
+  removeItems?: Record<string, Integer>;
+  /**
+   * Items to be tossed on the ground.
+   * Dictionary of names of entityDefs in `itemdata/` to how many.
+   */
+  tossItems?: Record<string, Integer>;
+  /**
+   * Give these items directly to the player inventory.
+   * Dictionary of names of entityDefs in `itemdata/` to how many.
+   */
+  giveItems?: Record<string, Integer>;
 };
 
+/** dmDialogData lets you define dialogs that pop up in game allowing the player to make a choice. */
 export type DmDialogData = {
+  /** The type of class. Constant. */
   classType: 'dmDialogData';
+  /** Title displayed at the top of the dialog popup. */
   title: string;
+  /** What is being said by the NPC. */
   message: string;
+  /** Reference to a sound baked into the XACT files for the game. */
   soundToPlay: string;
+  /** What sprite to use in the dialog window. Reference to an entityDef name in `spritedata/`. */
   instigatorSprite: string;
+  /** Response options for the player to choose from. */
   responses: DmDialogOption[];
 };
 
+/**
+ * dmDropItemHook allow to define that specific items drop
+ * when the plot thread is in a given state.
+ */
+export type DmDropItemHooks = DmDropItemHook[];
+
+/**
+ * dmDropItemHook allow to define that specific items drop
+ * when the plot thread is in a given state.
+ */
 export type DmDropItemHook = {
   /**
    * In which plot state has this item a chance to drop?
-   * Must match a key in a dmPlotThread's "plotStateLookup", for example "unstarted". */
+   * Must match a key in a `dmPlotThread`'s `"plotStateLookup"`, for example `"unstarted"`.
+   */
   stateEquals: string;
   /** What kind of monsters drop the item? */
   targetMonsterKnowledge: string[];
-  /** What item will be dropped? Reference to an entitydef in itemdata/ */
+  /** What item will be dropped? Reference to an entitydef name in `itemdata/` */
   dropArchetype: string;
   /** What is the probability that a monster in the `targetMonsterKnowledge` array will drop the item?
    * @maximum 1.0
