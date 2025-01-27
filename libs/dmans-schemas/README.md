@@ -17,3 +17,7 @@ You can also build individual ones using the respective npm scripts in [package.
 ```sh
 nx run dmans-schemas:jsonschema:gen:actors:monster
 ```
+
+## Noteworthy things about ts-json-schema-generator
+
+- If you want to include a type/schema as a `$ref` then `export` the typescript type. Without the `export` the generator will inline its definition.

@@ -2,163 +2,208 @@
   "$ref": "#/definitions/DmPlot",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "DmDialogData": {
+      "additionalProperties": false,
+      "properties": {
+        "classType": {
+          "const": "dmDialogData",
+          "type": "string"
+        },
+        "instigatorSprite": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "responses": {
+          "items": {
+            "$ref": "#/definitions/DmDialogOption"
+          },
+          "type": "array"
+        },
+        "soundToPlay": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "classType",
+        "title",
+        "message",
+        "soundToPlay",
+        "instigatorSprite",
+        "responses"
+      ],
+      "type": "object"
+    },
+    "DmDialogHook": {
+      "additionalProperties": false,
+      "properties": {
+        "dialogOptions": {
+          "items": {
+            "$ref": "#/definitions/DmDialogOption"
+          },
+          "type": "array"
+        },
+        "stateEquals": {
+          "type": "string"
+        },
+        "targetArc": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetArc",
+        "stateEquals",
+        "dialogOptions"
+      ],
+      "type": "object"
+    },
+    "DmDialogOption": {
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "responseScript": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "responseScript"
+      ],
+      "type": "object"
+    },
+    "DmDropItemHook": {
+      "additionalProperties": false,
+      "properties": {
+        "dropArchetype": {
+          "description": "What item will be dropped? Reference to an entitydef in itemdata/",
+          "type": "string"
+        },
+        "dropChance": {
+          "description": "What is the probability that a monster in the `targetMonsterKnowledge` array will drop the item?",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "stateEquals": {
+          "description": "In which plot state has this item a chance to drop? Must match a key in a dmPlotThread's \"plotStateLookup\", for example \"unstarted\".",
+          "type": "string"
+        },
+        "targetMonsterKnowledge": {
+          "description": "What kind of monsters drop the item?",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "stateEquals",
+        "targetMonsterKnowledge",
+        "dropArchetype",
+        "dropChance"
+      ],
+      "type": "object"
+    },
     "DmPlot": {
       "additionalProperties": {
         "anyOf": [
           {
-            "additionalProperties": false,
-            "properties": {
-              "classType": {
-                "const": "dmPlotThread",
-                "type": "string"
-              },
-              "dialogHooks": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "dialogOptions": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "message": {
-                            "type": "string"
-                          },
-                          "responseScript": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "message",
-                          "responseScript"
-                        ],
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "stateEquals": {
-                      "type": "string"
-                    },
-                    "targetArc": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "targetArc",
-                    "stateEquals",
-                    "dialogOptions"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "plotStateLookup": {
-                "additionalProperties": {
-                  "type": "number"
-                },
-                "properties": {
-                  "unstarted": {
-                    "type": "number"
-                  }
-                },
-                "required": [
-                  "unstarted"
-                ],
-                "type": "object"
-              }
-            },
-            "required": [
-              "classType",
-              "plotStateLookup",
-              "dialogHooks"
-            ],
-            "type": "object"
+            "$ref": "#/definitions/DmPlotThread"
           },
           {
-            "additionalProperties": false,
-            "properties": {
-              "classType": {
-                "const": "dmPlotScript",
-                "type": "string"
-              },
-              "dialogArchetype": {
-                "type": "string"
-              },
-              "removeItems": {
-                "additionalProperties": {
-                  "type": "number"
-                },
-                "type": "object"
-              },
-              "setThisState": {
-                "type": "string"
-              },
-              "tossItems": {
-                "additionalProperties": {
-                  "type": "number"
-                },
-                "type": "object"
-              }
-            },
-            "required": [
-              "classType",
-              "setThisState",
-              "dialogArchetype",
-              "removeItems",
-              "tossItems"
-            ],
-            "type": "object"
+            "$ref": "#/definitions/DmPlotScript"
           },
           {
-            "additionalProperties": false,
-            "properties": {
-              "classType": {
-                "const": "dmDialogData",
-                "type": "string"
-              },
-              "instigatorSprite": {
-                "type": "string"
-              },
-              "message": {
-                "type": "string"
-              },
-              "responses": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "responseScript": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "message",
-                    "responseScript"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "soundToPlay": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              }
+            "$ref": "#/definitions/DmDialogData"
+          },
+          {
+            "items": {
+              "$ref": "#/definitions/DmDropItemHook"
             },
-            "required": [
-              "classType",
-              "title",
-              "message",
-              "soundToPlay",
-              "instigatorSprite",
-              "responses"
-            ],
-            "type": "object"
+            "type": "array"
           }
         ]
       },
+      "type": "object"
+    },
+    "DmPlotScript": {
+      "additionalProperties": false,
+      "properties": {
+        "classType": {
+          "const": "dmPlotScript",
+          "type": "string"
+        },
+        "dialogArchetype": {
+          "type": "string"
+        },
+        "removeItems": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        },
+        "setThisState": {
+          "type": "string"
+        },
+        "tossItems": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "classType",
+        "setThisState",
+        "dialogArchetype",
+        "removeItems",
+        "tossItems"
+      ],
+      "type": "object"
+    },
+    "DmPlotStateLookup": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "properties": {
+        "unstarted": {
+          "const": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "unstarted"
+      ],
+      "type": "object"
+    },
+    "DmPlotThread": {
+      "additionalProperties": false,
+      "properties": {
+        "classType": {
+          "const": "dmPlotThread",
+          "type": "string"
+        },
+        "dialogHooks": {
+          "items": {
+            "$ref": "#/definitions/DmDialogHook"
+          },
+          "type": "array"
+        },
+        "plotStateLookup": {
+          "$ref": "#/definitions/DmPlotStateLookup"
+        }
+      },
+      "required": [
+        "classType",
+        "plotStateLookup",
+        "dialogHooks"
+      ],
       "type": "object"
     }
   }
