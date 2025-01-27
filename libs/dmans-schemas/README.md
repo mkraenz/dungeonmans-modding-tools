@@ -8,8 +8,12 @@ Unfortunately, json schema allows only static validation but not dynamic validat
 
 ## Building
 
-Run `nx build dmans-schemas` to build the library.
+```sh
+nx run dmans-schemas:jsonschema:gen
+```
 
-## Running unit tests
+You can also build individual ones using the respective npm scripts in [package.json](./package.json), for example
 
-Run `nx test dmans-schemas` to execute the unit tests via [Jest](https://jestjs.io).
+```sh
+nx run dmans-schemas:jsonschema:gen:actors:monster
+```

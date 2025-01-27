@@ -16,9 +16,24 @@
     }
   },
   "module": "./dist/index.js",
-  "nx": {
-    "sourceRoot": "libs/dmans-schemas/src",
-    "projectType": "library",
-    "name": "dmans-schemas"
+  "scripts": {
+    "jsonschema:gen": "run-p --max-parallel 4 jsonschema:gen:**",
+    "jsonschema:gen:actors:monster": "ts-json-schema-generator --path 'src/lib/actordata/monsters.ts' --type 'DmMonster' > 'gen/monster.schema.json'",
+    "jsonschema:gen:actors:monsters": "ts-json-schema-generator --path 'src/lib/actordata/monsters.ts' --type 'DmMonsters' > 'gen/monsters.schema.json'",
+    "jsonschema:gen:encounters:many": "ts-json-schema-generator --path 'src/lib/encounterdata/encounters.ts' --type 'DmEncounters' > 'gen/encounters.schema.json'",
+    "jsonschema:gen:encounters:one": "ts-json-schema-generator --path 'src/lib/encounterdata/encounters.ts' --type 'DmEncounter' > 'gen/encounter.schema.json'",
+    "jsonschema:gen:items:consumable": "ts-json-schema-generator --path 'src/lib/itemdata/items.ts' --type 'DmItemConsumable' > 'gen/item-consumable.schema.json'",
+    "jsonschema:gen:items:many": "ts-json-schema-generator --path 'src/lib/itemdata/items.ts' --type 'DmItems' > 'gen/items.schema.json'",
+    "jsonschema:gen:items:non-academy-turn-in": "ts-json-schema-generator --path 'src/lib/itemdata/items.ts' --type 'DmItemNonAcademyTurnIn' > 'gen/item-non-academy-turn-in.schema.json'",
+    "jsonschema:gen:special-powers:special-power": "ts-json-schema-generator --path 'src/lib/specialpowerdata/powers.ts' --type 'DmSpecialPower' > 'gen/special-power.schema.json'",
+    "jsonschema:gen:special-powers:summon-power": "ts-json-schema-generator --path 'src/lib/specialpowerdata/powers.ts' --type 'DmSummonPower' > 'gen/summon-power.schema.json'",
+    "jsonschema:gen:special-powers:powers": "ts-json-schema-generator --path 'src/lib/specialpowerdata/powers.ts' --type 'DMSpecialPowers' > 'gen/powers.schema.json'",
+    "jsonschema:gen:sprites:item": "ts-json-schema-generator --path 'src/lib/spritedata/sprites.ts' --type 'DmItemSprite' > 'gen/item-sprite.schema.json'",
+    "jsonschema:gen:sprites:items": "ts-json-schema-generator --path 'src/lib/spritedata/sprites.ts' --type 'DmItemSprites' > 'gen/item-sprites.schema.json'",
+    "jsonschema:gen:sprites:monster": "ts-json-schema-generator --path 'src/lib/spritedata/sprites.ts' --type 'DmMonsterSprite' > 'gen/monster-sprite.schema.json'",
+    "jsonschema:gen:sprites:monsters": "ts-json-schema-generator --path 'src/lib/spritedata/sprites.ts' --type 'DmMonsterSprites' > 'gen/monster-sprites.schema.json'",
+    "jsonschema:gen:tables:encounter-table": "ts-json-schema-generator --path 'src/lib/tabledata/encounter-tables.ts' --type 'DmEncounterTable' > 'gen/encounter-table.schema.json'",
+    "jsonschema:gen:tables:encounter-tables": "ts-json-schema-generator --path 'src/lib/tabledata/encounter-tables.ts' --type 'DmEncounterTables' > 'gen/encounter-tables.schema.json'",
+    "jsonschema:gen:plot": "ts-json-schema-generator --path 'src/lib/plotdata/plot-threads.ts' --type 'DmPlot' > 'gen/plot.schema.json'"
   }
 }
