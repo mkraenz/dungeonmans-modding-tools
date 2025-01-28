@@ -15,7 +15,13 @@ export type DmItemNonAcademyTurnIn = {
   /** @asType integer */
   value: number;
   stackable: boolean;
-  /** @examples ["modplot,found_mod_plot_item"] */
+  /**
+   * A tuple of strings separated by a comma.
+   * The 1st string is a reference to a key in plotdata/ of classType `dmPlotThread`.
+   * The 2nd string is a key in the dmPlotThread's `plotStateLookup`.
+   * The state of the plot thread will be set to this value after collecting the item.
+   * @examples ["modplot,found_mod_plot_item"]
+   */
   plotthread_advance: string;
 };
 

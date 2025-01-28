@@ -109,8 +109,28 @@ export type DmDialogData = {
   /** What sprite to use in the dialog window. Reference to an entityDef name in `spritedata/`. */
   instigatorSprite: string;
   /** Response options for the player to choose from. */
-  responses: DmDialogOption[];
+  responses: DmDialogResponse[];
 };
+
+/**
+ * A dialog choice for the player.
+ */
+export type DmDialogResponse =
+  | {
+      /** What is being said by the player character. */
+      message: string;
+      /** Either `"none"` if there is no further dialog, or a reference to a root-level key in a json in `plotdata/` with `"classType": "dmPlotScript"`. */
+      responseScript: (string & {}) | 'none';
+    }
+  | {
+      /** What is being said by the player character. */
+      message: string;
+      /**
+       * You can use `responseDialog` to chain together dialog boxes.
+       * Reference to a root-level key in a json in `plotdata/` with `"classType": "dmDialogData"`.
+       */
+      responseDialog: string;
+    };
 
 /**
  * dmDropItemHook allow to define that specific items drop

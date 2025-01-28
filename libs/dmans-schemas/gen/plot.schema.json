@@ -29,7 +29,7 @@
         "responses": {
           "description": "Response options for the player to choose from.",
           "items": {
-            "$ref": "#/definitions/DmDialogOption"
+            "$ref": "#/definitions/DmDialogResponse"
           },
           "type": "array"
         },
@@ -107,6 +107,57 @@
         "responseScript"
       ],
       "type": "object"
+    },
+    "DmDialogResponse": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "message": {
+              "description": "What is being said by the player character.",
+              "type": "string"
+            },
+            "responseScript": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "enum": [
+                    "none"
+                  ],
+                  "type": "string"
+                }
+              ],
+              "description": "Either `\"none\"` if there is no further dialog, or a reference to a root-level key in a json in `plotdata/` with `\"classType\": \"dmPlotScript\"`."
+            }
+          },
+          "required": [
+            "message",
+            "responseScript"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "message": {
+              "description": "What is being said by the player character.",
+              "type": "string"
+            },
+            "responseDialog": {
+              "description": "You can use `responseDialog` to chain together dialog boxes. Reference to a root-level key in a json in `plotdata/` with `\"classType\": \"dmDialogData\"`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "message",
+            "responseDialog"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "A dialog choice for the player."
     },
     "DmDropItemHook": {
       "additionalProperties": false,

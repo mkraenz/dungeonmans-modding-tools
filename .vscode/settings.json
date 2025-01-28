@@ -23,6 +23,14 @@
     {
       "fileMatch": ["**/actordata/*.json"],
       "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/monsters.schema.json"
+    },
+    {
+      "fileMatch": ["**/itemdata/*.json"],
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/items.schema.json"
+    },
+    {
+      "fileMatch": ["**/specialpowerdata/*.json"],
+      "url": "https://raw.githubusercontent.com/mkraenz/dungeonmans-modding-tools/refs/heads/main/libs/dmans-schemas/gen/powers.schema.json"
     }
   ]
 }
