@@ -3,11 +3,11 @@ export function dmansSchemas(): string {
 }
 
 /**
- * Dictionary of keys to DmPlotThread, DmPlotScript, DmDialogData, or an array of DmDropItemHook.
+ * Dictionary of keys to DmPlotThread, DmPlotScript, or DmDialogData.
  * Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads
  */
 export type DmPlot = {
-  [key: string]: DmPlotThread | DmPlotScript | DmDialogData | DmDropItemHooks;
+  [key: string]: DmPlotThread | DmPlotScript | DmDialogData;
 };
 
 /** A dmPlotThread base object that maintains all the world changes that your plot entails. */
@@ -16,6 +16,7 @@ export type DmPlotThread = {
   classType: 'dmPlotThread';
   plotStateLookup: DmPlotStateLookup;
   dialogHooks: DialogHooks;
+  dropItemHooks: DmDropItemHooks;
 };
 
 /**

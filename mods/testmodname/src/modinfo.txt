@@ -1,4 +1,0 @@
-Example Mod Name
-mod subheading
-
-mod description

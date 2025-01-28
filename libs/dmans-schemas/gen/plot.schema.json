@@ -160,13 +160,10 @@
           },
           {
             "$ref": "#/definitions/DmDialogData"
-          },
-          {
-            "$ref": "#/definitions/DmDropItemHooks"
           }
         ]
       },
-      "description": "Dictionary of keys to DmPlotThread, DmPlotScript, DmDialogData, or an array of DmDropItemHook. Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads",
+      "description": "Dictionary of keys to DmPlotThread, DmPlotScript, or DmDialogData. Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads",
       "type": "object"
     },
     "DmPlotScript": {
@@ -244,6 +241,9 @@
         "dialogHooks": {
           "$ref": "#/definitions/DialogHooks"
         },
+        "dropItemHooks": {
+          "$ref": "#/definitions/DmDropItemHooks"
+        },
         "plotStateLookup": {
           "$ref": "#/definitions/DmPlotStateLookup"
         }
@@ -251,7 +251,8 @@
       "required": [
         "classType",
         "plotStateLookup",
-        "dialogHooks"
+        "dialogHooks",
+        "dropItemHooks"
       ],
       "type": "object"
     }
