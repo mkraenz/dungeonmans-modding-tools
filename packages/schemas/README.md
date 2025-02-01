@@ -1,4 +1,4 @@
-# dmans-schemas
+# Schemas
 
 TypeScript type defintions and [JSON schemas](https://json-schema.org/) for chosen Dungeonmans objects to improve the Dungeonmans modding developer experience with early schema validation feedback and autocompletion.
 
@@ -9,13 +9,13 @@ Unfortunately, json schema allows only static validation but not dynamic validat
 ## Building
 
 ```sh
-nx run dmans-schemas:jsonschema:gen
+nx run schemas:jsonschema:gen
 ```
 
 You can also build individual ones using the respective npm scripts in [package.json](./package.json), for example
 
 ```sh
-nx run dmans-schemas:jsonschema:gen:actors:monster
+nx run schemas:jsonschema:gen:actors:monster
 ```
 
 ## Noteworthy things about ts-json-schema-generator

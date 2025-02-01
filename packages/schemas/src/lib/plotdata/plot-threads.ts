@@ -1,7 +1,3 @@
-export function dmansSchemas(): string {
-  return 'dmans-schemas';
-}
-
 /**
  * Dictionary of keys to DmPlotThread, DmPlotScript, or DmDialogData.
  * Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads

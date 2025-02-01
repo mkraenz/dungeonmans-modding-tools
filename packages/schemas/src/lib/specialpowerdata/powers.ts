@@ -40,7 +40,7 @@ export type DmSpecialPower = {
   script: string;
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
 export type DMSpecialPowers = {
   [entityDefName: string]: DmSpecialPower | DmSummonPower;
 };

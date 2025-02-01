@@ -8,7 +8,7 @@ type DmSpriteBase = {
 };
 
 export type DmItemSprite = DmSpriteBase;
-/** A map from entityDefName to the values inside that entitydef. The name will appear in in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
 export type DmItemSprites = {
   [entityDefName: string]: DmItemSprite;
 };
@@ -18,7 +18,7 @@ export type DmMonsterSprite = DmSpriteBase & {
   height: 128;
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
 export type DmMonsterSprites = {
   [entityDefName: string]: DmMonsterSprite;
 };

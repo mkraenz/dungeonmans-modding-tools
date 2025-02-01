@@ -1,1 +1,1 @@
-export * from './lib/dmans-schemas.js';
+export * from './lib/schemas.js';
