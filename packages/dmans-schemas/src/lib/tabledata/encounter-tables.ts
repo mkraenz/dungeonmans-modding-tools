@@ -50,7 +50,7 @@ type GenericEncounter =
   | 'mountain_fortress_skybridge_melee'
   | 'mountain_fortress_skybridge_ranged';
 
-const test: DmEncounterTable = {
+const _test: DmEncounterTable = {
   addtotable_01: 'mountain_fortress_skybridge_ranged',
   dajksdlj: 123,
   replacetable_01: 'final_foom_trash',

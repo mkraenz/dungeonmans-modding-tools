@@ -10,7 +10,7 @@ export type DmEncounter = {
   [K: string]: string | number;
 };
 
-const test: DmEncounter = {
+const _test: DmEncounter = {
   class: 'dmEncounterData',
   modmans_mod_mold: 1,
   modmans_mod_moldbla: '1d4+1',
