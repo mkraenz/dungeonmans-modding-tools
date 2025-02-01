@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "entitydef-compiler",
-  "sourceRoot": "libs/entitydef-compiler/src",
+  "sourceRoot": "packages/entitydef-compiler/src",
   "projectType": "library"
 }

@@ -7,7 +7,7 @@
       "path": "./packages/js-to-entitydef"
     },
     {
-      "path": "./packages/dmans-schemas"
+      "path": "./packages/schemas"
     },
     {
       "path": "./packages/cli"
