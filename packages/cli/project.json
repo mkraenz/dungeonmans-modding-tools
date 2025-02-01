@@ -1,6 +1,7 @@
 {
   "name": "cli",
-  "projectType": "application",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
   "sourceRoot": "packages/cli/src",
   "targets": {
     "build": {
@@ -8,48 +9,21 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "platform": "node",
-        "outputPath": "dist/packages/cli",
-        "format": ["cjs"],
-        "bundle": false,
         "main": "packages/cli/src/main.ts",
-        "tsConfig": "packages/cli/tsconfig.app.json",
-        "assets": ["packages/cli/src/assets"],
-        "esbuildOptions": {
-          "sourcemap": true,
-          "outExtension": {
-            ".js": ".js"
-          }
-        }
+        "outputPath": "packages/cli/dist",
+        "outputFileName": "main.js",
+        "tsConfig": "packages/cli/tsconfig.lib.json",
+        "platform": "node",
+        "format": ["esm"],
+        "declarationRootDir": "packages/cli/src"
       },
       "configurations": {
         "development": {
-          "watch": true
+          "watch": true,
+          "minify": false
         },
         "production": {
-          "esbuildOptions": {
-            "sourcemap": false,
-            "outExtension": {
-              ".js": ".js"
-            }
-          }
-        }
-      }
-    },
-    "serve": {
-      "executor": "@nx/js:node",
-      "defaultConfiguration": "development",
-      "dependsOn": ["build"],
-      "options": {
-        "buildTarget": "cli:build",
-        "runBuildTargetDependencies": false
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "cli:build:development"
-        },
-        "production": {
-          "buildTarget": "cli:build:production"
+          "minify": true
         }
       }
     }

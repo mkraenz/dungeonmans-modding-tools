@@ -1,3 +1,4 @@
+// @ts-nocheck -- temporary until I figured out whether I even want to keep this file
 import chokidar from 'chokidar';
 import yaml from 'js-yaml';
 import fs from 'node:fs';

@@ -4,16 +4,16 @@
   "files": [],
   "references": [
     {
-      "path": "./libs/entity-def-compiler"
+      "path": "./packages/js-to-entitydef"
     },
     {
-      "path": "./libs/yaml-to-entitydef"
-    },
-    {
-      "path": "./libs/dmans-schemas"
+      "path": "./packages/dmans-schemas"
     },
     {
       "path": "./packages/cli"
+    },
+    {
+      "path": "./packages/entitydef-compiler"
     }
   ]
 }

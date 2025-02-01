@@ -1,25 +1,16 @@
+#!/usr/bin/env node
+
 import { Command } from '@commander-js/extra-typings';
-import { initModDirectory } from './init/init-mod-dir';
+import { createBuildCommand } from './build/build.command.js';
+import { createInitCommand } from './init/init.command.js';
 
 const program = new Command();
 
 program
   .name('dungeonmans-modding-tools')
-  .description(
-    'CLI to help you build and develop mod contents for Dungeonmans.'
-  )
+  .description('CLI to help you build and develop mod content for Dungeonmans.')
   .version('0.0.1');
-
-program
-  .command('init')
-  .description('Initialize a new mod project.')
-  .argument('<directory>', 'directory to create and initialize your mod in')
-  .option(
-    '--dry-run',
-    'Simulate the execution of the command without actually changing anything.'
-  )
-  .action(async (directory, options) => {
-    await initModDirectory(directory, options);
-  });
+program.addCommand(createInitCommand());
+program.addCommand(createBuildCommand());
 
 program.parse();

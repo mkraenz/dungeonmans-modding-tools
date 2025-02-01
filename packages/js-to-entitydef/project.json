@@ -1,0 +1,6 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "js-to-entitydef",
+  "sourceRoot": "libs/js-to-entitydef/src",
+  "projectType": "library"
+}
