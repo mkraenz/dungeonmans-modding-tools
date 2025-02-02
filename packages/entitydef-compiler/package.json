@@ -1,5 +1,5 @@
 {
-  "name": "@dungeonmans-modding-tools/entitydef-compiler",
+  "name": "@dungeonmans-mod-tools/entitydef-compiler",
   "version": "0.0.1",
   "private": true,
   "type": "module",

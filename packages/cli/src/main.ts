@@ -7,7 +7,7 @@ import { createInitCommand } from './init/init.command.js';
 const program = new Command();
 
 program
-  .name('dungeonmans-modding-tools')
+  .name('dungeonmans-mod-tools')
   .description('CLI to help you build and develop mod content for Dungeonmans.')
   .version('0.0.1');
 program.addCommand(createInitCommand());

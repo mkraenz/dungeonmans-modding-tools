@@ -1,6 +1,6 @@
-# Dungeonmans Modding Tools
+# Dungeonmans Mod Tools
 
-Package-based Nx monorepo for Dungeonmans modding tools.
+Package-based Nx monorepo for Dungeonmans Mod Tools.
 
 Disclaimer: This is a fan-project and not affiliated with the original owner, copyright holders, nor license holders of Dungeonmans. If any of the content in this repo is not in agreement with any licenses etc, please contact me.
 
@@ -126,7 +126,7 @@ A package may depend on another package. If the dependency is buildable, it may 
 Start by running verdaccio (local package registry) via
 
 ```sh
-nx run @dungeonmans-modding-tools/source:local-registry
+nx run @dungeonmans-mod-tools/source:local-registry
 ```
 
 You can open [http://localhost:4873/](http://localhost:4873/) to see the packages in the registry.

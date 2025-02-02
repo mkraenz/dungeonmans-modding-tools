@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 export default {
-  displayName: '@dungeonmans-modding-tools/js-to-entitydef',
+  displayName: '@dungeonmans-mod-tools/js-to-entitydef',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

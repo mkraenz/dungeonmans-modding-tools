@@ -1,4 +1,4 @@
-import { jsToManyEntityDefs } from '@dungeonmans-modding-tools/js-to-entitydef';
+import { jsToManyEntityDefs } from '@dungeonmans-mod-tools/js-to-entitydef';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FileSystem } from '../utils/filesystem.js';

@@ -10,9 +10,9 @@ export const createBuildCommand = () => {
     .addHelpText(
       'after',
       `
-Example A:                dungeonmans-modding-tools build ./src ./dist/mymodname
-Example B:                dungeonmans-modding-tools build somepath/somedir/src dist/mymodname
-Example C (dry-run):      dungeonmans-modding-tools build ./src ./dist/mymodname --dry-run`
+Example A:                dungeonmans-mod-tools build ./src ./dist/mymodname
+Example B:                dungeonmans-mod-tools build somepath/somedir/src dist/mymodname
+Example C (dry-run):      dungeonmans-mod-tools build ./src ./dist/mymodname --dry-run`
     )
     .argument(
       '<srcDir>',

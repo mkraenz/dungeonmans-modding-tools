@@ -1,5 +1,5 @@
 {
-  "name": "dungeonmans-modding-tools",
+  "name": "dungeonmans-mod-tools",
   "version": "0.0.1",
   "private": false,
   "type": "module",
@@ -10,7 +10,7 @@
     "tslib": "^2.3.0"
   },
   "bin": {
-    "dungeonmans-modding-tools": "dist/main.js"
+    "dungeonmans-mod-tools": "dist/main.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",

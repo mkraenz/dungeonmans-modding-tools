@@ -8,10 +8,10 @@ export const createInitCommand = () => {
     .addHelpText(
       'after',
       `
-    Example A:                dungeonmans-modding-tools init myawesomemod supermod
-    Example B:                dungeonmans-modding-tools init somepath/somedir/myawesomemod supermod
-    Example C:                dungeonmans-modding-tools init somepath/somedir/myawesomemod 'Best Mod Eva'
-    Example D (dry-run):      dungeonmans-modding-tools init myawesomemod supermod --dry-run`
+    Example A:                dungeonmans-mod-tools init myawesomemod supermod
+    Example B:                dungeonmans-mod-tools init somepath/somedir/myawesomemod supermod
+    Example C:                dungeonmans-mod-tools init somepath/somedir/myawesomemod 'Best Mod Eva'
+    Example D (dry-run):      dungeonmans-mod-tools init myawesomemod supermod --dry-run`
     )
     .argument('<directory>', 'Directory to create and initialize your mod in')
     .argument('<modName>', 'Name of your mod')
