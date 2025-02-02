@@ -67,21 +67,22 @@ export type DmPlayerSpecialPower = {
 type WithPowerSwap = {
   [key in `swap_${DoubleDigit}`]?: string;
 };
+
+/* TODO @playdungeonmans: This is a best guess. Need to clarify */
 /**
- * TODO @playdungeonmans: This is a best guess. Need to clarify
- *
  * Defines which Dungeonmans-native powers should be replaced by modded powers.
  * For example, to replace the native power `sp_quick_dash` by `sp_modmans_quick_dash`,
  * you set `"swap_01": "sp_modmans_quick_dash"`.
  */
 type DmPowerSwap = {
   class: 'dmModPowerSwapList';
-};
+} & WithPowerSwap;
 
 /** Dictionary from entityDef name to DmSpecialPower, DmSummonPower, DmPowerSwap, or DmPlayerSpecialPower. */
-export type DMSpecialPowers = {
+export type DmSpecialPowers = {
   [entityDefName: string]:
     | DmSpecialPower
     | DmSummonPower
-    | DmPlayerSpecialPower;
+    | DmPlayerSpecialPower
+    | DmPowerSwap;
 };

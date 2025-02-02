@@ -9,13 +9,14 @@ Unfortunately, json schema allows only static validation but not dynamic validat
 ## Building
 
 ```sh
-nx run schemas:jsonschema:gen
+nx run schemas:gen
 ```
 
-You can also build individual ones using the respective npm scripts in [package.json](./package.json), for example
+You can also build individual ones by matching for the typescript type passed to `ts-json-schema-generator`, for example
 
 ```sh
-nx run schemas:jsonschema:gen:actors:monster
+nx run schemas:gen Actor
+nx run schemas:gen Sprite
 ```
 
 ## Noteworthy things about ts-json-schema-generator

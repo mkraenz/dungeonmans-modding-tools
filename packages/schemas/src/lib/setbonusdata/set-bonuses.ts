@@ -1,12 +1,3 @@
-import { NonZeroDigit } from '../ts-utils.js';
-
-type WithDescription = {
-  [K in `desc_${NonZeroDigit}`]?: string;
-};
-type WithEffect = {
-  [K in `effect_${NonZeroDigit}`]?: string;
-};
-
 /** Defines what bonuses an item set provides. */
 export type DmSetBonus = {
   /** Reference to value of `itemset` for equipment entitydefs under itemdata/ */

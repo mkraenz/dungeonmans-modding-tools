@@ -1,24 +1,7 @@
 {
-  "$ref": "#/definitions/DMSpecialPowers",
+  "$ref": "#/definitions/DmSpecialPowers",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "DMSpecialPowers": {
-      "additionalProperties": {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/DmSpecialPower"
-          },
-          {
-            "$ref": "#/definitions/DmSummonPower"
-          },
-          {
-            "$ref": "#/definitions/DmPlayerSpecialPower"
-          }
-        ]
-      },
-      "description": "Dictionary from entityDef name to DmSpecialPower, DmSummonPower, DmPowerSwap, or DmPlayerSpecialPower.",
-      "type": "object"
-    },
     "DmPlayerSpecialPower": {
       "additionalProperties": false,
       "properties": {
@@ -147,6 +130,334 @@
         "hitTargetEmitter",
         "script"
       ],
+      "type": "object"
+    },
+    "DmSpecialPowers": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DmSpecialPower"
+          },
+          {
+            "$ref": "#/definitions/DmSummonPower"
+          },
+          {
+            "$ref": "#/definitions/DmPlayerSpecialPower"
+          },
+          {
+            "additionalProperties": false,
+            "description": "Defines which Dungeonmans-native powers should be replaced by modded powers. For example, to replace the native power `sp_quick_dash` by `sp_modmans_quick_dash`, you set `\"swap_01\": \"sp_modmans_quick_dash\"`.",
+            "properties": {
+              "class": {
+                "const": "dmModPowerSwapList",
+                "type": "string"
+              },
+              "swap_01": {
+                "type": "string"
+              },
+              "swap_02": {
+                "type": "string"
+              },
+              "swap_03": {
+                "type": "string"
+              },
+              "swap_04": {
+                "type": "string"
+              },
+              "swap_05": {
+                "type": "string"
+              },
+              "swap_06": {
+                "type": "string"
+              },
+              "swap_07": {
+                "type": "string"
+              },
+              "swap_08": {
+                "type": "string"
+              },
+              "swap_09": {
+                "type": "string"
+              },
+              "swap_10": {
+                "type": "string"
+              },
+              "swap_11": {
+                "type": "string"
+              },
+              "swap_12": {
+                "type": "string"
+              },
+              "swap_13": {
+                "type": "string"
+              },
+              "swap_14": {
+                "type": "string"
+              },
+              "swap_15": {
+                "type": "string"
+              },
+              "swap_16": {
+                "type": "string"
+              },
+              "swap_17": {
+                "type": "string"
+              },
+              "swap_18": {
+                "type": "string"
+              },
+              "swap_19": {
+                "type": "string"
+              },
+              "swap_20": {
+                "type": "string"
+              },
+              "swap_21": {
+                "type": "string"
+              },
+              "swap_22": {
+                "type": "string"
+              },
+              "swap_23": {
+                "type": "string"
+              },
+              "swap_24": {
+                "type": "string"
+              },
+              "swap_25": {
+                "type": "string"
+              },
+              "swap_26": {
+                "type": "string"
+              },
+              "swap_27": {
+                "type": "string"
+              },
+              "swap_28": {
+                "type": "string"
+              },
+              "swap_29": {
+                "type": "string"
+              },
+              "swap_30": {
+                "type": "string"
+              },
+              "swap_31": {
+                "type": "string"
+              },
+              "swap_32": {
+                "type": "string"
+              },
+              "swap_33": {
+                "type": "string"
+              },
+              "swap_34": {
+                "type": "string"
+              },
+              "swap_35": {
+                "type": "string"
+              },
+              "swap_36": {
+                "type": "string"
+              },
+              "swap_37": {
+                "type": "string"
+              },
+              "swap_38": {
+                "type": "string"
+              },
+              "swap_39": {
+                "type": "string"
+              },
+              "swap_40": {
+                "type": "string"
+              },
+              "swap_41": {
+                "type": "string"
+              },
+              "swap_42": {
+                "type": "string"
+              },
+              "swap_43": {
+                "type": "string"
+              },
+              "swap_44": {
+                "type": "string"
+              },
+              "swap_45": {
+                "type": "string"
+              },
+              "swap_46": {
+                "type": "string"
+              },
+              "swap_47": {
+                "type": "string"
+              },
+              "swap_48": {
+                "type": "string"
+              },
+              "swap_49": {
+                "type": "string"
+              },
+              "swap_50": {
+                "type": "string"
+              },
+              "swap_51": {
+                "type": "string"
+              },
+              "swap_52": {
+                "type": "string"
+              },
+              "swap_53": {
+                "type": "string"
+              },
+              "swap_54": {
+                "type": "string"
+              },
+              "swap_55": {
+                "type": "string"
+              },
+              "swap_56": {
+                "type": "string"
+              },
+              "swap_57": {
+                "type": "string"
+              },
+              "swap_58": {
+                "type": "string"
+              },
+              "swap_59": {
+                "type": "string"
+              },
+              "swap_60": {
+                "type": "string"
+              },
+              "swap_61": {
+                "type": "string"
+              },
+              "swap_62": {
+                "type": "string"
+              },
+              "swap_63": {
+                "type": "string"
+              },
+              "swap_64": {
+                "type": "string"
+              },
+              "swap_65": {
+                "type": "string"
+              },
+              "swap_66": {
+                "type": "string"
+              },
+              "swap_67": {
+                "type": "string"
+              },
+              "swap_68": {
+                "type": "string"
+              },
+              "swap_69": {
+                "type": "string"
+              },
+              "swap_70": {
+                "type": "string"
+              },
+              "swap_71": {
+                "type": "string"
+              },
+              "swap_72": {
+                "type": "string"
+              },
+              "swap_73": {
+                "type": "string"
+              },
+              "swap_74": {
+                "type": "string"
+              },
+              "swap_75": {
+                "type": "string"
+              },
+              "swap_76": {
+                "type": "string"
+              },
+              "swap_77": {
+                "type": "string"
+              },
+              "swap_78": {
+                "type": "string"
+              },
+              "swap_79": {
+                "type": "string"
+              },
+              "swap_80": {
+                "type": "string"
+              },
+              "swap_81": {
+                "type": "string"
+              },
+              "swap_82": {
+                "type": "string"
+              },
+              "swap_83": {
+                "type": "string"
+              },
+              "swap_84": {
+                "type": "string"
+              },
+              "swap_85": {
+                "type": "string"
+              },
+              "swap_86": {
+                "type": "string"
+              },
+              "swap_87": {
+                "type": "string"
+              },
+              "swap_88": {
+                "type": "string"
+              },
+              "swap_89": {
+                "type": "string"
+              },
+              "swap_90": {
+                "type": "string"
+              },
+              "swap_91": {
+                "type": "string"
+              },
+              "swap_92": {
+                "type": "string"
+              },
+              "swap_93": {
+                "type": "string"
+              },
+              "swap_94": {
+                "type": "string"
+              },
+              "swap_95": {
+                "type": "string"
+              },
+              "swap_96": {
+                "type": "string"
+              },
+              "swap_97": {
+                "type": "string"
+              },
+              "swap_98": {
+                "type": "string"
+              },
+              "swap_99": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "class"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "description": "Dictionary from entityDef name to DmSpecialPower, DmSummonPower, DmPowerSwap, or DmPlayerSpecialPower.",
       "type": "object"
     },
     "DmSummonPower": {
