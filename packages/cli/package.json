@@ -1,5 +1,5 @@
 {
-  "name": "dungeonmans-mod-tools",
+  "name": "@dungeonmans-mod-tools/cli",
   "version": "0.0.1",
   "private": false,
   "type": "module",
