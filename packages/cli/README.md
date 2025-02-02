@@ -1,33 +1,84 @@
-# CLI
+# Dungeonmans Mod Tools CLI
 
-## Bundling and Deployment
+CLI to help you develop Mod Content for Dungeonmans.
 
-WIP
+## Why should I use this?
 
-Problem 1
+If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI tool](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli) to create a new mod project. Assuming your text editor/IDE supports it, you will get
 
-`nx run cli:build` puts the files in `<repo-root>/dist/packages/cli/` with entry point `main.js`. I can easily make the file executable with `chmod +x dist/packages/cli/main.js`. The problem is that this file does not have a shebang `#!/usr/bin/env node`. Without the shebang `./dist/packages/cli/main.js help` does not work because the system tries to interpret it as a bash script.
+- Autocompletion
+- Type checking
+- and Hover-over documentation
 
-That said, `dist/packages/cli/packages/cli/src/main.js` _does_ have the shebang we define in `packages/cli/src/main.ts:1`.
+for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to do this for your text editor, VS Code does a great job at this.
 
-Question: How to make make turn `dist/packages/cli/main.js` into the correct executable?
+## Get Started
 
-Answer: This problem was solved by turning the `cli` project into a _publishable_ library. This way, the `dist` folder stays in the project directory and the shebang is preserved.
+```sh
+# Initialize a new mod project.
+npx @dungeonmans-mod-tools/cli init <directory> <modName>
+# Build your mod.
+npx @dungeonmans-mod-tools/cli build <srcDir> <outDir>
 
-Next problem
+# Help including examples for each command.
+npx @dungeonmans-mod-tools/cli help
+npx @dungeonmans-mod-tools/cli init --help
+npx @dungeonmans-mod-tools/cli build --help
+```
 
-When publishing the package and installing that package via npm, the package expects any buildable dependencies to be inside `node_modules`. But that is not the case. The obvious workaround is to publish every buildable dependency as well. But that is a bit overkill and leads to overhead on the package-enduser side because installing that one published package requires you to install 20 more tiny packages.
+## Init command
 
-Nx has no good solution for this but [suggests](https://github.com/nrwl/nx/issues/4620#issuecomment-2252879519) to use a different tool than swc or tsc (those are build tools not bundlers; the problem is a bundling issue though). So now I need to switch from tsc to another build/bundle tool...
+`npx @dungeonmans-mod-tools/cli build --help`
 
-Answer: Fortunately it was very simple to add esbuild: `nx g @nx/esbuild:configuration cli`.
-With that it just worked.
+```log
+Usage: dungeonmans-mod-tools init [options] <directory> <modName>
 
-### Potential solutions or approaches
+Initialize a new mod project.
 
-- [make-node-application-executable-in-a-nx-workspace stackoverflow](https://stackoverflow.com/questions/62459815/make-node-application-executable-in-a-nx-workspace)
-- [project setup is following this article](https://dev.to/ddanielgal/developing-a-node-cli-app-in-an-nx-monorepo-5f1a)
+Arguments:
+  directory   Directory to create and initialize your mod in
+  modName     Name of your mod
 
-### Why does NX add the `nx-release-publish` target?
+Options:
+  --dry-run   Simulate the execution of the command without actually changing anything.
+  --verbose   Print additional info.
+  -h, --help  display help for command
 
-This is controlled by `package.json`'s `"private": false` field. If you set it to `true`, the `nx-release-publish` target will not be added.
+    Example A:                dungeonmans-mod-tools init myawesomemod supermod
+    Example B:                dungeonmans-mod-tools init somepath/somedir/myawesomemod supermod
+    Example C:                dungeonmans-mod-tools init somepath/somedir/myawesomemod 'Best Mod Eva'
+    Example D (dry-run):      dungeonmans-mod-tools init myawesomemod supermod --dry-run
+```
+
+## Build command
+
+`npx @dungeonmans-mod-tools/cli build --help`
+
+```log
+Usage: dungeonmans-mod-tools build [options] <srcDir> <outDir>
+
+Build your mod into entitydefs for copy-and-paste into the Dungeonmans mod directory.
+
+Arguments:
+  srcDir      Source directory containing your mod, that is, the directory your modinfo.txt lives.
+  outDir      Ouput directory. This is the directory you copy-paste into c:\users\[you]\appdata\roaming\Dungeonmans\modcontent\mods\ directory to play your mod in Dungeonmans.
+      If outDir directory does not exist, creates it and its parents as necessary.
+
+Options:
+  --dry-run   Simulate the execution of the command without actually changing anything.
+  --verbose   Print additional info.
+  -h, --help  display help for command
+
+Example A:                dungeonmans-mod-tools build ./src ./dist/mymodname
+Example B:                dungeonmans-mod-tools build somepath/somedir/src dist/mymodname
+Example C (dry-run):      dungeonmans-mod-tools build ./src ./dist/mymodname --dry-run
+```
+
+## For Tool Developers
+
+This readme is published on npm. As such, all details about development of the CLI and related mod tools have been moved to [README.development.md](./README.development.md).
+
+## References
+
+- [GitHub](https://github.com/mkraenz/dungeonmans-mod-tools)
+- [NPM](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli)

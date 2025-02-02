@@ -2,6 +2,7 @@
   "name": "@dungeonmans-mod-tools/cli",
   "version": "0.0.1",
   "private": false,
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "@commander-js/extra-typings": "^13.1.0",
@@ -26,5 +27,8 @@
   "files": [
     "dist",
     "!**/*.tsbuildinfo"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

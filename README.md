@@ -10,19 +10,17 @@ Disclaimer: This is a fan-project and not affiliated with the original owner, co
 
 ## FAQ: Do I need this repo to build a Mod for Dungeonmans?
 
-> tl;dr: No, instead use our CLI to create a new mod project.
+> tl;dr: No, instead use the [CLI](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli) to create a new mod project.
 
 No you do not need this repo! This repo is for developers who build tools to help themselves and others create mods for Dungeonmans.
 
-If you want to create a mod for Dungeonmans, we recommend you use our nifty CLI tool to create a new mod project. Assuming your text editor/IDE supports it, you will get
+If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI tool](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli) to create a new mod project. Assuming your text editor/IDE supports it, you will get
 
 - Autocompletion
 - Type checking
 - and Hover-over documentation
 
 for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to do this for your text editor, VS Code does a great job at this.
-
-// TODO add link to CLI tool once its on npm
 
 ## Getting Started
 
