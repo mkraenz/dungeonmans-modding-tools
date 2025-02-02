@@ -10,7 +10,7 @@ If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI
 - Type Hinting
 - Hover-over documentation
 
-for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to set this up for your text editor, VS Code does a great job at this out-of-the-box.
+for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to set this up for your text editor, VS Code does a great job at this out-of-the-box. We set things up for VS Code automatically so you can immediately start building your awesome mod.
 
 ### Background
 
@@ -28,7 +28,13 @@ npx @dungeonmans-mod-tools/cli build <srcDir> <outDir>
 npx @dungeonmans-mod-tools/cli help
 npx @dungeonmans-mod-tools/cli init --help
 npx @dungeonmans-mod-tools/cli build --help
+
+# More
+npx @dungeonmans-mod-tools/cli version
+npx @dungeonmans-mod-tools/cli schemas --editor custom
 ```
+
+Tested on Ubuntu 22.04, Windows 10.
 
 ## Init command
 
