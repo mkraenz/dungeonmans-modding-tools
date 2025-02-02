@@ -133,7 +133,7 @@ Once you want to test your mod in the game, you build your mod into formats that
 rm -r dist
 
 # build the mod
-dungeonmans-mod-tools build src dist/${kebabCase(modname)}
+npx @dungeonmans-mod-tools/cli build src dist/${kebabCase(modname)}
 \`\`\`
 
 > Details: \`.txt\`, \`.png\`, and \`.cs\` files will be copied over as-is. \`.json\` files will be turned into entitydefs inside \`.txt\` files. Notable exceptions being JSON files in plotdata/ and overworldgenerationdata/ which are copied as-is, too, because Dungeonmans supports those natively.
