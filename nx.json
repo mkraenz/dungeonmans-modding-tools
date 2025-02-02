@@ -66,8 +66,7 @@
   "release": {
     "releaseTagPattern": "v{version}",
     "version": {
-      "preVersionCommand": "npx nx run-many -t build",
-      "conventionalCommits": true
+      "preVersionCommand": "npx nx run-many -t build"
     }
   }
 }
