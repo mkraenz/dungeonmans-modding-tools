@@ -10,7 +10,11 @@ If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI
 - Type checking
 - and Hover-over documentation
 
-for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to do this for your text editor, VS Code does a great job at this.
+for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to set this up for your text editor, VS Code does a great job at this out-of-the-box.
+
+### Background
+
+Dungeonmans defines most content in a custom **plain text format** called **EntityDefs**. While you can certainly write monsters, items etc by hand, you don't get any quality of life features. Using the CLI tool, you can write your content in JSON files and then build them into EntityDefs. This way you can use your text editor's features to help you write your mod.
 
 ## Get Started
 
