@@ -105,9 +105,7 @@ export class ModBuilder {
     const filebasename = path.basename(subdirent.name, '.json');
     const destPath = path.join(this.outDir, dirent.name, `${filebasename}.txt`);
     try {
-      const jsonFile = await fs.promises.readFile(srcPath, {
-        encoding: 'utf-8',
-      });
+      const jsonFile = await this.fs.readFile(srcPath);
       const json = JSON.parse(jsonFile);
       const entityDef = jsToManyEntityDefs(json);
       await this.fs.writeFile(destPath, entityDef);

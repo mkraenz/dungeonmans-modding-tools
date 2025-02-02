@@ -3,6 +3,7 @@
 import { Command } from '@commander-js/extra-typings';
 import { createBuildCommand } from './build/build.command.js';
 import { createInitCommand } from './init/init.command.js';
+import { createSchemasCommand } from './schemas/schemas.command.js';
 
 const program = new Command();
 
@@ -12,5 +13,6 @@ program
   .version('0.0.1');
 program.addCommand(createInitCommand());
 program.addCommand(createBuildCommand());
+program.addCommand(createSchemasCommand());
 
 program.parse();

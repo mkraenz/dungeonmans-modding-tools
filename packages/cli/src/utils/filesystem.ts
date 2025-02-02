@@ -32,5 +32,10 @@ export class FileSystem {
     if (!this.dryRun) await fsp.copyFile(srcPath, destPath);
   }
 
+  async readFile(filepath: string) {
+    if (this.verbose) Logger.log('READ FILE:', filepath);
+    return fsp.readFile(filepath, 'utf-8');
+  }
+
   exists = fs.existsSync;
 }
