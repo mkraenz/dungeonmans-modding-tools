@@ -1,3 +1,13 @@
+## 0.1.0 (2025-02-02)
+
+### 🚀 Features
+
+- **schemas:** json schemas for npcs, status effects, academy, birdtextures, set bonuses ([9ae052b](https://github.com/mkraenz/dungeonmans-mod-tools/commit/9ae052b))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.0.4 (2025-02-02)
 
 This was a version bump only, there were no code changes.
