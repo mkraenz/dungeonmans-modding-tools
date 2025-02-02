@@ -1,12 +1,16 @@
+import path from 'node:path';
 import { FileSystem } from '../utils/filesystem.js';
 import { Logger } from '../utils/logger.js';
 
-const VS_CODE_SETTINGS = '.vscode/settings.json';
+const VS_CODE_DIR = '.vscode';
+const SETTINGS_FILE = 'settings.json';
+const DMANS_SCHEMA_FILE = 'dungeonmans-json-schema-map.json';
 
 type Options = {
   dryRun?: boolean;
   verbose?: boolean;
   editor: 'vscode' | 'other';
+  modDir?: string;
 };
 
 /**
@@ -50,28 +54,31 @@ export class SchemaGenerator {
   }
 
   async generateJsonSchemasForOtherEditor() {
+    const filepath = path.join(this.options.modDir ?? '.', DMANS_SCHEMA_FILE);
     await this.fs.writeFile(
-      'dungeonmans-json-schema-map.json',
+      filepath,
       JSON.stringify({ 'json.schemas': schemas }, null, 2)
     );
     Logger.warn(
-      'Created dungeonmans-json-schema-map.json in current working directory. Please configure your editor to use the contained schema urls for JSON schema validation.'
+      `Created ${filepath}. Please configure your editor to use the contained schema urls for JSON schema validation.`
     );
   }
 
   private async generateJsonSchemasForVsCode() {
-    if (this.fs.exists(VS_CODE_SETTINGS)) {
-      const settingsFile = await this.fs.readFile(VS_CODE_SETTINGS);
+    const settingsPath = path.join(
+      this.options.modDir ?? '.',
+      VS_CODE_DIR,
+      SETTINGS_FILE
+    );
+    if (this.fs.exists(settingsPath)) {
+      const settingsFile = await this.fs.readFile(settingsPath);
       const settings = JSON.parse(settingsFile);
       settings['json.schemas'] = schemas;
-      await this.fs.writeFile(
-        VS_CODE_SETTINGS,
-        JSON.stringify(settings, null, 2)
-      );
+      await this.fs.writeFile(settingsPath, JSON.stringify(settings, null, 2));
     } else {
-      await this.fs.makeDir('.vscode');
+      await this.fs.makeDir(path.join(this.options.modDir ?? '.', VS_CODE_DIR));
       await this.fs.writeFile(
-        VS_CODE_SETTINGS,
+        settingsPath,
         JSON.stringify({ 'json.schemas': schemas }, null, 2)
       );
     }

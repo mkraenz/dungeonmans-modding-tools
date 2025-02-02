@@ -7,8 +7,8 @@ CLI to help you develop Mod Content for Dungeonmans.
 If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI tool](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli) to create a new mod project. Assuming your text editor/IDE supports it, you will get
 
 - Autocompletion
-- Type checking
-- and Hover-over documentation
+- Type Hinting
+- Hover-over documentation
 
 for your mod files. Your text editor needs to be able to provide these features from JSON Schemas. If you don't know how to set this up for your text editor, VS Code does a great job at this out-of-the-box.
 
