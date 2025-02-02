@@ -7,6 +7,7 @@
       "properties": {
         "height": {
           "const": 128,
+          "description": "Only needed for monsters, npcs, and other actors. Not needed for Item sprites.",
           "type": "number"
         },
         "texturename": {
@@ -15,6 +16,7 @@
         },
         "width": {
           "const": 80,
+          "description": "Only needed for monsters, npcs, and other actors. Not needed for Item sprites.",
           "type": "number"
         },
         "xloc": {

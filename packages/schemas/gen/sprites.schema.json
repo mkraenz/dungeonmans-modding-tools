@@ -1,7 +1,28 @@
 {
-  "$ref": "#/definitions/DmMonsterSprites",
+  "$ref": "#/definitions/DmSprites",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "DmItemSprite": {
+      "additionalProperties": false,
+      "properties": {
+        "texturename": {
+          "description": "filename *without* the .png file ending inside textures/",
+          "type": "string"
+        },
+        "xloc": {
+          "type": "integer"
+        },
+        "yloc": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "texturename",
+        "xloc",
+        "yloc"
+      ],
+      "type": "object"
+    },
     "DmMonsterSprite": {
       "additionalProperties": false,
       "properties": {
@@ -35,9 +56,16 @@
       ],
       "type": "object"
     },
-    "DmMonsterSprites": {
+    "DmSprites": {
       "additionalProperties": {
-        "$ref": "#/definitions/DmMonsterSprite"
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DmMonsterSprite"
+          },
+          {
+            "$ref": "#/definitions/DmItemSprite"
+          }
+        ]
       },
       "description": "A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef \"<NAME_HERE>\". The value is used to generate the body of the entityDef.",
       "type": "object"
