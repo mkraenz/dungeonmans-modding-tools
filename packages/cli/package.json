@@ -3,6 +3,17 @@
   "version": "0.0.2",
   "private": false,
   "license": "MIT",
+  "description": "CLI to help you develop Mod Content for Dungeonmans.",
+  "keywords": [
+    "dungeonmans",
+    "modding",
+    "game",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkraenz/dungeonmans-mod-tools.git"
+  },
   "type": "module",
   "dependencies": {
     "@commander-js/extra-typings": "^13.1.0",
