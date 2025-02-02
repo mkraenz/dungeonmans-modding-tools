@@ -1,7 +1,21 @@
 {
-  "$ref": "#/definitions/DmMonsters",
+  "$ref": "#/definitions/DmActors",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "DmActors": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DmMonster"
+          },
+          {
+            "$ref": "#/definitions/DmTownsmans"
+          }
+        ]
+      },
+      "description": "Dictionary from entitydef name to DmMonster or DmTownsmans. Docs at for monsters as https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
+      "type": "object"
+    },
     "DmMonster": {
       "additionalProperties": false,
       "properties": {
@@ -1013,11 +1027,48 @@
       ],
       "type": "object"
     },
-    "DmMonsters": {
-      "additionalProperties": {
-        "$ref": "#/definitions/DmMonster"
+    "DmTownsmans": {
+      "additionalProperties": false,
+      "description": "Your friendly neighborhood NPC.",
+      "properties": {
+        "bBlockSameArchetype": {
+          "default": false,
+          "type": "boolean"
+        },
+        "bBlockTileEntry": {
+          "const": true,
+          "type": "boolean"
+        },
+        "class": {
+          "const": "dmTownsmans",
+          "type": "string"
+        },
+        "dialog_onBumped": {
+          "description": "Reference to a dialog of classType `dmDialogData` in plotdata/",
+          "type": "string"
+        },
+        "health": {
+          "default": 9999,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef inside spritedata/",
+          "type": "string"
+        }
       },
-      "description": "Dictionary from entitydef name to DmMonster. Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
+      "required": [
+        "class",
+        "bBlockTileEntry",
+        "sprite",
+        "name",
+        "health",
+        "bBlockSameArchetype",
+        "dialog_onBumped"
+      ],
       "type": "object"
     }
   }

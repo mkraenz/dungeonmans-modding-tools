@@ -25,7 +25,7 @@ export type DmMonsterSprites = {
   [entityDefName: string]: DmMonsterSprite;
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/** Dictionary from entityDef name to DmMonsterSprite or DmItemSprite. */
 export type DmSprites = {
   [entityDefName: string]: DmMonsterSprite | DmItemSprite;
 };

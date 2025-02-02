@@ -35,9 +35,7 @@
           "type": "integer"
         },
         "powername": {
-          "examples": [
-            "So Many Bites!"
-          ],
+          "description": "Display name",
           "type": "string"
         },
         "script": {

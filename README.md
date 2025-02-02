@@ -50,7 +50,7 @@ npx nx graph
 
 ### Content Creation
 
-- 🟢 [JSON schemas](libs/dmans-schemas/gen/monster.schema.json) for selected entity defs and plot theads as JSON
+- 🟢 [JSON schemas](packages/schemas/gen/actors.schema.json) and surrounding files for selected entity defs and plot theads as JSON
   - Provides autocompletion and validation when creating or editing JSONs that are going to be converted into entity def txt files
   - Check [vscode workspace settings'](.vscode/settings.json) `json.schemas` property on how to set up your editor to automatically make.
 - 🔴 JSON to entity def text file

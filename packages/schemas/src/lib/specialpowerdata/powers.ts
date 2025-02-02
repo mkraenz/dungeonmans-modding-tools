@@ -15,7 +15,7 @@ export type DmSummonPower = {
 
 export type DmSpecialPower = {
   class: 'dmSpecialPower';
-  /** @examples ["So Many Bites!"] */
+  /** Display name */
   powername: string;
   /** @default "No one will ever be able to read this." */
   menudescription: string;
@@ -40,7 +40,48 @@ export type DmSpecialPower = {
   script: string;
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+export type DmPlayerSpecialPower = {
+  class: 'dmSpecialPower';
+  /** Display name */
+  powername: string;
+  /** Description displayed in the menus. */
+  menudescription: string;
+  /** Reference to an entitydef name in spritedata/. */
+  icon: string;
+  /** @asType integer */
+  selectRange?: number;
+  dash?: string;
+  movespeed_self?: number;
+  rotateduringtravel?: number;
+  requiresarmor?: string;
+  selfstatuseffect?: string;
+  rayblockedbyobstacles?: boolean;
+  raylength?: number;
+  raybounces?: number;
+  targettile_01?: number;
+  targettile_02?: number;
+  ai_escapepower?: boolean;
+  stamcost?: number;
+};
+
+type WithPowerSwap = {
+  [key in `swap_${DoubleDigit}`]?: string;
+};
+/**
+ * TODO @playdungeonmans: This is a best guess. Need to clarify
+ *
+ * Defines which Dungeonmans-native powers should be replaced by modded powers.
+ * For example, to replace the native power `sp_quick_dash` by `sp_modmans_quick_dash`,
+ * you set `"swap_01": "sp_modmans_quick_dash"`.
+ */
+type DmPowerSwap = {
+  class: 'dmModPowerSwapList';
+};
+
+/** Dictionary from entityDef name to DmSpecialPower, DmSummonPower, DmPowerSwap, or DmPlayerSpecialPower. */
 export type DMSpecialPowers = {
-  [entityDefName: string]: DmSpecialPower | DmSummonPower;
+  [entityDefName: string]:
+    | DmSpecialPower
+    | DmSummonPower
+    | DmPlayerSpecialPower;
 };

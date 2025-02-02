@@ -1,0 +1,50 @@
+{
+  "$ref": "#/definitions/DmTownsmans",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmTownsmans": {
+      "additionalProperties": false,
+      "description": "Your friendly neighborhood NPC.",
+      "properties": {
+        "bBlockSameArchetype": {
+          "default": false,
+          "type": "boolean"
+        },
+        "bBlockTileEntry": {
+          "const": true,
+          "type": "boolean"
+        },
+        "class": {
+          "const": "dmTownsmans",
+          "type": "string"
+        },
+        "dialog_onBumped": {
+          "description": "Reference to a dialog of classType `dmDialogData` in plotdata/",
+          "type": "string"
+        },
+        "health": {
+          "default": 9999,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef inside spritedata/",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "bBlockTileEntry",
+        "sprite",
+        "name",
+        "health",
+        "bBlockSameArchetype",
+        "dialog_onBumped"
+      ],
+      "type": "object"
+    }
+  }
+}

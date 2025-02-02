@@ -1,0 +1,118 @@
+{
+  "$ref": "#/definitions/DmStatusEffects",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmStatStatusEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "appliedtext": {
+          "description": "Displayed text when the status effect is applied.",
+          "examples": [
+            [
+              "^5[victim]^7 loves modded items!"
+            ]
+          ],
+          "type": "string"
+        },
+        "charsheetdesc": {
+          "description": "Description in the Character sheet menu.",
+          "type": "string"
+        },
+        "charsheetname": {
+          "description": "Display name in the Character sheet menu.",
+          "type": "string"
+        },
+        "class": {
+          "const": "dmStatusEffect",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "duration": {
+          "description": "How many rounds the status effect last.",
+          "type": "integer"
+        },
+        "endless": {
+          "description": "Whether the status effect is permanent or not.",
+          "type": "boolean"
+        },
+        "foom": {
+          "description": "Foom added or subtracted by the status effect.",
+          "type": "integer"
+        },
+        "sci": {
+          "description": "Science added or subtracted by the status effect.",
+          "type": "integer"
+        },
+        "skl": {
+          "description": "Skill added or subtracted by the status effect.",
+          "type": "integer"
+        },
+        "statuscode": {
+          "type": "string"
+        },
+        "str": {
+          "description": "Strength added or subtracted by the status effect.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "class",
+        "appliedtext",
+        "statuscode",
+        "endless",
+        "charsheetname",
+        "charsheetdesc"
+      ],
+      "type": "object"
+    },
+    "DmStatusEffects": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DmStatStatusEffect"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "appliedtext": {
+                "description": "Displayed text when the status effect is applied.",
+                "examples": [
+                  [
+                    "^5[victim]^7 loves modded items!"
+                  ]
+                ],
+                "type": "string"
+              },
+              "class": {
+                "const": "dmStatusEffect",
+                "description": "The type of class. Constant.",
+                "type": "string"
+              },
+              "duration": {
+                "description": "How many rounds  the status effect last.",
+                "type": "integer"
+              },
+              "react_takehit": {
+                "description": "Reference to a function inside a file in code/. For example, setting \\\"react_takehit\\\" to \\\"modmans_mods.yell_about_being_hit\\\" means your script lives in code/modmans_mods.cs and within the class ScriptFunctions you have a method named `yell_about_being_hit`",
+                "type": "string"
+              },
+              "script_aimovement": {
+                "description": "Reference to a function inside a file in code/. For example, setting \\\"script_aimovement\\\" to \\\"modmans_mods.only_move_left\\\" means your script lives in code/modmans_mods.cs and within the class ScriptFunctions you have a method named `only_move_left`",
+                "type": "string"
+              }
+            },
+            "required": [
+              "class",
+              "appliedtext",
+              "script_aimovement",
+              "react_takehit"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "description": "Dictionary from entityDef name to DmStatStatusEffect or DmAiChangerEffect.",
+      "type": "object"
+    }
+  }
+}

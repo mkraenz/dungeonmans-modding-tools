@@ -97,8 +97,16 @@ export class SchemaGenerator {
 
 const schemas = [
   {
+    fileMatch: ['**/academydata/*.json'],
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/academy.schema.json',
+  },
+  {
     fileMatch: ['**/actordata/*.json'],
-    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/monsters.schema.json',
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/actors.schema.json',
+  },
+  {
+    fileMatch: ['**/birdtexturedata/*.json'],
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/birdtextures.schema.json',
   },
   {
     fileMatch: ['**/encounterdata/*.json'],
@@ -113,12 +121,20 @@ const schemas = [
     url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/plot.schema.json',
   },
   {
+    fileMatch: ['**/setbonusdata/*.json'],
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/set-bonuses.schema.json',
+  },
+  {
     fileMatch: ['**/specialpowerdata/*.json'],
     url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/powers.schema.json',
   },
   {
     fileMatch: ['**/spritedata/*.json'],
     url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/sprites.schema.json',
+  },
+  {
+    fileMatch: ['**/statuseffectdata/*.json'],
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/status-effects.schema.json',
   },
   {
     fileMatch: ['**/tabledata/*.json'],

@@ -1,0 +1,109 @@
+{
+  "$ref": "#/definitions/DmSetBonuses",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmSetBonus": {
+      "additionalProperties": false,
+      "description": "Defines what bonuses an item set provides.",
+      "properties": {
+        "desc_1": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_2": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_3": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_4": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_5": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_6": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_7": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_8": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "desc_9": {
+          "description": "Description for the set bonus at x number of pieces",
+          "type": "string"
+        },
+        "effect_1": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_2": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_3": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_4": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_5": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_6": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_7": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_8": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "effect_9": {
+          "description": "The effect of the set bonus at x number of pieces. Reference to an entitydef name in statuseffectdata/.",
+          "type": "string"
+        },
+        "pieces": {
+          "description": "Total number of items in the set.",
+          "type": "integer"
+        },
+        "set": {
+          "description": "Reference to value of `itemset` for equipment entitydefs under itemdata/",
+          "type": "string"
+        },
+        "setname": {
+          "description": "Display name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "set",
+        "setname",
+        "pieces"
+      ],
+      "type": "object"
+    },
+    "DmSetBonuses": {
+      "additionalProperties": {
+        "$ref": "#/definitions/DmSetBonus"
+      },
+      "description": "Dictionary from entityDef name to DmSetBonus.",
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$ref": "#/definitions/DmBirdTextures",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmBirdTexture": {
+      "additionalProperties": false,
+      "properties": {
+        "basetexture": {
+          "type": "string"
+        },
+        "class": {
+          "const": "dmBirdTexture",
+          "type": "string"
+        },
+        "masktexture": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "name",
+        "basetexture",
+        "masktexture"
+      ],
+      "type": "object"
+    },
+    "DmBirdTextures": {
+      "additionalProperties": {
+        "$ref": "#/definitions/DmBirdTexture"
+      },
+      "description": "Dictionary from entitydef name to DmBirdTexture. Docs at for monsters as https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
+      "type": "object"
+    }
+  }
+}

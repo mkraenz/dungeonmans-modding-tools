@@ -214,7 +214,7 @@
           }
         ]
       },
-      "description": "Dictionary of keys to DmPlotThread, DmPlotScript, or DmDialogData. Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads",
+      "description": "Dictionary from entitydef name to DmPlotThread, DmPlotScript, or DmDialogData. Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads",
       "type": "object"
     },
     "DmPlotScript": {
@@ -234,14 +234,14 @@
           "additionalProperties": {
             "type": "integer"
           },
-          "description": "Give these items directly to the player inventory. Dictionary of names of entityDefs in `itemdata/` to how many.",
+          "description": "Give these items directly to the player inventory. Dictionary from entityDef name in `itemdata/` to how many.",
           "type": "object"
         },
         "removeItems": {
           "additionalProperties": {
             "type": "integer"
           },
-          "description": "Remove items from the player inventory. Dictionary of names of entityDefs in `itemdata/` to how many should be removed.",
+          "description": "Remove items from the player inventory. Dictionary from entityDef name in `itemdata/` to how many should be removed.",
           "type": "object"
         },
         "setThisState": {
@@ -252,7 +252,7 @@
           "additionalProperties": {
             "type": "integer"
           },
-          "description": "Items to be tossed on the ground. Dictionary of names of entityDefs in `itemdata/` to how many.",
+          "description": "Items to be tossed on the ground. Dictionary from entityDef name in `itemdata/` to how many.",
           "type": "object"
         }
       },
@@ -267,7 +267,7 @@
       "additionalProperties": {
         "type": "number"
       },
-      "description": "The collection of states that the plot thread can be in. Dictionary of states to numbers. The numbers do not really matter but it should be unique within the plotStateLookup. Every plot thread should start with `\"unstarted\"`.",
+      "description": "The collection of states that the plot thread can be in. Dictionary from states to numbers. The numbers do not really matter but it should be unique within the plotStateLookup. Every plot thread should start with `\"unstarted\"`.",
       "properties": {
         "unstarted": {
           "const": 0,

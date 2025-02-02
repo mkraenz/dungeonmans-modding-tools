@@ -10,10 +10,80 @@
           },
           {
             "$ref": "#/definitions/DmSummonPower"
+          },
+          {
+            "$ref": "#/definitions/DmPlayerSpecialPower"
           }
         ]
       },
-      "description": "A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef \"<NAME_HERE>\". The value is used to generate the body of the entityDef.",
+      "description": "Dictionary from entityDef name to DmSpecialPower, DmSummonPower, DmPowerSwap, or DmPlayerSpecialPower.",
+      "type": "object"
+    },
+    "DmPlayerSpecialPower": {
+      "additionalProperties": false,
+      "properties": {
+        "ai_escapepower": {
+          "type": "boolean"
+        },
+        "class": {
+          "const": "dmSpecialPower",
+          "type": "string"
+        },
+        "dash": {
+          "type": "string"
+        },
+        "icon": {
+          "description": "Reference to an entitydef name in spritedata/.",
+          "type": "string"
+        },
+        "menudescription": {
+          "description": "Description displayed in the menus.",
+          "type": "string"
+        },
+        "movespeed_self": {
+          "type": "number"
+        },
+        "powername": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "rayblockedbyobstacles": {
+          "type": "boolean"
+        },
+        "raybounces": {
+          "type": "number"
+        },
+        "raylength": {
+          "type": "number"
+        },
+        "requiresarmor": {
+          "type": "string"
+        },
+        "rotateduringtravel": {
+          "type": "number"
+        },
+        "selectRange": {
+          "type": "integer"
+        },
+        "selfstatuseffect": {
+          "type": "string"
+        },
+        "stamcost": {
+          "type": "number"
+        },
+        "targettile_01": {
+          "type": "number"
+        },
+        "targettile_02": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "class",
+        "powername",
+        "menudescription",
+        "icon"
+      ],
       "type": "object"
     },
     "DmSpecialPower": {
@@ -49,9 +119,7 @@
           "type": "integer"
         },
         "powername": {
-          "examples": [
-            "So Many Bites!"
-          ],
+          "description": "Display name",
           "type": "string"
         },
         "script": {

@@ -16,7 +16,10 @@ const _test: DmEncounter = {
   modmans_mod_moldbla: '1d4+1',
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/**
+ * Dictionary from entitydef name to DmEncounter.
+ * Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
+ */
 export type DmEncounters = {
   [entityDefName: string]: DmEncounter;
 };

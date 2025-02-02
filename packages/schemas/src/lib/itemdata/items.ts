@@ -52,7 +52,7 @@ export type DmItemConsumable = {
   power_1: string;
 };
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/** Dictionary from entityDef name to DmItemConsumable or DmItemNonAcademyTurnIn. */
 export type DmItems = {
   [entityDefName: string]: DmItemConsumable | DmItemNonAcademyTurnIn;
 };

@@ -1,5 +1,5 @@
 /**
- * Dictionary of keys to DmPlotThread, DmPlotScript, or DmDialogData.
+ * Dictionary from entitydef name to DmPlotThread, DmPlotScript, or DmDialogData.
  * Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads
  */
 export type DmPlot = {
@@ -17,7 +17,7 @@ export type DmPlotThread = {
 
 /**
  * The collection of states that the plot thread can be in.
- * Dictionary of states to numbers. The numbers do not really matter but
+ * Dictionary from states to numbers. The numbers do not really matter but
  * it should be unique within the plotStateLookup.
  * Every plot thread should start with `"unstarted"`.
  */
@@ -77,17 +77,17 @@ export type DmPlotScript = {
   dialogArchetype: string;
   /**
    * Remove items from the player inventory.
-   * Dictionary of names of entityDefs in `itemdata/` to how many should be removed.
+   * Dictionary from entityDef name in `itemdata/` to how many should be removed.
    */
   removeItems?: Record<string, Integer>;
   /**
    * Items to be tossed on the ground.
-   * Dictionary of names of entityDefs in `itemdata/` to how many.
+   * Dictionary from entityDef name in `itemdata/` to how many.
    */
   tossItems?: Record<string, Integer>;
   /**
    * Give these items directly to the player inventory.
-   * Dictionary of names of entityDefs in `itemdata/` to how many.
+   * Dictionary from entityDef name in `itemdata/` to how many.
    */
   giveItems?: Record<string, Integer>;
 };

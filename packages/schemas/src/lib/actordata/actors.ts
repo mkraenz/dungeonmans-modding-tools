@@ -63,7 +63,37 @@ export type DmMonster = {
   WithRangedDamage &
   WithPower;
 
-/** A map from entityDefName to the values inside that entitydef. The name will appear in `entityDef "<NAME_HERE>". The value is used to generate the body of the entityDef. */
+/**
+ * Dictionary from entitydef name to DmMonster.
+ * Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
+ */
 export type DmMonsters = {
   [entityDefName: string]: DmMonster;
+};
+
+/** Your friendly neighborhood NPC. */
+export type DmTownsmans = {
+  class: 'dmTownsmans';
+  bBlockTileEntry: true;
+  /** Reference to an entitydef inside spritedata/ */
+  sprite: string;
+  /** Display name */
+  name: string;
+  /**
+   * @asType integer
+   * @default 9999
+   */
+  health: number;
+  /** @default false */
+  bBlockSameArchetype: boolean;
+  /** Reference to a dialog of classType `dmDialogData` in plotdata/ */
+  dialog_onBumped: string;
+};
+
+/**
+ * Dictionary from entitydef name to DmMonster or DmTownsmans.
+ * Docs at for monsters as https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
+ */
+export type DmActors = {
+  [entityDefName: string]: DmMonster | DmTownsmans;
 };
