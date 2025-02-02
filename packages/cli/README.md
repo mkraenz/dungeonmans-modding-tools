@@ -2,6 +2,8 @@
 
 CLI to help you develop Mod Content for Dungeonmans.
 
+![CLI basic usage demo](https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/docs/external/dungeonmans-modding-tools-cli-demo.gif)
+
 ## Why should I use this?
 
 If you want to create a mod for Dungeonmans, we recommend you use our [nifty CLI tool](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli) to create a new mod project. Assuming your text editor/IDE supports it, you will get
