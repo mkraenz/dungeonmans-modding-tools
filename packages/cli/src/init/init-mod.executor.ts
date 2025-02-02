@@ -127,7 +127,7 @@ This directory was created using \`npx @dungeonmans-mod-tools/cli init\`.
 
 Add json files to add monsters, dungeons, etc inside the respective subdirectories of the \`src/\` directory.
 
-If supported by your editor you should get intellisense, type hinting, and hover-over-documentation, too. Support may vary by IDE. We have set up the schemas for use in VS Code by default. If you use a different editor, you can find the Dungeonmans JSON schemas inside \`.vscode/settings.json#json.schemas\` or regenerate them with \`npx @dungeonmans-mod-tools/cli schemas --editor other\`. For IntelliJ, see [their docs(https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom) on using Custom JSON Schemas. (Disclaimer: The json schemas that enable IDE support are Work In Progress.)
+If supported by your editor you should get intellisense, type hinting, and hover-over-documentation, too. Support may vary by IDE. We have set up the schemas for use in VS Code by default. If you use a different editor, you can find the Dungeonmans JSON schemas inside \`.vscode/settings.json#json.schemas\` or regenerate them with \`npx @dungeonmans-mod-tools/cli schemas --editor other\`. For IntelliJ, see [their docs](https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom) on using Custom JSON Schemas. (Disclaimer: The json schemas that enable IDE support are Work In Progress.)
 
 If you prefer to write entityDefs in plain text instead, you can do that as well by writing them as \`.txt\` files inside the subdirectories of \`src/\`. Be aware that there are no guard rails though.
 
