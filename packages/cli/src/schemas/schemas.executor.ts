@@ -113,6 +113,10 @@ const schemas = [
     url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/encounters.schema.json',
   },
   {
+    fileMatch: ['**/gamesystemdata/*.json'],
+    url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/game-systems.schema.json',
+  },
+  {
     fileMatch: ['**/itemdata/*.json'],
     url: 'https://raw.githubusercontent.com/mkraenz/dungeonmans-mod-tools/refs/heads/main/packages/schemas/gen/items.schema.json',
   },
