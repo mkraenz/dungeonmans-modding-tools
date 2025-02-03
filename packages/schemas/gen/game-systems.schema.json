@@ -1,0 +1,504 @@
+{
+  "$ref": "#/definitions/DmGameSystems",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmCurriculum": {
+      "additionalProperties": false,
+      "description": "The curriculum is a collection of all the syllabi presented to the player at the academy. It is the the skill tree in its entirety.\n\nThe core game uses `vanilla_curriculum` and your mods can add to or subtract from that list.\n\nYou should only have a single curriculum for your mod.",
+      "properties": {
+        "add_01": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_02": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_03": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_04": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_05": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_06": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_07": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_08": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_09": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_10": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_11": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_12": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_13": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_14": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_15": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "class": {
+          "const": "dmCurriculum",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "modify": {
+          "const": true,
+          "description": "Must be set to true for this curriculum to be applied to the vanilla one. Without this flag, your curriculum will be ignored.",
+          "type": "boolean"
+        },
+        "remove_01": {
+          "const": "syllabus_adventure_101",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_02": {
+          "const": "syllabus_armor",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_03": {
+          "const": "syllabus_fightermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_04": {
+          "const": "syllabus_wizardmans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_05": {
+          "const": "syllabus_rangermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_06": {
+          "const": "syllabus_necromansy",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_07": {
+          "const": "syllabus_bannermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_08": {
+          "const": "syllabus_southern_gentlemans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_09": {
+          "const": "syllabus_psychomanser",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_10": {
+          "const": "syllabus_outdoorsmans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_11": {
+          "const": "syllabus_field_work",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_12": {
+          "const": "syllabus_masters_program",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "modify"
+      ],
+      "type": "object"
+    },
+    "DmGameSystems": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DmMagicModifier"
+          },
+          {
+            "$ref": "#/definitions/DmPerk"
+          },
+          {
+            "$ref": "#/definitions/DmMastery"
+          },
+          {
+            "$ref": "#/definitions/DmSyllabus"
+          },
+          {
+            "$ref": "#/definitions/DmCurriculum"
+          }
+        ]
+      },
+      "description": "Dictionary from entityDef name to DmMagicModifier, DmPerk, DmMastery, DmSyllabus, or DmCurriculum.",
+      "type": "object"
+    },
+    "DmMagicModifier": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMagicModifier",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "damagedealt_01": {
+              "description": "Used for proc modifier. Damage dealt as either an integer, a dice roll, or a string of the format `type,roll,percent modifier`, for example \"dark,2d4,0\".\n\nMost percent modifiers are 0.0 centric, meaning 0.2 == 20% increase, -0.2 == 20% decrease.",
+              "type": "string"
+            },
+            "foom": {
+              "description": "Foom added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "prefix": {
+              "description": "Prefix for building weapon or armor names, e.g. \"Smarty\", \"Doomswarm\".",
+              "type": "string"
+            },
+            "proc_on_hit": {
+              "description": "Used for proc modifier. Format: [name of proc],[chance on hit, where 1.0 is 100%],\"[Text to display on the enchanted item.]\". For example `doomsting_proc_01,0.05,\"Rarely blasts your foes with bees`",
+              "type": "string"
+            },
+            "sci": {
+              "description": "Science added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "skl": {
+              "description": "Skill added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "str": {
+              "description": "Strength added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "wargear": {
+              "const": true,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "class",
+            "wargear"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMagicModifier",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "damagedealt_01": {
+              "description": "Used for proc modifier. Damage dealt as either an integer, a dice roll, or a string of the format `type,roll,percent modifier`, for example \"dark,2d4,0\".\n\nMost percent modifiers are 0.0 centric, meaning 0.2 == 20% increase, -0.2 == 20% decrease.",
+              "type": "string"
+            },
+            "foom": {
+              "description": "Foom added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "prefix": {
+              "description": "Prefix for building weapon or armor names, e.g. \"Smarty\", \"Doomswarm\".",
+              "type": "string"
+            },
+            "proc_on_hit": {
+              "description": "Used for proc modifier. Format: [name of proc],[chance on hit, where 1.0 is 100%],\"[Text to display on the enchanted item.]\". For example `doomsting_proc_01,0.05,\"Rarely blasts your foes with bees`",
+              "type": "string"
+            },
+            "sci": {
+              "description": "Science added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "skl": {
+              "description": "Skill added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "str": {
+              "description": "Strength added or subtracted by the modifier.",
+              "type": "integer"
+            },
+            "wargear": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "class",
+            "prefix"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "DmMastery": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 1,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 2,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk2": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 3,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk2": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk3": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "A Mastery is a collection of perks. IMPORTANT: When a Mastery grants you a Perk, it removes the previous perk granted. Check the docs for how to best work with this behavior.\n\nDocs at https://dungeonmans.fandom.com/wiki/Curriculum_and_Masteries"
+    },
+    "DmPerk": {
+      "additionalProperties": false,
+      "description": "Perks are character modifications besides those from items. At the beginning of the game you choose 2 perks.",
+      "properties": {
+        "class": {
+          "const": "dmPerk",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "classRank": {
+          "description": "Some Syllabi grant scaling power based on how many perks you've taken from their masteries. If you want to do that, your classrank value should be the mastery category you want to increase, followed by the value of this perk. Usually 1, 2, or 3.",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "flavor": {
+          "description": "Flavor text",
+          "type": "string"
+        },
+        "grantedpower": {
+          "description": "The power that is enabled by clicking this button in the UI, or dragging this button to a hotbar.",
+          "type": "string"
+        },
+        "icon": {
+          "description": "Reference to an entity in spritedata. Dimensions should be width 50px, height 50px, though your content should be within the 48x48px inner square.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "power_1": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        },
+        "power_2": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        },
+        "power_3": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "name",
+        "description",
+        "flavor",
+        "power_1",
+        "grantedpower",
+        "icon"
+      ],
+      "type": "object"
+    },
+    "DmSyllabus": {
+      "additionalProperties": false,
+      "description": "A Syllabus is a collection of Masteries. You may have referred to this as a \"Class\" because it's the classification that most closely matches classes from other RPGs. Fightermans, Wizardmans, etc.",
+      "properties": {
+        "background": {
+          "description": "Reference to an entity in spritedata/. Dimensions should be width 256px, height 512px.",
+          "type": "string"
+        },
+        "button": {
+          "description": "Reference to an entity in spritedata/. Dimensions should be width 100px, height 70px.",
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "class": {
+          "const": "dmSyllabus",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "func_determinerank": {
+          "description": "Reference to code to grant a title to the player for each rank. Format <namespace>.<functionname>",
+          "type": "string"
+        },
+        "mastery_01": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_02": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_03": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_04": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_05": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Display name at the top of the window.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "button",
+        "background",
+        "category",
+        "title",
+        "mastery_01"
+      ],
+      "type": "object"
+    }
+  }
+}

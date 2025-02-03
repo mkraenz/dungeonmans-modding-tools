@@ -1,0 +1,62 @@
+{
+  "$ref": "#/definitions/DmPerk",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmPerk": {
+      "additionalProperties": false,
+      "description": "Perks are character modifications besides those from items. At the beginning of the game you choose 2 perks.",
+      "properties": {
+        "class": {
+          "const": "dmPerk",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "classRank": {
+          "description": "Some Syllabi grant scaling power based on how many perks you've taken from their masteries. If you want to do that, your classrank value should be the mastery category you want to increase, followed by the value of this perk. Usually 1, 2, or 3.",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "flavor": {
+          "description": "Flavor text",
+          "type": "string"
+        },
+        "grantedpower": {
+          "description": "The power that is enabled by clicking this button in the UI, or dragging this button to a hotbar.",
+          "type": "string"
+        },
+        "icon": {
+          "description": "Reference to an entity in spritedata. Dimensions should be width 50px, height 50px, though your content should be within the 48x48px inner square.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "power_1": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        },
+        "power_2": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        },
+        "power_3": {
+          "description": "Powers that the player has access to because they have this perk. Remember, as you move through the Mastery, the Perk should include all the previous powers available.\n\nReference to an entity with class `dmSpecialPower` in specialpowerdata/.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "name",
+        "description",
+        "flavor",
+        "power_1",
+        "grantedpower",
+        "icon"
+      ],
+      "type": "object"
+    }
+  }
+}

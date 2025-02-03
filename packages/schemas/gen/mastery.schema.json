@@ -1,0 +1,128 @@
+{
+  "$ref": "#/definitions/DmMastery",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmMastery": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 1,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 2,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk2": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "const": "dmMastery",
+              "description": "The type of class. Constant.",
+              "type": "string"
+            },
+            "masteryDescription": {
+              "description": "Description of the mastery.",
+              "type": "string"
+            },
+            "masteryName": {
+              "description": "Display name of the mastery.",
+              "type": "string"
+            },
+            "maxperks": {
+              "const": 3,
+              "description": "How many perks are there in this mastery?",
+              "type": "number"
+            },
+            "perk1": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk2": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            },
+            "perk3": {
+              "description": "Reference to an entity of class `dmPerk` in gamesystemdata/.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "class",
+            "masteryDescription",
+            "masteryName",
+            "maxperks",
+            "perk1"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "A Mastery is a collection of perks. IMPORTANT: When a Mastery grants you a Perk, it removes the previous perk granted. Check the docs for how to best work with this behavior.\n\nDocs at https://dungeonmans.fandom.com/wiki/Curriculum_and_Masteries"
+    }
+  }
+}

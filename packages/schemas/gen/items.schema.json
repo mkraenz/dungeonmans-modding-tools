@@ -2,11 +2,324 @@
   "$ref": "#/definitions/DmItems",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "DmArmor": {
+      "additionalProperties": false,
+      "properties": {
+        "armorvalue": {
+          "type": "integer"
+        },
+        "class": {
+          "const": "dmArmor",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "dodgevalue": {
+          "type": "integer"
+        },
+        "flavorText": {
+          "description": "Text displayed on the item details.",
+          "type": "string"
+        },
+        "identified": {
+          "description": "Has the item been identified?",
+          "type": "boolean"
+        },
+        "info1": {
+          "examples": [
+            "1h",
+            "2h",
+            "heavyarmor",
+            "helm",
+            "glove"
+          ],
+          "type": "string"
+        },
+        "itemset": {
+          "description": "Identifier of the item set this item is part of, if any. Use together entities in in setbonusdata/.",
+          "type": "string"
+        },
+        "magicmodifier_01": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_02": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_03": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_04": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_05": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_06": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_07": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_08": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_09": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef in spritedata/",
+          "type": "string"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "uniqueitem": {
+          "default": false,
+          "description": "Is this a unique item?",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Market value of the item",
+          "type": "number"
+        }
+      },
+      "required": [
+        "armorvalue",
+        "class",
+        "dodgevalue",
+        "flavorText",
+        "identified",
+        "info1",
+        "name",
+        "sprite",
+        "tier",
+        "value"
+      ],
+      "type": "object"
+    },
+    "DmGlove": {
+      "additionalProperties": false,
+      "properties": {
+        "class": {
+          "const": "dmGlove",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "defeatarmor": {
+          "type": "integer"
+        },
+        "flavorText": {
+          "description": "Text displayed on the item details.",
+          "type": "string"
+        },
+        "identified": {
+          "description": "Has the item been identified?",
+          "type": "boolean"
+        },
+        "info1": {
+          "examples": [
+            "1h",
+            "2h",
+            "heavyarmor",
+            "helm",
+            "glove"
+          ],
+          "type": "string"
+        },
+        "itemset": {
+          "description": "Identifier of the item set this item is part of, if any. Use together entities in in setbonusdata/.",
+          "type": "string"
+        },
+        "magicmodifier_01": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_02": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_03": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_04": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_05": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_06": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_07": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_08": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_09": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef in spritedata/",
+          "type": "string"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "uniqueitem": {
+          "default": false,
+          "description": "Is this a unique item?",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Market value of the item",
+          "type": "number"
+        }
+      },
+      "required": [
+        "class",
+        "defeatarmor",
+        "flavorText",
+        "identified",
+        "info1",
+        "name",
+        "sprite",
+        "tier",
+        "value"
+      ],
+      "type": "object"
+    },
+    "DmHelm": {
+      "additionalProperties": false,
+      "properties": {
+        "class": {
+          "const": "dmHelm",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "flavorText": {
+          "description": "Text displayed on the item details.",
+          "type": "string"
+        },
+        "healthbonus": {
+          "type": "number"
+        },
+        "identified": {
+          "description": "Has the item been identified?",
+          "type": "boolean"
+        },
+        "info1": {
+          "examples": [
+            "1h",
+            "2h",
+            "heavyarmor",
+            "helm",
+            "glove"
+          ],
+          "type": "string"
+        },
+        "itemset": {
+          "description": "Identifier of the item set this item is part of, if any. Use together entities in in setbonusdata/.",
+          "type": "string"
+        },
+        "magicmodifier_01": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_02": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_03": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_04": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_05": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_06": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_07": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_08": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_09": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef in spritedata/",
+          "type": "string"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "uniqueitem": {
+          "default": false,
+          "description": "Is this a unique item?",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Market value of the item",
+          "type": "number"
+        }
+      },
+      "required": [
+        "class",
+        "flavorText",
+        "identified",
+        "info1",
+        "name",
+        "sprite",
+        "tier",
+        "value"
+      ],
+      "type": "object"
+    },
     "DmItemConsumable": {
       "additionalProperties": false,
       "properties": {
         "class": {
           "const": "dmConsumable",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "description": {
@@ -81,27 +394,22 @@
       "properties": {
         "class": {
           "const": "dmNonAcademyTurnIn",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "description": {
-          "examples": [
-            "A fancy yet clearly broken shovel handle."
-          ],
+          "description": "Short description.",
           "type": "string"
         },
         "flavorText": {
-          "examples": [
-            "Someone who really likes shovels spent some time with this."
-          ],
+          "description": "Flavor text",
           "type": "string"
         },
         "identified": {
           "type": "boolean"
         },
         "name": {
-          "examples": [
-            "Broken Shovel Handle"
-          ],
+          "description": "Diplay name",
           "type": "string"
         },
         "plotthread_advance": {
@@ -112,10 +420,7 @@
           "type": "string"
         },
         "sprite": {
-          "description": "Reference to a spritedata entitydef",
-          "examples": [
-            "modplot_item_shovel_handle_sprite"
-          ],
+          "description": "Reference to an entity in spritedata/.",
           "type": "string"
         },
         "stackable": {
@@ -146,10 +451,256 @@
           },
           {
             "$ref": "#/definitions/DmItemNonAcademyTurnIn"
+          },
+          {
+            "$ref": "#/definitions/DmWeapon"
+          },
+          {
+            "$ref": "#/definitions/DmWizardStaff"
+          },
+          {
+            "$ref": "#/definitions/DmArmor"
+          },
+          {
+            "$ref": "#/definitions/DmHelm"
+          },
+          {
+            "$ref": "#/definitions/DmGlove"
           }
         ]
       },
-      "description": "Dictionary from entityDef name to DmItemConsumable or DmItemNonAcademyTurnIn.",
+      "description": "Dictionary from entityDef name to DmItemConsumable, DmItemNonAcademyTurnIn, DmWeapon, DmWizardStaff, DmArmor, DmHelm.\n\nTODO there can be much more item types here. I also think that the effects of the gear can be mixed and matched. But we have to start somewhere.",
+      "type": "object"
+    },
+    "DmWeapon": {
+      "additionalProperties": false,
+      "properties": {
+        "attackparticle": {
+          "description": "Reference to a particle effect entity name",
+          "examples": [
+            "particle_attack_weapon_slash",
+            "wizard_staff_blast_quick"
+          ],
+          "type": "string"
+        },
+        "class": {
+          "const": "dmWeapon",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "damage": {
+          "description": "How much damage does the weapon do? Either a dice roll like '4d7' or an integer string like '0'",
+          "type": "string"
+        },
+        "flavorText": {
+          "description": "Text displayed on the item details.",
+          "type": "string"
+        },
+        "hands": {
+          "description": "One-handed or two-handed weapon",
+          "enum": [
+            1,
+            2
+          ],
+          "type": "number"
+        },
+        "identified": {
+          "description": "Has the item been identified?",
+          "type": "boolean"
+        },
+        "info1": {
+          "examples": [
+            "1h",
+            "2h",
+            "heavyarmor",
+            "helm",
+            "glove"
+          ],
+          "type": "string"
+        },
+        "info2": {
+          "examples": ": [\"axe\"]",
+          "type": "string"
+        },
+        "itemset": {
+          "description": "Identifier of the item set this item is part of, if any. Use together entities in in setbonusdata/.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "range": {
+          "default": "1\nAttack range in number of tiles, diagonals count as 1.",
+          "type": "integer"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef in spritedata/",
+          "type": "string"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "unidName": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "uniqueitem": {
+          "default": false,
+          "description": "Is this a unique item?",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Market value of the item",
+          "type": "number"
+        }
+      },
+      "required": [
+        "attackparticle",
+        "class",
+        "damage",
+        "flavorText",
+        "hands",
+        "identified",
+        "info1",
+        "info2",
+        "name",
+        "sprite",
+        "tier",
+        "unidName",
+        "value"
+      ],
+      "type": "object"
+    },
+    "DmWizardStaff": {
+      "additionalProperties": false,
+      "properties": {
+        "attackparticle": {
+          "description": "Reference to a particle effect entity name",
+          "examples": [
+            "particle_attack_weapon_slash",
+            "wizard_staff_blast_quick"
+          ],
+          "type": "string"
+        },
+        "class": {
+          "const": "dmWizardStaff",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "damage": {
+          "description": "How much damage does the weapon do? Either a dice roll like '4d7' or an integer string like '0'",
+          "type": "string"
+        },
+        "flavorText": {
+          "description": "Text displayed on the item details.",
+          "type": "string"
+        },
+        "identified": {
+          "description": "Has the item been identified?",
+          "type": "boolean"
+        },
+        "info1": {
+          "examples": [
+            "1h",
+            "2h",
+            "heavyarmor",
+            "helm",
+            "glove"
+          ],
+          "type": "string"
+        },
+        "info2": {
+          "examples": ": [\"axe\"]",
+          "type": "string"
+        },
+        "itemset": {
+          "description": "Identifier of the item set this item is part of, if any. Use together entities in in setbonusdata/.",
+          "type": "string"
+        },
+        "magicmodifier_01": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_02": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_03": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_04": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_05": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_06": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_07": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_08": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "magicmodifier_09": {
+          "description": "Reference to an entity of class 'dmMagicModifier' in gamesystemdata/.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "range": {
+          "default": "1\nAttack range in number of tiles, diagonals count as 1.",
+          "type": "integer"
+        },
+        "spellpower": {
+          "type": "integer"
+        },
+        "sprite": {
+          "description": "Reference to an entitydef in spritedata/",
+          "type": "string"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "unidName": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "uniqueitem": {
+          "default": false,
+          "description": "Is this a unique item?",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Market value of the item",
+          "type": "number"
+        }
+      },
+      "required": [
+        "attackparticle",
+        "class",
+        "damage",
+        "flavorText",
+        "identified",
+        "info1",
+        "info2",
+        "name",
+        "spellpower",
+        "sprite",
+        "tier",
+        "unidName",
+        "value"
+      ],
       "type": "object"
     }
   }

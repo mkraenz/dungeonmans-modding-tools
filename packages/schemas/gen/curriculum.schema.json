@@ -1,0 +1,147 @@
+{
+  "$ref": "#/definitions/DmCurriculum",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmCurriculum": {
+      "additionalProperties": false,
+      "description": "The curriculum is a collection of all the syllabi presented to the player at the academy. It is the the skill tree in its entirety.\n\nThe core game uses `vanilla_curriculum` and your mods can add to or subtract from that list.\n\nYou should only have a single curriculum for your mod.",
+      "properties": {
+        "add_01": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_02": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_03": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_04": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_05": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_06": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_07": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_08": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_09": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_10": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_11": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_12": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_13": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_14": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "add_15": {
+          "description": "Adds the syllabus to the game's vanilla_curriculum list. Reference to an entity of class `dmSyllabus` in gamesystemdata/.",
+          "type": "string"
+        },
+        "class": {
+          "const": "dmCurriculum",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "modify": {
+          "const": true,
+          "description": "Must be set to true for this curriculum to be applied to the vanilla one. Without this flag, your curriculum will be ignored.",
+          "type": "boolean"
+        },
+        "remove_01": {
+          "const": "syllabus_adventure_101",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_02": {
+          "const": "syllabus_armor",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_03": {
+          "const": "syllabus_fightermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_04": {
+          "const": "syllabus_wizardmans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_05": {
+          "const": "syllabus_rangermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_06": {
+          "const": "syllabus_necromansy",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_07": {
+          "const": "syllabus_bannermans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_08": {
+          "const": "syllabus_southern_gentlemans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_09": {
+          "const": "syllabus_psychomanser",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_10": {
+          "const": "syllabus_outdoorsmans",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_11": {
+          "const": "syllabus_field_work",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        },
+        "remove_12": {
+          "const": "syllabus_masters_program",
+          "description": "If set, removes the respective syllabus in the vanilla_curriculum from the modded game.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "modify"
+      ],
+      "type": "object"
+    }
+  }
+}

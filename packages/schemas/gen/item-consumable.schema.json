@@ -7,6 +7,7 @@
       "properties": {
         "class": {
           "const": "dmConsumable",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "description": {

@@ -36,6 +36,11 @@ const configs = [
   { type: 'DmEncounterTable', out: 'encounter-table' },
   { type: 'DmEncounterTables', out: 'encounter-tables' },
   { type: 'DmPlot', out: 'plot' },
+  { type: 'DmPerk', out: 'perk' },
+  { type: 'DmMastery', out: 'mastery' },
+  { type: 'DmSyllabus', out: 'syllabus' },
+  { type: 'DmCurriculum', out: 'curriculum' },
+  { type: 'DmGameSystems', out: 'game-systems' },
 ]
   .filter((c) =>
     typePattern === '' ? true : new RegExp(typePattern, 'i').test(c.type)

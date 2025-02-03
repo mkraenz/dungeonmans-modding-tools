@@ -7,27 +7,22 @@
       "properties": {
         "class": {
           "const": "dmNonAcademyTurnIn",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "description": {
-          "examples": [
-            "A fancy yet clearly broken shovel handle."
-          ],
+          "description": "Short description.",
           "type": "string"
         },
         "flavorText": {
-          "examples": [
-            "Someone who really likes shovels spent some time with this."
-          ],
+          "description": "Flavor text",
           "type": "string"
         },
         "identified": {
           "type": "boolean"
         },
         "name": {
-          "examples": [
-            "Broken Shovel Handle"
-          ],
+          "description": "Diplay name",
           "type": "string"
         },
         "plotthread_advance": {
@@ -38,10 +33,7 @@
           "type": "string"
         },
         "sprite": {
-          "description": "Reference to a spritedata entitydef",
-          "examples": [
-            "modplot_item_shovel_handle_sprite"
-          ],
+          "description": "Reference to an entity in spritedata/.",
           "type": "string"
         },
         "stackable": {

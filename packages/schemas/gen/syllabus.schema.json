@@ -1,0 +1,65 @@
+{
+  "$ref": "#/definitions/DmSyllabus",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DmSyllabus": {
+      "additionalProperties": false,
+      "description": "A Syllabus is a collection of Masteries. You may have referred to this as a \"Class\" because it's the classification that most closely matches classes from other RPGs. Fightermans, Wizardmans, etc.",
+      "properties": {
+        "background": {
+          "description": "Reference to an entity in spritedata/. Dimensions should be width 256px, height 512px.",
+          "type": "string"
+        },
+        "button": {
+          "description": "Reference to an entity in spritedata/. Dimensions should be width 100px, height 70px.",
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "class": {
+          "const": "dmSyllabus",
+          "description": "The type of class. Constant.",
+          "type": "string"
+        },
+        "func_determinerank": {
+          "description": "Reference to code to grant a title to the player for each rank. Format <namespace>.<functionname>",
+          "type": "string"
+        },
+        "mastery_01": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_02": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_03": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_04": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "mastery_05": {
+          "description": "Reference to an entity of class `dmMastery` in gamesystemdata/.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Display name at the top of the window.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "class",
+        "button",
+        "background",
+        "category",
+        "title",
+        "mastery_01"
+      ],
+      "type": "object"
+    }
+  }
+}
