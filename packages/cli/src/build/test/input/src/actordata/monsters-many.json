@@ -1,0 +1,12 @@
+{
+  "tstt_actor_evil": {
+    "attack_sfx": "",
+    "level": 1,
+    "class": "dmMonster",
+    "sprite": "tstt_sprite_evil"
+  },
+  "tstt_actor_another": {
+    "class": "dmMonster",
+    "meleedamage_01": "somemeleedamage"
+  }
+}

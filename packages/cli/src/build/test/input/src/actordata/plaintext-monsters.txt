@@ -1,0 +1,4 @@
+entityDef "tstt_actor_plaintext_monster" {
+    health 123
+    sprite tstt_sprite_evil
+}
