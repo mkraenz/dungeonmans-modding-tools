@@ -1,5 +1,6 @@
 import { Command } from '@commander-js/extra-typings';
 import { CLI_CONSTANTS } from '../constants.js';
+import { ConsoleRefReporter } from './console.ref-reporter.js';
 import { ReferencesValidator } from './validate-refs.executor.js';
 
 export const createValidateRefCommand = () => {
@@ -10,7 +11,9 @@ export const createValidateRefCommand = () => {
     )
     .addHelpText(
       'after',
-      `Example A:               dungeonmans-mod-tools validate-refs path/to/src`
+      `
+Example A:           dungeonmans-mod-tools validate-refs path/to/src
+Example B:           dungeonmans-mod-tools validate-refs path/to/src --prefix '${CLI_CONSTANTS.defaultRefPrefix}'`
     )
     .argument(
       '<srcDir>',
@@ -18,12 +21,16 @@ export const createValidateRefCommand = () => {
     )
     .option(
       '--prefix <prefix>',
-      'Prefix to mark references.',
+      'Prefix that marks references.',
       CLI_CONSTANTS.defaultRefPrefix
     )
     .option('--verbose', 'Print additional info.')
     .action(async (srcDir, options) => {
-      const validator = new ReferencesValidator(srcDir, options);
+      const validator = new ReferencesValidator(
+        srcDir,
+        new ConsoleRefReporter(options),
+        options
+      );
       await validator.run();
     });
 };

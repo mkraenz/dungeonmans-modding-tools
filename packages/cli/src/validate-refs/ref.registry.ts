@@ -1,6 +1,6 @@
 import { EntityName, RefLocation } from '../utils/types.js';
 
-export class ReferenceRegistry {
+export class RefRegistry {
   /**
    * Format: {[`${filepath}@${jsonpath}`]: RefLocation}
    * @example
