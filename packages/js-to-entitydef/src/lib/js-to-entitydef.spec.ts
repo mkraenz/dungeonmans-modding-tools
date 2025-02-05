@@ -16,4 +16,30 @@ describe('jsToEntitydef', () => {
 }
 `);
   });
+
+  it('should strip ref prefixes', () => {
+    const result = jsToEntitydef(
+      'mymonster',
+      {
+        test: 1,
+        hello: false,
+        shouldGetStripped: '@ref_totally nice string',
+        shouldStay1: 'totally nice string_@ref_',
+        shouldStay2: 'totally nice @ref_string',
+        shouldStay3: '@reftotally nice _string',
+      },
+      { stripPrefix: '@ref_' }
+    );
+
+    expect(result).toEqual(`entityDef "mymonster"
+{
+    test 1
+    hello false
+    shouldGetStripped "totally nice string"
+    shouldStay1 "totally nice string_@ref_"
+    shouldStay2 "totally nice @ref_string"
+    shouldStay3 "@reftotally nice _string"
+}
+`);
+  });
 });
