@@ -11,9 +11,9 @@ export const createSchemasCommand = () => {
     .addHelpText(
       'after',
       `
-Example A (vscode):               dungeonmans-mod-tools schemas --editor vscode
-Example A (other editor):         dungeonmans-mod-tools schemas --editor other
-Example B (dry-run):              dungeonmans-mod-tools schemas --editor vscode --dry-run`
+Example A (vscode):               @dungeonmans-mod-tools/cli schemas --editor vscode
+Example A (other editor):         @dungeonmans-mod-tools/cli schemas --editor other
+Example B (dry-run):              @dungeonmans-mod-tools/cli schemas --editor vscode --dry-run`
     )
     .addOption(
       new TypedOption('--editor <editor>', 'The text editor you are using')

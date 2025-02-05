@@ -6,14 +6,15 @@ import { ReferencesValidator } from './validate-refs.executor.js';
 export const createValidateRefCommand = () => {
   return new Command()
     .command('validate-refs')
+    .alias('verify-refs')
     .description(
       'Checks for existence of references, i.e. strings prefixed with `@ref_`.'
     )
     .addHelpText(
       'after',
       `
-Example A:           dungeonmans-mod-tools validate-refs path/to/src
-Example B:           dungeonmans-mod-tools validate-refs path/to/src --prefix '${CLI_CONSTANTS.defaultRefPrefix}'`
+Example A:           @dungeonmans-mod-tools/cli validate-refs path/to/src
+Example B:           @dungeonmans-mod-tools/cli validate-refs path/to/src --prefix '${CLI_CONSTANTS.defaultRefPrefix}'`
     )
     .argument(
       '<srcDir>',

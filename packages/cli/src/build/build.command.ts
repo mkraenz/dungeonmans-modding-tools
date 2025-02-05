@@ -11,11 +11,11 @@ export const createBuildCommand = () => {
     .addHelpText(
       'after',
       `
-Example A:                dungeonmans-mod-tools build ./src ./dist/mymodname
-Example B:                dungeonmans-mod-tools build path/to/src path/to/dist/mymodname
-Example C (dry-run):      dungeonmans-mod-tools build ./src ./dist/mymodname --dry-run
-Example D (refs):         dungeonmans-mod-tools build ./src ./dist/mymodname --marked-refs
-Example E (custom refs):  dungeonmans-mod-tools build ./src ./dist/mymodname --marked-refs --ref-prefix '${CLI_CONSTANTS.defaultRefPrefix}'
+Example A:                @dungeonmans-mod-tools/cli build ./src ./dist/mymodname
+Example B:                @dungeonmans-mod-tools/cli build path/to/src path/to/dist/mymodname
+Example C (dry-run):      @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --dry-run
+Example D (refs):         @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs
+Example E (custom refs):  @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs --ref-prefix '${CLI_CONSTANTS.defaultRefPrefix}'
 `
     )
     .argument(
