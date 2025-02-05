@@ -1,7 +1,7 @@
 import { jsToManyEntityDefs } from '@dungeonmans-mod-tools/js-to-entitydef';
 import fs from 'node:fs';
 import path from 'node:path';
-import { FileSystem } from '../utils/filesystem.js';
+import { FileSystem, isFile } from '../utils/filesystem.js';
 import { Logger } from '../utils/logger.js';
 
 const dmansDirectoriesThatSupportJsonNatively = [
@@ -14,6 +14,8 @@ const fileTypesCopiedAsIs = ['.txt', '.png', '.cs'];
 type Options = {
   dryRun?: boolean;
   verbose?: boolean;
+  /** if undefined or empty string, builds the code without any prefix stripping on strings. */
+  refPrefix?: string;
 };
 
 /**
@@ -105,9 +107,10 @@ export class ModBuilder {
     const filebasename = path.basename(subdirent.name, '.json');
     const destPath = path.join(this.outDir, dirent.name, `${filebasename}.txt`);
     try {
-      const jsonFile = await this.fs.readFile(srcPath);
-      const json = JSON.parse(jsonFile);
-      const entityDef = jsToManyEntityDefs(json);
+      const json = await this.fs.readJsonFile(srcPath);
+      const entityDef = jsToManyEntityDefs(json, {
+        stripPrefix: this.options.refPrefix,
+      });
       await this.fs.writeFile(destPath, entityDef);
     } catch (_error) {
       this.errors++;
@@ -133,6 +136,3 @@ export class ModBuilder {
     );
   }
 }
-
-const isFile = (dirent: fs.Dirent, extname: string) =>
-  dirent.isFile() && path.extname(dirent.name) === extname;

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
+import path from 'node:path';
 import { Logger } from './logger.js';
 
 type Options = {
@@ -37,5 +38,14 @@ export class FileSystem {
     return fsp.readFile(filepath, 'utf-8');
   }
 
+  async readJsonFile(filepath: string) {
+    if (this.verbose) Logger.log('READ FILE:', filepath);
+    const contents = await fsp.readFile(filepath, 'utf-8');
+    return JSON.parse(contents);
+  }
+
   exists = fs.existsSync;
 }
+
+export const isFile = (dirent: fs.Dirent, extname: string) =>
+  dirent.isFile() && path.extname(dirent.name) === extname;
