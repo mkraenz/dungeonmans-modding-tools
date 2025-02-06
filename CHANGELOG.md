@@ -1,3 +1,13 @@
+## 0.2.1 (2025-02-06)
+
+### 🩹 Fixes
+
+- **cli:** reported version ([a27d918](https://github.com/mkraenz/dungeonmans-mod-tools/commit/a27d918))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.2.0 (2025-02-06)
 
 ### 🚀 Features
