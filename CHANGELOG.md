@@ -1,3 +1,19 @@
+## 0.2.0 (2025-02-06)
+
+### 🚀 Features
+
+- **cli:** validate-refs command + build can strip ref prefix + configurability ([c607faa](https://github.com/mkraenz/dungeonmans-mod-tools/commit/c607faa))
+- **schemas:** game systems, several items ([05ac19e](https://github.com/mkraenz/dungeonmans-mod-tools/commit/05ac19e))
+- **schemas:** cli links to gamesystems schema ([7416ce9](https://github.com/mkraenz/dungeonmans-mod-tools/commit/7416ce9))
+
+### 🩹 Fixes
+
+- **cli:** usage examples + npm page use old package name... also alias for validate-refs: verify-refs ([f2c24c6](https://github.com/mkraenz/dungeonmans-mod-tools/commit/f2c24c6))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.1.0 (2025-02-02)
 
 ### 🚀 Features
