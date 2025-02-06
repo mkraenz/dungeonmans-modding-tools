@@ -42,14 +42,23 @@ npx nx graph
 
 ## Terms
 
-- entity defs, entity definitions = text-based file format to define monsters/items/sprites/dungeons etc. inside of Dungeonmans
+- vanilla Dungeonmans = anything that's built right into the original game without any mods, e.g. the Academy Headmaster, or everybody's favorite: Trigers
+- _entity def_, _entity definition_, _entity_ = text-based file format to define monsters/items/sprites/dungeons etc. inside of Dungeonmans
+  - entities consist of a name (its identifier) and and a body of key-value pairs (often referred to as _properties_)
   - exception: [Plot Threads](https://dungeonmans.fandom.com/wiki/Plot_Threads) use JSON instead of entity def text fle
   - one `.txt` file can contain multiple entity defs
+- _Reference_, _Ref_ = Some entities have properties where the value must be the name of another entity. We call this a reference.
+  - Example: A monster entity requires a sprite entity to render it. A monster entity therefore looks like this (omitting many other properties) `entityDef "mymonster" { sprite "somesprite" }`. Here, `somesprite` must match a sprite entity. If there is no sprite entity named `somesprite` then the texture of the monster will be broken and a placeholder will be displayed instead.
+  - Our CLI can help you quickly validate that all references in your mod match an existing entity from your mod. At this point, we are not yet able to check your references to vanilla Dungeonmans entities. But it's a potential feature.
 
 ## Current Status
 
 ### Content Creation
 
+- 🟢 [CLI](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli)
+  - 🟢 init mod project
+  - 🟢 build mod project
+  - 🟢 validate references
 - 🟢 [JSON schemas](packages/schemas/gen/actors.schema.json) and surrounding files for selected entity defs and plot theads as JSON
   - Provides autocompletion and validation when creating or editing JSONs that are going to be converted into entity def txt files
   - Check [vscode workspace settings'](.vscode/settings.json) `json.schemas` property on how to set up your editor to automatically make.
