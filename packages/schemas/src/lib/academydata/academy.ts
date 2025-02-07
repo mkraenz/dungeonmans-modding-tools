@@ -7,3 +7,8 @@ type WithExtraActors = {
 export type DmAcademyExtraData = {
   class: 'dmAcademyExtraData';
 } & WithExtraActors;
+
+/** Dictionary from entitydef name to DmAcademyExtraData. */
+export type DmAcademy = {
+  [entityDefName: string]: DmAcademyExtraData;
+};

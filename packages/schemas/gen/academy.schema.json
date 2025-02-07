@@ -1,7 +1,14 @@
 {
-  "$ref": "#/definitions/DmAcademyExtraData",
+  "$ref": "#/definitions/DmAcademy",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "DmAcademy": {
+      "additionalProperties": {
+        "$ref": "#/definitions/DmAcademyExtraData"
+      },
+      "description": "Dictionary from entitydef name to DmAcademyExtraData.",
+      "type": "object"
+    },
     "DmAcademyExtraData": {
       "additionalProperties": false,
       "properties": {

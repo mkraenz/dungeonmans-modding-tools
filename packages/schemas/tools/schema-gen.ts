@@ -12,7 +12,7 @@ const [_nodeExecutable, _script, typePattern] = process.argv;
 if (typePattern) console.log('type filter:', typePattern);
 
 const configs = [
-  { type: 'DmAcademyExtraData', out: 'academy' },
+  { type: 'DmAcademy', out: 'academy' },
   { type: 'DmMonster', out: 'monster' },
   { type: 'DmMonsters', out: 'monsters' },
   { type: 'DmTownsmans', out: 'townsmans' },
