@@ -50,6 +50,9 @@
         "extraactor_11": {
           "$ref": "#/definitions/ExtraActor"
         },
+        "extraactor_12": {
+          "$ref": "#/definitions/ExtraActor"
+        },
         "extraactor_13": {
           "$ref": "#/definitions/ExtraActor"
         },
@@ -69,9 +72,6 @@
           "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_19": {
-          "$ref": "#/definitions/ExtraActor"
-        },
-        "extraactor_20": {
           "$ref": "#/definitions/ExtraActor"
         }
       },

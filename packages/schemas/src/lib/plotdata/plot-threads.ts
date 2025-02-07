@@ -1,3 +1,5 @@
+import { DmMonsterKnowledge } from '../actordata/actors.js';
+
 /**
  * Dictionary from entitydef name to DmPlotThread, DmPlotScript, or DmDialogData.
  * Docs at https://dungeonmans.fandom.com/wiki/Plot_Threads
@@ -145,7 +147,7 @@ export type DmDropItemHook = {
    */
   stateEquals: string;
   /** What kind of monsters drop the item? */
-  targetMonsterKnowledge: string[];
+  targetMonsterKnowledge: DmMonsterKnowledge[];
   /** What item will be dropped? Reference to an entitydef name in `itemdata/` */
   dropArchetype: string;
   /** What is the probability that a monster in the `targetMonsterKnowledge` array will drop the item?

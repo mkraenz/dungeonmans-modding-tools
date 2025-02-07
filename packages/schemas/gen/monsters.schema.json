@@ -2,14 +2,26 @@
   "$ref": "#/definitions/DmMonsters",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "Damage": {
+      "description": "The base damage an attack does. A string triple of format \"damage_type,dice_roll,???\".\n- List of damage types: melee, ranged, fire, ice, dark, starlight, poison, bleed.   It might be that you can also combine multiple types using an & character, for example \"melee&dark&poison,1d6+35,0\" but I am not sure whether that works and what exactly it does.\n- dice_roll can be either a number or the TTRPG dice notation.\n- ??? I think this is always 0 for damage dealt. This third number only becomes relevant for `damagetaken01` properties where it seems to represent how much more damage is being taken by this type of attack, effectively meaning elemental weaknesses.",
+      "examples": [
+        "melee,1,0",
+        "fire,2d8+30,0",
+        "poison,1,0"
+      ],
+      "type": "string"
+    },
     "DmMonster": {
       "additionalProperties": false,
+      "description": "Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
       "properties": {
         "attack_sfx": {
+          "description": "What sound plays when this monster attacks?",
           "type": "string"
         },
         "bBlockTileEntry": {
           "const": true,
+          "description": "Whether it is blocked to swap places with the target by bumping into the target. Typically true, i.e. monsters block your path and vice-versa.",
           "type": "boolean"
         },
         "banter": {
@@ -19,10 +31,69 @@
           "type": "integer"
         },
         "basicattackparticle": {
+          "description": "What particle effect draws in the world when this guy attacks?",
           "type": "string"
+        },
+        "championpower_01": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_02": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_03": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_04": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_05": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_06": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_07": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_08": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_09": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_10": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_11": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_12": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_13": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_14": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_15": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_16": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_17": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_18": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_19": {
+          "$ref": "#/definitions/PowerRef"
         },
         "class": {
           "const": "dmMonster",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "cointype": {
@@ -48,925 +119,216 @@
               "type": "string"
             }
           ],
-          "description": "entitydefs of class dmCoins inside ActorData/coins.txt"
+          "description": "Reference to an entitydefs of class dmCoins inside ActorData/coins.txt"
         },
         "hasRanged": {
+          "description": "Whether the actor has ranged attacks. If true, set the several properties starting with ranged* and tooclosedistance.",
           "type": "boolean"
         },
         "health": {
           "type": "integer"
         },
         "knowledge": {
-          "type": "string"
+          "$ref": "#/definitions/DmMonsterKnowledge"
         },
         "level": {
           "type": "integer"
         },
         "meleedamage_01": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_02": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_03": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_04": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_05": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_06": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_07": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_08": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_09": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_10": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_11": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_12": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_13": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_14": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_15": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_16": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_17": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_18": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_19": {
-          "type": "string"
-        },
-        "meleedamage_20": {
-          "type": "string"
-        },
-        "meleedamage_21": {
-          "type": "string"
-        },
-        "meleedamage_22": {
-          "type": "string"
-        },
-        "meleedamage_23": {
-          "type": "string"
-        },
-        "meleedamage_24": {
-          "type": "string"
-        },
-        "meleedamage_25": {
-          "type": "string"
-        },
-        "meleedamage_26": {
-          "type": "string"
-        },
-        "meleedamage_27": {
-          "type": "string"
-        },
-        "meleedamage_28": {
-          "type": "string"
-        },
-        "meleedamage_29": {
-          "type": "string"
-        },
-        "meleedamage_30": {
-          "type": "string"
-        },
-        "meleedamage_31": {
-          "type": "string"
-        },
-        "meleedamage_32": {
-          "type": "string"
-        },
-        "meleedamage_33": {
-          "type": "string"
-        },
-        "meleedamage_34": {
-          "type": "string"
-        },
-        "meleedamage_35": {
-          "type": "string"
-        },
-        "meleedamage_36": {
-          "type": "string"
-        },
-        "meleedamage_37": {
-          "type": "string"
-        },
-        "meleedamage_38": {
-          "type": "string"
-        },
-        "meleedamage_39": {
-          "type": "string"
-        },
-        "meleedamage_40": {
-          "type": "string"
-        },
-        "meleedamage_41": {
-          "type": "string"
-        },
-        "meleedamage_42": {
-          "type": "string"
-        },
-        "meleedamage_43": {
-          "type": "string"
-        },
-        "meleedamage_44": {
-          "type": "string"
-        },
-        "meleedamage_45": {
-          "type": "string"
-        },
-        "meleedamage_46": {
-          "type": "string"
-        },
-        "meleedamage_47": {
-          "type": "string"
-        },
-        "meleedamage_48": {
-          "type": "string"
-        },
-        "meleedamage_49": {
-          "type": "string"
-        },
-        "meleedamage_50": {
-          "type": "string"
-        },
-        "meleedamage_51": {
-          "type": "string"
-        },
-        "meleedamage_52": {
-          "type": "string"
-        },
-        "meleedamage_53": {
-          "type": "string"
-        },
-        "meleedamage_54": {
-          "type": "string"
-        },
-        "meleedamage_55": {
-          "type": "string"
-        },
-        "meleedamage_56": {
-          "type": "string"
-        },
-        "meleedamage_57": {
-          "type": "string"
-        },
-        "meleedamage_58": {
-          "type": "string"
-        },
-        "meleedamage_59": {
-          "type": "string"
-        },
-        "meleedamage_60": {
-          "type": "string"
-        },
-        "meleedamage_61": {
-          "type": "string"
-        },
-        "meleedamage_62": {
-          "type": "string"
-        },
-        "meleedamage_63": {
-          "type": "string"
-        },
-        "meleedamage_64": {
-          "type": "string"
-        },
-        "meleedamage_65": {
-          "type": "string"
-        },
-        "meleedamage_66": {
-          "type": "string"
-        },
-        "meleedamage_67": {
-          "type": "string"
-        },
-        "meleedamage_68": {
-          "type": "string"
-        },
-        "meleedamage_69": {
-          "type": "string"
-        },
-        "meleedamage_70": {
-          "type": "string"
-        },
-        "meleedamage_71": {
-          "type": "string"
-        },
-        "meleedamage_72": {
-          "type": "string"
-        },
-        "meleedamage_73": {
-          "type": "string"
-        },
-        "meleedamage_74": {
-          "type": "string"
-        },
-        "meleedamage_75": {
-          "type": "string"
-        },
-        "meleedamage_76": {
-          "type": "string"
-        },
-        "meleedamage_77": {
-          "type": "string"
-        },
-        "meleedamage_78": {
-          "type": "string"
-        },
-        "meleedamage_79": {
-          "type": "string"
-        },
-        "meleedamage_80": {
-          "type": "string"
-        },
-        "meleedamage_81": {
-          "type": "string"
-        },
-        "meleedamage_82": {
-          "type": "string"
-        },
-        "meleedamage_83": {
-          "type": "string"
-        },
-        "meleedamage_84": {
-          "type": "string"
-        },
-        "meleedamage_85": {
-          "type": "string"
-        },
-        "meleedamage_86": {
-          "type": "string"
-        },
-        "meleedamage_87": {
-          "type": "string"
-        },
-        "meleedamage_88": {
-          "type": "string"
-        },
-        "meleedamage_89": {
-          "type": "string"
-        },
-        "meleedamage_90": {
-          "type": "string"
-        },
-        "meleedamage_91": {
-          "type": "string"
-        },
-        "meleedamage_92": {
-          "type": "string"
-        },
-        "meleedamage_93": {
-          "type": "string"
-        },
-        "meleedamage_94": {
-          "type": "string"
-        },
-        "meleedamage_95": {
-          "type": "string"
-        },
-        "meleedamage_96": {
-          "type": "string"
-        },
-        "meleedamage_97": {
-          "type": "string"
-        },
-        "meleedamage_98": {
-          "type": "string"
-        },
-        "meleedamage_99": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "name": {
+          "description": "Display name",
           "type": "string"
         },
         "nametable": {
           "type": "string"
         },
         "power_01": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_02": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_03": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_04": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_05": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_06": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_07": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_08": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_09": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_10": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_11": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_12": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_13": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_14": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_15": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_16": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_17": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_18": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_19": {
-          "type": "string"
-        },
-        "power_20": {
-          "type": "string"
-        },
-        "power_21": {
-          "type": "string"
-        },
-        "power_22": {
-          "type": "string"
-        },
-        "power_23": {
-          "type": "string"
-        },
-        "power_24": {
-          "type": "string"
-        },
-        "power_25": {
-          "type": "string"
-        },
-        "power_26": {
-          "type": "string"
-        },
-        "power_27": {
-          "type": "string"
-        },
-        "power_28": {
-          "type": "string"
-        },
-        "power_29": {
-          "type": "string"
-        },
-        "power_30": {
-          "type": "string"
-        },
-        "power_31": {
-          "type": "string"
-        },
-        "power_32": {
-          "type": "string"
-        },
-        "power_33": {
-          "type": "string"
-        },
-        "power_34": {
-          "type": "string"
-        },
-        "power_35": {
-          "type": "string"
-        },
-        "power_36": {
-          "type": "string"
-        },
-        "power_37": {
-          "type": "string"
-        },
-        "power_38": {
-          "type": "string"
-        },
-        "power_39": {
-          "type": "string"
-        },
-        "power_40": {
-          "type": "string"
-        },
-        "power_41": {
-          "type": "string"
-        },
-        "power_42": {
-          "type": "string"
-        },
-        "power_43": {
-          "type": "string"
-        },
-        "power_44": {
-          "type": "string"
-        },
-        "power_45": {
-          "type": "string"
-        },
-        "power_46": {
-          "type": "string"
-        },
-        "power_47": {
-          "type": "string"
-        },
-        "power_48": {
-          "type": "string"
-        },
-        "power_49": {
-          "type": "string"
-        },
-        "power_50": {
-          "type": "string"
-        },
-        "power_51": {
-          "type": "string"
-        },
-        "power_52": {
-          "type": "string"
-        },
-        "power_53": {
-          "type": "string"
-        },
-        "power_54": {
-          "type": "string"
-        },
-        "power_55": {
-          "type": "string"
-        },
-        "power_56": {
-          "type": "string"
-        },
-        "power_57": {
-          "type": "string"
-        },
-        "power_58": {
-          "type": "string"
-        },
-        "power_59": {
-          "type": "string"
-        },
-        "power_60": {
-          "type": "string"
-        },
-        "power_61": {
-          "type": "string"
-        },
-        "power_62": {
-          "type": "string"
-        },
-        "power_63": {
-          "type": "string"
-        },
-        "power_64": {
-          "type": "string"
-        },
-        "power_65": {
-          "type": "string"
-        },
-        "power_66": {
-          "type": "string"
-        },
-        "power_67": {
-          "type": "string"
-        },
-        "power_68": {
-          "type": "string"
-        },
-        "power_69": {
-          "type": "string"
-        },
-        "power_70": {
-          "type": "string"
-        },
-        "power_71": {
-          "type": "string"
-        },
-        "power_72": {
-          "type": "string"
-        },
-        "power_73": {
-          "type": "string"
-        },
-        "power_74": {
-          "type": "string"
-        },
-        "power_75": {
-          "type": "string"
-        },
-        "power_76": {
-          "type": "string"
-        },
-        "power_77": {
-          "type": "string"
-        },
-        "power_78": {
-          "type": "string"
-        },
-        "power_79": {
-          "type": "string"
-        },
-        "power_80": {
-          "type": "string"
-        },
-        "power_81": {
-          "type": "string"
-        },
-        "power_82": {
-          "type": "string"
-        },
-        "power_83": {
-          "type": "string"
-        },
-        "power_84": {
-          "type": "string"
-        },
-        "power_85": {
-          "type": "string"
-        },
-        "power_86": {
-          "type": "string"
-        },
-        "power_87": {
-          "type": "string"
-        },
-        "power_88": {
-          "type": "string"
-        },
-        "power_89": {
-          "type": "string"
-        },
-        "power_90": {
-          "type": "string"
-        },
-        "power_91": {
-          "type": "string"
-        },
-        "power_92": {
-          "type": "string"
-        },
-        "power_93": {
-          "type": "string"
-        },
-        "power_94": {
-          "type": "string"
-        },
-        "power_95": {
-          "type": "string"
-        },
-        "power_96": {
-          "type": "string"
-        },
-        "power_97": {
-          "type": "string"
-        },
-        "power_98": {
-          "type": "string"
-        },
-        "power_99": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "rangeDamage_01": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_02": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_03": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_04": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_05": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_06": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_07": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_08": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_09": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_10": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_11": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_12": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_13": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_14": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_15": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_16": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_17": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_18": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_19": {
-          "type": "string"
-        },
-        "rangeDamage_20": {
-          "type": "string"
-        },
-        "rangeDamage_21": {
-          "type": "string"
-        },
-        "rangeDamage_22": {
-          "type": "string"
-        },
-        "rangeDamage_23": {
-          "type": "string"
-        },
-        "rangeDamage_24": {
-          "type": "string"
-        },
-        "rangeDamage_25": {
-          "type": "string"
-        },
-        "rangeDamage_26": {
-          "type": "string"
-        },
-        "rangeDamage_27": {
-          "type": "string"
-        },
-        "rangeDamage_28": {
-          "type": "string"
-        },
-        "rangeDamage_29": {
-          "type": "string"
-        },
-        "rangeDamage_30": {
-          "type": "string"
-        },
-        "rangeDamage_31": {
-          "type": "string"
-        },
-        "rangeDamage_32": {
-          "type": "string"
-        },
-        "rangeDamage_33": {
-          "type": "string"
-        },
-        "rangeDamage_34": {
-          "type": "string"
-        },
-        "rangeDamage_35": {
-          "type": "string"
-        },
-        "rangeDamage_36": {
-          "type": "string"
-        },
-        "rangeDamage_37": {
-          "type": "string"
-        },
-        "rangeDamage_38": {
-          "type": "string"
-        },
-        "rangeDamage_39": {
-          "type": "string"
-        },
-        "rangeDamage_40": {
-          "type": "string"
-        },
-        "rangeDamage_41": {
-          "type": "string"
-        },
-        "rangeDamage_42": {
-          "type": "string"
-        },
-        "rangeDamage_43": {
-          "type": "string"
-        },
-        "rangeDamage_44": {
-          "type": "string"
-        },
-        "rangeDamage_45": {
-          "type": "string"
-        },
-        "rangeDamage_46": {
-          "type": "string"
-        },
-        "rangeDamage_47": {
-          "type": "string"
-        },
-        "rangeDamage_48": {
-          "type": "string"
-        },
-        "rangeDamage_49": {
-          "type": "string"
-        },
-        "rangeDamage_50": {
-          "type": "string"
-        },
-        "rangeDamage_51": {
-          "type": "string"
-        },
-        "rangeDamage_52": {
-          "type": "string"
-        },
-        "rangeDamage_53": {
-          "type": "string"
-        },
-        "rangeDamage_54": {
-          "type": "string"
-        },
-        "rangeDamage_55": {
-          "type": "string"
-        },
-        "rangeDamage_56": {
-          "type": "string"
-        },
-        "rangeDamage_57": {
-          "type": "string"
-        },
-        "rangeDamage_58": {
-          "type": "string"
-        },
-        "rangeDamage_59": {
-          "type": "string"
-        },
-        "rangeDamage_60": {
-          "type": "string"
-        },
-        "rangeDamage_61": {
-          "type": "string"
-        },
-        "rangeDamage_62": {
-          "type": "string"
-        },
-        "rangeDamage_63": {
-          "type": "string"
-        },
-        "rangeDamage_64": {
-          "type": "string"
-        },
-        "rangeDamage_65": {
-          "type": "string"
-        },
-        "rangeDamage_66": {
-          "type": "string"
-        },
-        "rangeDamage_67": {
-          "type": "string"
-        },
-        "rangeDamage_68": {
-          "type": "string"
-        },
-        "rangeDamage_69": {
-          "type": "string"
-        },
-        "rangeDamage_70": {
-          "type": "string"
-        },
-        "rangeDamage_71": {
-          "type": "string"
-        },
-        "rangeDamage_72": {
-          "type": "string"
-        },
-        "rangeDamage_73": {
-          "type": "string"
-        },
-        "rangeDamage_74": {
-          "type": "string"
-        },
-        "rangeDamage_75": {
-          "type": "string"
-        },
-        "rangeDamage_76": {
-          "type": "string"
-        },
-        "rangeDamage_77": {
-          "type": "string"
-        },
-        "rangeDamage_78": {
-          "type": "string"
-        },
-        "rangeDamage_79": {
-          "type": "string"
-        },
-        "rangeDamage_80": {
-          "type": "string"
-        },
-        "rangeDamage_81": {
-          "type": "string"
-        },
-        "rangeDamage_82": {
-          "type": "string"
-        },
-        "rangeDamage_83": {
-          "type": "string"
-        },
-        "rangeDamage_84": {
-          "type": "string"
-        },
-        "rangeDamage_85": {
-          "type": "string"
-        },
-        "rangeDamage_86": {
-          "type": "string"
-        },
-        "rangeDamage_87": {
-          "type": "string"
-        },
-        "rangeDamage_88": {
-          "type": "string"
-        },
-        "rangeDamage_89": {
-          "type": "string"
-        },
-        "rangeDamage_90": {
-          "type": "string"
-        },
-        "rangeDamage_91": {
-          "type": "string"
-        },
-        "rangeDamage_92": {
-          "type": "string"
-        },
-        "rangeDamage_93": {
-          "type": "string"
-        },
-        "rangeDamage_94": {
-          "type": "string"
-        },
-        "rangeDamage_95": {
-          "type": "string"
-        },
-        "rangeDamage_96": {
-          "type": "string"
-        },
-        "rangeDamage_97": {
-          "type": "string"
-        },
-        "rangeDamage_98": {
-          "type": "string"
-        },
-        "rangeDamage_99": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangedAttackRange": {
           "type": "integer"
         },
         "rangedAttackSprite": {
+          "description": "TODO: This probably is the projectile sprite.",
           "type": "string"
         },
         "rangedattackrecharge": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Integer or Dice roll string"
         },
         "scale_adjustdamage": {
           "type": "number"
@@ -985,6 +347,7 @@
           "type": "string"
         },
         "steakdata": {
+          "description": "Monsters drop steaks of themselves sometimes, and those steaks can be used to feed your birds so they learn powers. Comma-separated string of four values \"drop_chance,tough_or_swift,melee_or_ranged,power\":\n- Odds of dropping a steak on death, 1 to 100 integer value.\n- Tough or Swift? -1 for tough, 0 for neither, 1 for Swift.\n- Melee or Ranged? -1 for melee, 0 for neither, 1 for Ranged.\n- Powers that can be learned by your bird for eating this steak. Reference to an entity in specialpowerdata/.",
           "type": "string"
         },
         "tooclosedistance": {
@@ -1013,12 +376,37 @@
       ],
       "type": "object"
     },
+    "DmMonsterKnowledge": {
+      "enum": [
+        "scrobolds",
+        "lesser_beasts",
+        "greater_beasts",
+        "punks",
+        "bandits",
+        "bees",
+        "brigands",
+        "lizardmens",
+        "orcs",
+        "undeads",
+        "warlords",
+        "cultists",
+        "purpleonians",
+        "slimes",
+        "snakes",
+        "scorpocompys"
+      ],
+      "type": "string"
+    },
     "DmMonsters": {
       "additionalProperties": {
         "$ref": "#/definitions/DmMonster"
       },
       "description": "Dictionary from entitydef name to DmMonster. Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
       "type": "object"
+    },
+    "PowerRef": {
+      "description": "Reference to an entity of class \"dmSpecialPower\" in specialpowerdata/.",
+      "type": "string"
     }
   }
 }

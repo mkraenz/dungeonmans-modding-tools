@@ -63,7 +63,6 @@ const _test: DmEncounterTable = {
   addtotable_01: 'mountain_fortress_skybridge_ranged',
   dajksdlj: 123,
   replacetable_01: 'final_foom_trash',
-  replacetable_55: 'asdf',
 };
 
 /**

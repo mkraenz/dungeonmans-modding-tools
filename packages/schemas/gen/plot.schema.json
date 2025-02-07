@@ -46,7 +46,6 @@
         "classType",
         "title",
         "message",
-        "soundToPlay",
         "instigatorSprite",
         "responses"
       ],
@@ -180,7 +179,7 @@
         "targetMonsterKnowledge": {
           "description": "What kind of monsters drop the item?",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/DmMonsterKnowledge"
           },
           "type": "array"
         }
@@ -199,6 +198,27 @@
         "$ref": "#/definitions/DmDropItemHook"
       },
       "type": "array"
+    },
+    "DmMonsterKnowledge": {
+      "enum": [
+        "scrobolds",
+        "lesser_beasts",
+        "greater_beasts",
+        "punks",
+        "bandits",
+        "bees",
+        "brigands",
+        "lizardmens",
+        "orcs",
+        "undeads",
+        "warlords",
+        "cultists",
+        "purpleonians",
+        "slimes",
+        "snakes",
+        "scorpocompys"
+      ],
+      "type": "string"
     },
     "DmPlot": {
       "additionalProperties": {

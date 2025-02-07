@@ -21,6 +21,31 @@ type WithRangedDamage = {
 type WithPower = {
   [key in `power_${DoubleDigit}`]?: PowerRef;
 };
+type WithChampionPower = {
+  [key in `championpower_${DoubleDigit}`]?: PowerRef;
+};
+
+export type DmMonsterKnowledge =
+  | 'scrobolds'
+  | 'lesser_beasts'
+  | 'greater_beasts'
+  | 'punks'
+  | 'bandits'
+  | 'bees'
+  | 'brigands'
+  | 'lizardmens'
+  | 'orcs'
+  | 'undeads'
+  | 'warlords'
+  | 'cultists'
+  | 'purpleonians'
+  | 'slimes'
+  | 'snakes'
+  | 'scorpocompys';
+
+/** @asType integer */
+type Integer = number;
+
 /** Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters */
 export type DmMonster = {
   /** The type of class. Constant. */
@@ -58,28 +83,39 @@ export type DmMonster = {
   scale_adjustdamage: number;
   // yep, max 9 meleedamage. We could get more complicated using `[key in `meleedamage_${digit}${digit}`]?: string` but i'm not sure whether it works with the json schema generation. Anyway, 9 types of meleedamage should probably suffice for a good while.
   nametable: string;
+
   /** Whether the actor has ranged attacks. If true, set the several properties starting with ranged* and tooclosedistance. */
   hasRanged: boolean;
-
   /** TODO: This probably is the projectile sprite.  */
   rangedAttackSprite?: string;
-  /** @asType integer */
-  rangedAttackRange?: number;
-  /** @asType integer */
-  rangedattackrecharge?: number;
-  /** @asType integer */
-  tooclosedistance?: number;
+  rangedAttackRange?: Integer;
+  /**
+   * Integer or Dice roll string
+   */
+  rangedattackrecharge?: Integer | string;
+  tooclosedistance?: Integer;
 
-  knowledge: string;
+  knowledge: DmMonsterKnowledge;
   /** @asType integer */
-  base_defeatarmor: number;
+  base_defeatarmor: Integer;
+  /** What particle effect draws in the world when this guy attacks? */
   basicattackparticle: string;
+  /** What sound plays when this monster attacks? */
   attack_sfx: string;
+  /**
+   * Monsters drop steaks of themselves sometimes, and those steaks can be used to feed your birds
+   * so they learn powers. Comma-separated string of four values "drop_chance,tough_or_swift,melee_or_ranged,power":
+   * - Odds of dropping a steak on death, 1 to 100 integer value.
+   * - Tough or Swift? -1 for tough, 0 for neither, 1 for Swift.
+   * - Melee or Ranged? -1 for melee, 0 for neither, 1 for Ranged.
+   * - Powers that can be learned by your bird for eating this steak. Reference to an entity in specialpowerdata/.
+   */
   steakdata?: string;
   banter: string;
 } & WithMeleeDamage &
   WithRangedDamage &
-  WithPower;
+  WithPower &
+  WithChampionPower;
 
 /**
  * Dictionary from entitydef name to DmMonster.

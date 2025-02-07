@@ -30,6 +30,7 @@
       "description": "Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
       "properties": {
         "attack_sfx": {
+          "description": "What sound plays when this monster attacks?",
           "type": "string"
         },
         "bBlockTileEntry": {
@@ -44,7 +45,65 @@
           "type": "integer"
         },
         "basicattackparticle": {
+          "description": "What particle effect draws in the world when this guy attacks?",
           "type": "string"
+        },
+        "championpower_01": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_02": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_03": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_04": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_05": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_06": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_07": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_08": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_09": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_10": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_11": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_12": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_13": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_14": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_15": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_16": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_17": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_18": {
+          "$ref": "#/definitions/PowerRef"
+        },
+        "championpower_19": {
+          "$ref": "#/definitions/PowerRef"
         },
         "class": {
           "const": "dmMonster",
@@ -84,7 +143,7 @@
           "type": "integer"
         },
         "knowledge": {
-          "type": "string"
+          "$ref": "#/definitions/DmMonsterKnowledge"
         },
         "level": {
           "type": "integer"
@@ -144,246 +203,6 @@
           "$ref": "#/definitions/Damage"
         },
         "meleedamage_19": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_20": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_21": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_22": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_23": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_24": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_25": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_26": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_27": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_28": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_29": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_30": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_31": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_32": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_33": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_34": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_35": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_36": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_37": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_38": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_39": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_40": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_41": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_42": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_43": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_44": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_45": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_46": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_47": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_48": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_49": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_50": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_51": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_52": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_53": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_54": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_55": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_56": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_57": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_58": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_59": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_60": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_61": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_62": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_63": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_64": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_65": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_66": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_67": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_68": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_69": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_70": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_71": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_72": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_73": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_74": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_75": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_76": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_77": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_78": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_79": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_80": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_81": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_82": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_83": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_84": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_85": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_86": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_87": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_88": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_89": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_90": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_91": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_92": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_93": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_94": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_95": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_96": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_97": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_98": {
-          "$ref": "#/definitions/Damage"
-        },
-        "meleedamage_99": {
           "$ref": "#/definitions/Damage"
         },
         "name": {
@@ -450,246 +269,6 @@
         "power_19": {
           "$ref": "#/definitions/PowerRef"
         },
-        "power_20": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_21": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_22": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_23": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_24": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_25": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_26": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_27": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_28": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_29": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_30": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_31": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_32": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_33": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_34": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_35": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_36": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_37": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_38": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_39": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_40": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_41": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_42": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_43": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_44": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_45": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_46": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_47": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_48": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_49": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_50": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_51": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_52": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_53": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_54": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_55": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_56": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_57": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_58": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_59": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_60": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_61": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_62": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_63": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_64": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_65": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_66": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_67": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_68": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_69": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_70": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_71": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_72": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_73": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_74": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_75": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_76": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_77": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_78": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_79": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_80": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_81": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_82": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_83": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_84": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_85": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_86": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_87": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_88": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_89": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_90": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_91": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_92": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_93": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_94": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_95": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_96": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_97": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_98": {
-          "$ref": "#/definitions/PowerRef"
-        },
-        "power_99": {
-          "$ref": "#/definitions/PowerRef"
-        },
         "rangeDamage_01": {
           "$ref": "#/definitions/Damage"
         },
@@ -747,246 +326,6 @@
         "rangeDamage_19": {
           "$ref": "#/definitions/Damage"
         },
-        "rangeDamage_20": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_21": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_22": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_23": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_24": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_25": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_26": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_27": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_28": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_29": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_30": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_31": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_32": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_33": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_34": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_35": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_36": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_37": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_38": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_39": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_40": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_41": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_42": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_43": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_44": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_45": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_46": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_47": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_48": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_49": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_50": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_51": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_52": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_53": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_54": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_55": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_56": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_57": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_58": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_59": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_60": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_61": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_62": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_63": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_64": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_65": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_66": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_67": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_68": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_69": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_70": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_71": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_72": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_73": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_74": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_75": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_76": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_77": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_78": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_79": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_80": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_81": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_82": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_83": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_84": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_85": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_86": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_87": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_88": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_89": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_90": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_91": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_92": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_93": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_94": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_95": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_96": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_97": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_98": {
-          "$ref": "#/definitions/Damage"
-        },
-        "rangeDamage_99": {
-          "$ref": "#/definitions/Damage"
-        },
         "rangedAttackRange": {
           "type": "integer"
         },
@@ -995,7 +334,15 @@
           "type": "string"
         },
         "rangedattackrecharge": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Integer or Dice roll string"
         },
         "scale_adjustdamage": {
           "type": "number"
@@ -1014,6 +361,7 @@
           "type": "string"
         },
         "steakdata": {
+          "description": "Monsters drop steaks of themselves sometimes, and those steaks can be used to feed your birds so they learn powers. Comma-separated string of four values \"drop_chance,tough_or_swift,melee_or_ranged,power\":\n- Odds of dropping a steak on death, 1 to 100 integer value.\n- Tough or Swift? -1 for tough, 0 for neither, 1 for Swift.\n- Melee or Ranged? -1 for melee, 0 for neither, 1 for Ranged.\n- Powers that can be learned by your bird for eating this steak. Reference to an entity in specialpowerdata/.",
           "type": "string"
         },
         "tooclosedistance": {
@@ -1041,6 +389,27 @@
         "sprite"
       ],
       "type": "object"
+    },
+    "DmMonsterKnowledge": {
+      "enum": [
+        "scrobolds",
+        "lesser_beasts",
+        "greater_beasts",
+        "punks",
+        "bandits",
+        "bees",
+        "brigands",
+        "lizardmens",
+        "orcs",
+        "undeads",
+        "warlords",
+        "cultists",
+        "purpleonians",
+        "slimes",
+        "snakes",
+        "scorpocompys"
+      ],
+      "type": "string"
     },
     "DmTownsmans": {
       "additionalProperties": false,
