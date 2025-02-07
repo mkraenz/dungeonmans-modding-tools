@@ -2,6 +2,15 @@
   "$ref": "#/definitions/DmActors",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "Damage": {
+      "description": "The base damage an attack does. A string triple of format \"damage_type,dice_roll,???\".\n- List of damage types: melee, ranged, fire, ice, dark, starlight, poison, bleed.   It might be that you can also combine multiple types using an & character, for example \"melee&dark&poison,1d6+35,0\" but I am not sure whether that works and what exactly it does.\n- dice_roll can be either a number or the TTRPG dice notation.\n- ??? I think this is always 0 for damage dealt. This third number only becomes relevant for `damagetaken01` properties where it seems to represent how much more damage is being taken by this type of attack, effectively meaning elemental weaknesses.",
+      "examples": [
+        "melee,1,0",
+        "fire,2d8+30,0",
+        "poison,1,0"
+      ],
+      "type": "string"
+    },
     "DmActors": {
       "additionalProperties": {
         "anyOf": [
@@ -18,12 +27,14 @@
     },
     "DmMonster": {
       "additionalProperties": false,
+      "description": "Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
       "properties": {
         "attack_sfx": {
           "type": "string"
         },
         "bBlockTileEntry": {
           "const": true,
+          "description": "Whether it is blocked to swap places with the target by bumping into the target. Typically true, i.e. monsters block your path and vice-versa.",
           "type": "boolean"
         },
         "banter": {
@@ -37,6 +48,7 @@
         },
         "class": {
           "const": "dmMonster",
+          "description": "The type of class. Constant.",
           "type": "string"
         },
         "cointype": {
@@ -62,9 +74,10 @@
               "type": "string"
             }
           ],
-          "description": "entitydefs of class dmCoins inside ActorData/coins.txt"
+          "description": "Reference to an entitydefs of class dmCoins inside ActorData/coins.txt"
         },
         "hasRanged": {
+          "description": "Whether the actor has ranged attacks. If true, set the several properties starting with ranged* and tooclosedistance.",
           "type": "boolean"
         },
         "health": {
@@ -77,906 +90,908 @@
           "type": "integer"
         },
         "meleedamage_01": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_02": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_03": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_04": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_05": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_06": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_07": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_08": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_09": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_10": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_11": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_12": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_13": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_14": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_15": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_16": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_17": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_18": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_19": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_20": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_21": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_22": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_23": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_24": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_25": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_26": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_27": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_28": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_29": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_30": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_31": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_32": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_33": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_34": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_35": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_36": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_37": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_38": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_39": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_40": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_41": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_42": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_43": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_44": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_45": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_46": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_47": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_48": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_49": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_50": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_51": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_52": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_53": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_54": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_55": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_56": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_57": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_58": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_59": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_60": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_61": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_62": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_63": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_64": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_65": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_66": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_67": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_68": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_69": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_70": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_71": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_72": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_73": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_74": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_75": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_76": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_77": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_78": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_79": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_80": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_81": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_82": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_83": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_84": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_85": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_86": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_87": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_88": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_89": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_90": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_91": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_92": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_93": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_94": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_95": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_96": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_97": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_98": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "meleedamage_99": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "name": {
+          "description": "Display name",
           "type": "string"
         },
         "nametable": {
           "type": "string"
         },
         "power_01": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_02": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_03": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_04": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_05": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_06": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_07": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_08": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_09": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_10": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_11": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_12": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_13": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_14": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_15": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_16": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_17": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_18": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_19": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_20": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_21": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_22": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_23": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_24": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_25": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_26": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_27": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_28": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_29": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_30": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_31": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_32": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_33": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_34": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_35": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_36": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_37": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_38": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_39": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_40": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_41": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_42": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_43": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_44": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_45": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_46": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_47": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_48": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_49": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_50": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_51": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_52": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_53": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_54": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_55": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_56": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_57": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_58": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_59": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_60": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_61": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_62": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_63": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_64": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_65": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_66": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_67": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_68": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_69": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_70": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_71": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_72": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_73": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_74": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_75": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_76": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_77": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_78": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_79": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_80": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_81": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_82": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_83": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_84": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_85": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_86": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_87": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_88": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_89": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_90": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_91": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_92": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_93": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_94": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_95": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_96": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_97": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_98": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "power_99": {
-          "type": "string"
+          "$ref": "#/definitions/PowerRef"
         },
         "rangeDamage_01": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_02": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_03": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_04": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_05": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_06": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_07": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_08": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_09": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_10": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_11": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_12": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_13": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_14": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_15": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_16": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_17": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_18": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_19": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_20": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_21": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_22": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_23": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_24": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_25": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_26": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_27": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_28": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_29": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_30": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_31": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_32": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_33": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_34": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_35": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_36": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_37": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_38": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_39": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_40": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_41": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_42": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_43": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_44": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_45": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_46": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_47": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_48": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_49": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_50": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_51": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_52": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_53": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_54": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_55": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_56": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_57": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_58": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_59": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_60": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_61": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_62": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_63": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_64": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_65": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_66": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_67": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_68": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_69": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_70": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_71": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_72": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_73": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_74": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_75": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_76": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_77": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_78": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_79": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_80": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_81": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_82": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_83": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_84": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_85": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_86": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_87": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_88": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_89": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_90": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_91": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_92": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_93": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_94": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_95": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_96": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_97": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_98": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangeDamage_99": {
-          "type": "string"
+          "$ref": "#/definitions/Damage"
         },
         "rangedAttackRange": {
           "type": "integer"
         },
         "rangedAttackSprite": {
+          "description": "TODO: This probably is the projectile sprite.",
           "type": "string"
         },
         "rangedattackrecharge": {
@@ -1070,6 +1085,10 @@
         "dialog_onBumped"
       ],
       "type": "object"
+    },
+    "PowerRef": {
+      "description": "Reference to an entity of class \"dmSpecialPower\" in specialpowerdata/.",
+      "type": "string"
     }
   }
 }

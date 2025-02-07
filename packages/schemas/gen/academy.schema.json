@@ -11,313 +11,78 @@
     },
     "DmAcademyExtraData": {
       "additionalProperties": false,
+      "description": "You can use this to add new NPCs to the academy.",
       "properties": {
         "class": {
           "const": "dmAcademyExtraData",
           "type": "string"
         },
         "extraactor_01": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_02": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_03": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_04": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_05": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_06": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_07": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_08": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_09": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_10": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_11": {
-          "type": "string"
-        },
-        "extraactor_12": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_13": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_14": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_15": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_16": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_17": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_18": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_19": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         },
         "extraactor_20": {
-          "type": "string"
-        },
-        "extraactor_21": {
-          "type": "string"
-        },
-        "extraactor_22": {
-          "type": "string"
-        },
-        "extraactor_23": {
-          "type": "string"
-        },
-        "extraactor_24": {
-          "type": "string"
-        },
-        "extraactor_25": {
-          "type": "string"
-        },
-        "extraactor_26": {
-          "type": "string"
-        },
-        "extraactor_27": {
-          "type": "string"
-        },
-        "extraactor_28": {
-          "type": "string"
-        },
-        "extraactor_29": {
-          "type": "string"
-        },
-        "extraactor_30": {
-          "type": "string"
-        },
-        "extraactor_31": {
-          "type": "string"
-        },
-        "extraactor_32": {
-          "type": "string"
-        },
-        "extraactor_33": {
-          "type": "string"
-        },
-        "extraactor_34": {
-          "type": "string"
-        },
-        "extraactor_35": {
-          "type": "string"
-        },
-        "extraactor_36": {
-          "type": "string"
-        },
-        "extraactor_37": {
-          "type": "string"
-        },
-        "extraactor_38": {
-          "type": "string"
-        },
-        "extraactor_39": {
-          "type": "string"
-        },
-        "extraactor_40": {
-          "type": "string"
-        },
-        "extraactor_41": {
-          "type": "string"
-        },
-        "extraactor_42": {
-          "type": "string"
-        },
-        "extraactor_43": {
-          "type": "string"
-        },
-        "extraactor_44": {
-          "type": "string"
-        },
-        "extraactor_45": {
-          "type": "string"
-        },
-        "extraactor_46": {
-          "type": "string"
-        },
-        "extraactor_47": {
-          "type": "string"
-        },
-        "extraactor_48": {
-          "type": "string"
-        },
-        "extraactor_49": {
-          "type": "string"
-        },
-        "extraactor_50": {
-          "type": "string"
-        },
-        "extraactor_51": {
-          "type": "string"
-        },
-        "extraactor_52": {
-          "type": "string"
-        },
-        "extraactor_53": {
-          "type": "string"
-        },
-        "extraactor_54": {
-          "type": "string"
-        },
-        "extraactor_55": {
-          "type": "string"
-        },
-        "extraactor_56": {
-          "type": "string"
-        },
-        "extraactor_57": {
-          "type": "string"
-        },
-        "extraactor_58": {
-          "type": "string"
-        },
-        "extraactor_59": {
-          "type": "string"
-        },
-        "extraactor_60": {
-          "type": "string"
-        },
-        "extraactor_61": {
-          "type": "string"
-        },
-        "extraactor_62": {
-          "type": "string"
-        },
-        "extraactor_63": {
-          "type": "string"
-        },
-        "extraactor_64": {
-          "type": "string"
-        },
-        "extraactor_65": {
-          "type": "string"
-        },
-        "extraactor_66": {
-          "type": "string"
-        },
-        "extraactor_67": {
-          "type": "string"
-        },
-        "extraactor_68": {
-          "type": "string"
-        },
-        "extraactor_69": {
-          "type": "string"
-        },
-        "extraactor_70": {
-          "type": "string"
-        },
-        "extraactor_71": {
-          "type": "string"
-        },
-        "extraactor_72": {
-          "type": "string"
-        },
-        "extraactor_73": {
-          "type": "string"
-        },
-        "extraactor_74": {
-          "type": "string"
-        },
-        "extraactor_75": {
-          "type": "string"
-        },
-        "extraactor_76": {
-          "type": "string"
-        },
-        "extraactor_77": {
-          "type": "string"
-        },
-        "extraactor_78": {
-          "type": "string"
-        },
-        "extraactor_79": {
-          "type": "string"
-        },
-        "extraactor_80": {
-          "type": "string"
-        },
-        "extraactor_81": {
-          "type": "string"
-        },
-        "extraactor_82": {
-          "type": "string"
-        },
-        "extraactor_83": {
-          "type": "string"
-        },
-        "extraactor_84": {
-          "type": "string"
-        },
-        "extraactor_85": {
-          "type": "string"
-        },
-        "extraactor_86": {
-          "type": "string"
-        },
-        "extraactor_87": {
-          "type": "string"
-        },
-        "extraactor_88": {
-          "type": "string"
-        },
-        "extraactor_89": {
-          "type": "string"
-        },
-        "extraactor_90": {
-          "type": "string"
-        },
-        "extraactor_91": {
-          "type": "string"
-        },
-        "extraactor_92": {
-          "type": "string"
-        },
-        "extraactor_93": {
-          "type": "string"
-        },
-        "extraactor_94": {
-          "type": "string"
-        },
-        "extraactor_95": {
-          "type": "string"
-        },
-        "extraactor_96": {
-          "type": "string"
-        },
-        "extraactor_97": {
-          "type": "string"
-        },
-        "extraactor_98": {
-          "type": "string"
-        },
-        "extraactor_99": {
-          "type": "string"
+          "$ref": "#/definitions/ExtraActor"
         }
       },
       "required": [
         "class"
       ],
       "type": "object"
+    },
+    "ExtraActor": {
+      "description": "A string tuple of format \"reference_to_an_actor,spawn_location\". reference_to_an_actor must be an entity in actordata/. spawn_location must be one of the following values: 'headmaster, librarian, alchemist, curator, research, armorer, gravedigger, battlemaster, hatch, pigfarmer' Example: \"extractor\": \"mymod_npc,headmaster\"",
+      "type": "string"
     }
   }
 }
