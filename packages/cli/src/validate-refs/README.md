@@ -48,3 +48,15 @@ Again, this boils down to having a list of all vanilla Dungeonmans entities at h
 For the time being, we accept this. It is probably still worth marking references to vanilla Dungeonmans entities using `@ref_` for the future in which we have the full list of vanilla Dungeonmans entities.
 
 On that note, getting such a list is probably mainly a question of running the existing (and presumably working) Lexer on the original game files, and then defining just a minimum of grammar to grab the string after `entitydef`. This plus fixing the remaining quirks t hat the Lexer did not expect manually (or fixing the Lexer) should provide the list.
+
+### References to code files or textures
+
+This is another instance of where it becomes imminent that references need a type. Our current approach looks for entities, so for example a sprite entity's `texturename` property will never be identified as existent entity, because `texturename` is the name of a `.png` file and not an entity.
+
+References to code has the same flaw with our current approach to references.
+
+## References in property names
+
+Some entity types require you to use the name of an entity as a property name instead of its value. These are currently not being checked, so use the plaintext version without `@ref_`.
+
+Examples include entities in `encounterdata/` and `tabledata/`.
