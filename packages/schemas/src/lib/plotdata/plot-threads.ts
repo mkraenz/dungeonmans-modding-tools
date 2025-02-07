@@ -101,7 +101,7 @@ export type DmDialogData = {
   /** What is being said by the NPC. */
   message: string;
   /** Reference to a sound baked into the XACT files for the game. */
-  soundToPlay: string;
+  soundToPlay?: string;
   /** What sprite to use in the dialog window. Reference to an entityDef name in `spritedata/`. */
   instigatorSprite: string;
   /** Response options for the player to choose from. */
