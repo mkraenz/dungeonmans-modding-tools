@@ -18630,13 +18630,14 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "description": "A DmEncounterTable consist of two parts:\n\n- a) one or more instructions defining which Dungeonmans-inbuilt table to add to or replace.\n- b) additional dictionary-style key-value pairs with the key being a Reference to an entity in encounterdata/,      and the value a number of lottery tickets to put into the Dungeonmans-inbuilt table to draw from."
     },
     "DmEncounterTables": {
       "additionalProperties": {
         "$ref": "#/definitions/DmEncounterTable"
       },
-      "description": "Dictionary from entityDef name to DmEncounterTable.",
+      "description": "Dictionary from entityDef name to DmEncounterTable.\n\nDocs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters",
       "type": "object"
     }
   }

@@ -3,7 +3,16 @@ import { DoubleDigit } from '../ts-utils.js';
 type TableCommandKeys =
   | `addtotable_${DoubleDigit}`
   | `replacetable_${DoubleDigit}`;
+
 // This might actually be using a bug(?) in ts-json-schema-generator to our benefit. Without the union of TableCommandKeys again it generates exactly the type we want. However, typescript thinks that every value must be a value. That's because the key type of string in Record<string, ..> effectively eats all the TableCommandKeys. Or is this even a TS bug? Well at least it works.
+
+/**
+ * A DmEncounterTable consist of two parts:
+ *
+ * - a) one or more instructions defining which vanilla Dungeonmans table to add to or replace.
+ * - b) additional dictionary-style key-value pairs with the key being a Reference to an entity in encounterdata/,
+ *      and the value a number of lottery tickets to put into the vanilla Dungeonmans table to draw from.
+ */
 export type DmEncounterTable = {
   [Key in TableCommandKeys]?: (string & {}) | GenericEncounter;
 } & (
@@ -57,7 +66,11 @@ const _test: DmEncounterTable = {
   replacetable_55: 'asdf',
 };
 
-/** Dictionary from entityDef name to DmEncounterTable. */
+/**
+ * Dictionary from entityDef name to DmEncounterTable.
+ *
+ * Docs at https://dungeonmans.fandom.com/wiki/Mods:_Adding_Monsters
+ */
 export type DmEncounterTables = {
   [entityDefName: string]: DmEncounterTable;
 };
