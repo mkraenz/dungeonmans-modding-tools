@@ -32,3 +32,10 @@
 - dialog in `plotdata/` - `classType: dmDialogData`
 - extraactor in `academydata/`
 - npc in `actordata/` - `class: dmTownsmans`
+
+## Ingame Console Commands
+
+```log
+spawn [monster archetype] [x] [y]
+spawnmonster [monster archetype] [champ|boss|king|echo]
+```
