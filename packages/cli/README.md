@@ -18,6 +18,12 @@ for your mod files. Your text editor needs to be able to provide these features 
 
 Dungeonmans defines most content in a custom **plain text format** called **EntityDefs**. While you can certainly write monsters, items etc by hand, you don't get any quality of life features. Using the CLI tool, you can write your content in JSON files and then build them into EntityDefs. This way you can use your text editor's features to help you write your mod.
 
+## Prerequisites
+
+You may need Node v22+.
+
+Works on Ubuntu and Windows (at least with Git Bash).
+
 ## Get Started
 
 ```sh
