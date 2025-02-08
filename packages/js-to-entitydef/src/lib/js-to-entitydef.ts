@@ -9,44 +9,42 @@ const defaultOptions = {
 };
 
 class JsToEntityDefTransformer {
-  private readonly options: Required<Options>;
+  private readonly prefixToStrip: string;
 
   constructor(
     private readonly entityName: string,
     private readonly keyValuePairs: Record<string, EntityDefKeyValuePairValue>,
     options: Options = {}
   ) {
-    this.options = { ...defaultOptions, ...options };
+    this.prefixToStrip = options.stripPrefix ?? defaultOptions.stripPrefix;
   }
 
   toEntityDef() {
     const header = `entityDef "${this.entityName}"`;
     const rows = Object.entries(this.keyValuePairs).map(
       ([key, value]) =>
-        `    ${this.toPrintedKey(
-          key,
-          this.options.stripPrefix
-        )} ${this.toPrintedValue(value, this.options.stripPrefix)}`
+        `    ${this.toPrintedKey(key)} ${this.toPrintedValue(value)}`
     );
 
     const lines = [header, '{', ...rows, '}'];
     return lines.join('\n').concat('\n'); // add a final empty line
   }
 
-  private toPrintedKey(key: string, stripPrefix: string) {
-    const strippedKey = key.startsWith(stripPrefix)
-      ? key.replace(stripPrefix, '')
-      : key;
+  private toPrintedKey(key: string) {
+    const strippedKey = this.withPrefixStripped(key);
     if (key.includes(' ')) return `"${strippedKey}"`;
     return strippedKey;
   }
 
-  private toPrintedValue(val: EntityDefKeyValuePairValue, stripPrefix: string) {
-    if (typeof val === 'string')
-      return `"${
-        val.startsWith(stripPrefix) ? val.replace(stripPrefix, '') : val
-      }"`;
+  private toPrintedValue(val: EntityDefKeyValuePairValue) {
+    if (typeof val === 'string') return `"${this.withPrefixStripped(val)}"`;
     return val;
+  }
+
+  private withPrefixStripped(str: string) {
+    return str.startsWith(this.prefixToStrip)
+      ? str.replace(this.prefixToStrip, '')
+      : str;
   }
 }
 
