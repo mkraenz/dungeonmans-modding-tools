@@ -95,7 +95,9 @@ npx nx show projects
 npx nx show project <project-name>
 
 # Release and publish packages. More info in the Release section below.
-npx nx release
+nx release --skip-publish # bump version with conventional commits
+nx run-many -t build # build to have the latest artifacts, including bumped version in cli --version command
+nx release publish # publish to npm / verdaccio
 ```
 
 #### Tips
@@ -142,22 +144,15 @@ nx run @dungeonmans-mod-tools/source:local-registry
 
 You can open [http://localhost:4873/](http://localhost:4873/) to see the packages in the registry.
 
-Next, run one of the following:
+Next, run following:
 
 ```sh
-# this will interactively ask you what kind of version bump you want. This also allows you to specify prerelease tags like alpha, beta, etc.
-nx release
-# or you can specify the version bump directly
-nx release patch
-nx release minor
-nx release major
+nx release --skip-publish
+nx run-many -t build
+nx release publish
 ```
 
-Note 1
-
-> There is theoretically a `--dry-run` option but it still executed everything. No idea why.
-
-Note 2
+Note
 
 > For the very first release, I had to add `--first-release` flag.
 > Further, before running the command I had to manually create a git tag: `git tag v0.0.1`.
