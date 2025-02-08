@@ -17,16 +17,22 @@ export function jsToEntitydef(
   const header = `entityDef "${name}"`;
   const rows = Object.entries(keyValuePairs).map(
     ([key, value]) =>
-      `    ${toPrintedKey(key)} ${toPrintedValue(value, opts.stripPrefix)}`
+      `    ${toPrintedKey(key, opts.stripPrefix)} ${toPrintedValue(
+        value,
+        opts.stripPrefix
+      )}`
   );
 
   const lines = [header, '{', ...rows, '}'];
   return lines.join('\n').concat('\n'); // add a final empty line
 }
 
-function toPrintedKey(key: string) {
-  if (key.includes(' ')) return `"${key}"`;
-  return key;
+function toPrintedKey(key: string, stripPrefix: string) {
+  const strippedKey = key.startsWith(stripPrefix)
+    ? key.replace(stripPrefix, '')
+    : key;
+  if (key.includes(' ')) return `"${strippedKey}"`;
+  return strippedKey;
 }
 
 function toPrintedValue(val: EntityDefKeyValuePairValue, stripPrefix: string) {

@@ -27,6 +27,7 @@ describe('jsToEntitydef', () => {
         shouldStay1: 'totally nice string_@ref_',
         shouldStay2: 'totally nice @ref_string',
         shouldStay3: '@reftotally nice _string',
+        '@ref_shouldGetStrippedRefKey': 'hello',
       },
       { stripPrefix: '@ref_' }
     );
@@ -39,6 +40,7 @@ describe('jsToEntitydef', () => {
     shouldStay1 "totally nice string_@ref_"
     shouldStay2 "totally nice @ref_string"
     shouldStay3 "@reftotally nice _string"
+    shouldGetStrippedRefKey "hello"
 }
 `);
   });
