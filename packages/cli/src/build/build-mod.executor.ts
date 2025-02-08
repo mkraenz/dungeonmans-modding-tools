@@ -2,6 +2,7 @@ import { jsToManyEntityDefs } from '@dungeonmans-mod-tools/js-to-entitydef';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FileSystem, isFile } from '../utils/filesystem.js';
+import { traverseJson } from '../utils/helpers.js';
 import { Logger } from '../utils/logger.js';
 
 const dmansDirectoriesThatSupportJsonNatively = [
@@ -10,6 +11,7 @@ const dmansDirectoriesThatSupportJsonNatively = [
 ];
 
 const fileTypesCopiedAsIs = ['.txt', '.png', '.cs'];
+const definitelyNotAUserPrefix = '!@#%%^&8';
 
 type Options = {
   dryRun?: boolean;
@@ -73,6 +75,11 @@ export class ModBuilder {
 
           if (this.shouldCopyJsonAsIs(subdirent, dirent)) {
             await this.copyFileAsIs(dirent.name, subdirent.name);
+          } else if (
+            dmansDirectoriesThatSupportJsonNatively.includes(dirent.name) &&
+            isFile(subdirent, '.json')
+          ) {
+            await this.copyNativeJsonFileToEntityDefJson(dirent, subdirent);
           } else if (isFile(subdirent, '.json')) {
             await this.copyJsonFileToEntityDefFile(dirent, subdirent);
           } else {
@@ -91,6 +98,33 @@ export class ModBuilder {
     else this.logCompletedSuccessfully();
 
     if (this.dryRun) Logger.warnDryRun();
+  }
+
+  private async copyNativeJsonFileToEntityDefJson(
+    dirent: fs.Dirent,
+    subdirent: fs.Dirent
+  ) {
+    const srcPath = path.join(this.srcDir, dirent.name, subdirent.name);
+    const destPath = path.join(this.outDir, dirent.name, subdirent.name);
+    try {
+      const json = await this.fs.readJsonFile(srcPath);
+      const prefix = this.options.refPrefix ?? definitelyNotAUserPrefix;
+      traverseJson(json, (obj, key, val) => {
+        // strip prefix from keys
+        if (key.startsWith(prefix)) {
+          obj[key] = key.replace(prefix, '');
+        }
+        // strip prefix from values
+        if (typeof val === 'string' && val.startsWith(prefix)) {
+          obj[key] = val.replace(prefix, '');
+        }
+      });
+      const outputJson = json;
+      await this.fs.writeFile(destPath, JSON.stringify(outputJson, null, 2));
+    } catch (_error) {
+      this.errors++;
+      Logger.error(`ERROR: Failed to parse JSON file ${srcPath}`);
+    }
   }
 
   private async copyFileAsIs(direntName: string, subdirentName = '.') {
@@ -119,11 +153,7 @@ export class ModBuilder {
   }
 
   private shouldCopyJsonAsIs(subdirent: fs.Dirent, dirent: fs.Dirent) {
-    return (
-      fileTypesCopiedAsIs.some((ext) => isFile(subdirent, ext)) ||
-      (dmansDirectoriesThatSupportJsonNatively.includes(dirent.name) &&
-        isFile(subdirent, '.json'))
-    );
+    return fileTypesCopiedAsIs.some((ext) => isFile(subdirent, ext));
   }
 
   private logCompletedSuccessfully() {
