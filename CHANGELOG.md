@@ -1,3 +1,20 @@
+## 0.2.2 (2025-02-08)
+
+### 🩹 Fixes
+
+- **cli:** build command with marked-refs strips @ref_ in plotdata/ and overworldgeneration/ ([daf1bcf](https://github.com/mkraenz/dungeonmans-mod-tools/commit/daf1bcf))
+- **cli:** verify-refs command works for  plotdata/ and overworldgeneration/ ([224ee16](https://github.com/mkraenz/dungeonmans-mod-tools/commit/224ee16))
+- **cli:** build+verify-refs both take into account references in property keys of primitive values ([a25cc42](https://github.com/mkraenz/dungeonmans-mod-tools/commit/a25cc42))
+- **schema:** academydata missing root-level dictionary ([cdd328d](https://github.com/mkraenz/dungeonmans-mod-tools/commit/cdd328d))
+- **schemas:** DmDialogData.soundToPlay is optional ([d2cc8f8](https://github.com/mkraenz/dungeonmans-mod-tools/commit/d2cc8f8))
+- **schemas:** improve docs on encounter tables ([d84b853](https://github.com/mkraenz/dungeonmans-mod-tools/commit/d84b853))
+- **schemas:** improve docs of monsters and NPCs ([1edd017](https://github.com/mkraenz/dungeonmans-mod-tools/commit/1edd017))
+- **schemas:** improve hover-over docs, limit meleedamage_XY to meleedamage_01 to _20 for less verbose (thus more usable) intellisense, same for all other doubledigit instances ([0cb8d6b](https://github.com/mkraenz/dungeonmans-mod-tools/commit/0cb8d6b))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.2.1 (2025-02-06)
 
 ### 🩹 Fixes
