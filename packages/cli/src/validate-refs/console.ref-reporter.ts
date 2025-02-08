@@ -36,6 +36,8 @@ export class ConsoleRefReporter implements IRefReporter {
     if (errors.length) this.logCompletedWithErrors(errors.length, warnings);
     else if (warnings) this.logCompletedWithWarnings(warnings);
     else this.logCompletedSuccessfully();
+
+    if (errors.length) process.exit(1);
   }
 
   private reportFoundRefs(refs: RefLocation[]) {
@@ -68,7 +70,9 @@ export class ConsoleRefReporter implements IRefReporter {
   }
 
   private logCompletedWithWarnings(warnings: number) {
-    Logger.warn(`Found ${warnings} warnings. Please check the output above.`);
+    Logger.warn(
+      `Completed with ${warnings} warnings. Please check the output above.`
+    );
   }
 
   private logCompletedSuccessfully() {

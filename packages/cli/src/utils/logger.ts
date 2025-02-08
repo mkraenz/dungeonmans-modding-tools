@@ -1,7 +1,9 @@
 import { styleText } from 'node:util';
 
 export const Logger = {
-  log: console.log.bind(console),
+  log: (...params: unknown[]) => {
+    console.log(...params);
+  },
   success: (msg: string) => {
     console.log(styleText('green', msg));
   },

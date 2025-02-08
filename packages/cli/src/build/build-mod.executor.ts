@@ -31,6 +31,7 @@ type Options = {
  * If the output directory does not exist, creates it.
  */
 export class ModBuilder {
+  private warnings = 0;
   private errors = 0;
   private options: Options = {};
   private fs: FileSystem;
@@ -56,7 +57,7 @@ export class ModBuilder {
 
     if (!this.fs.exists(this.srcDir)) {
       Logger.error(`ERROR: Source directory does not exist: ${this.srcDir}`);
-      return;
+      process.exit(1);
     }
     if (!this.fs.exists(this.outDir)) await this.fs.makeDir(this.outDir);
     const dir = await fs.promises.opendir(this.srcDir);
@@ -88,16 +89,18 @@ export class ModBuilder {
               dirent.name,
               subdirent.name
             );
-            Logger.error(`ERROR unhandled input file type: ${sourcePath}`);
-            this.errors++;
+            Logger.warn(`WARNING unhandled input file type: ${sourcePath}`);
+            this.warnings++;
           }
         }
       }
     }
     if (this.errors) this.logCompletedWithErrors();
+    else if (this.warnings) this.logCompletedWithWarnings();
     else this.logCompletedSuccessfully();
 
     if (this.dryRun) Logger.warnDryRun();
+    if (this.errors) process.exit(1);
   }
 
   private async copyNativeJsonFileToEntityDefJson(
@@ -169,6 +172,12 @@ export class ModBuilder {
   private logCompletedWithErrors() {
     Logger.error(
       `❌ Build completed with ${this.errors} errors. Please check the output above.`
+    );
+  }
+
+  private logCompletedWithWarnings() {
+    Logger.warn(
+      `Completed with ${this.warnings} warnings. Please check the output above.`
     );
   }
 }

@@ -6,11 +6,22 @@ import { ModBuilder } from './build-mod.executor.js';
 let fs: FileSystem;
 
 const srcDir = path.join(__dirname, 'test', 'input', 'src');
+const tmpSrcDir = path.join(__dirname, 'test', 'input-tmp', 'src');
 const outDir = path.join(__dirname, 'test', 'out');
 
 beforeEach(async () => {
   fs = new FileSystem({});
   if (fs.exists(outDir)) await fsp.rm(outDir, { recursive: true });
+  if (fs.exists(tmpSrcDir)) await fsp.rm(tmpSrcDir, { recursive: true });
+
+  // avoid spamming the console
+  jest.spyOn(console, 'log').mockImplementation();
+  jest.spyOn(console, 'warn').mockImplementation();
+  jest.spyOn(console, 'error').mockImplementation();
+});
+
+afterAll(async () => {
+  if (fs.exists(tmpSrcDir)) await fsp.rm(tmpSrcDir, { recursive: true });
 });
 
 describe('JSON to entity defs', () => {
@@ -98,5 +109,20 @@ describe('Plain text', () => {
     const outfileContents = await fs.readFile(emittedFilePath);
     const srcfileContents = await fs.readFile(srcfile);
     expect(outfileContents).toEqual(srcfileContents);
+  });
+});
+
+describe('error case', () => {
+  it('exists with error code 1 if some error is found', async () => {
+    const outfile = 'broken.json';
+    const srcfile = path.join(tmpSrcDir, 'actordata', outfile);
+    await fs.makeDir(path.join(tmpSrcDir, 'actordata'));
+    await fs.writeFile(srcfile, '{}notAValidJson');
+    const mockExit = jest.spyOn(process, 'exit').mockImplementation();
+    const builder = new ModBuilder(tmpSrcDir, outDir);
+
+    await builder.run();
+
+    expect(mockExit).toHaveBeenCalledWith(1);
   });
 });
