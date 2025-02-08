@@ -2,7 +2,8 @@ type JsonObj = Record<string, unknown>;
 
 /**
  * Traverses the properties of the potentially nested objects and any arrays therein.
- * When encountering a primitive datatype, it calls the callback function with the closest object or array.
+ * When encountering a primitive datatype, it calls the callback function
+ * with the closest object or array containing the primitive value.
  */
 export const traverseJson = (
   obj: JsonObj | unknown[],

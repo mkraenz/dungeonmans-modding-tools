@@ -14,6 +14,7 @@ type TableCommandKeys =
  *      and the value a number of lottery tickets to put into the vanilla Dungeonmans table to draw from.
  */
 export type DmEncounterTable = {
+  // TODO replace value type by an export type XYZ
   [Key in TableCommandKeys]?: (string & {}) | GenericEncounter;
 } & (
   | Record<string, number>

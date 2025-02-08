@@ -1,3 +1,4 @@
+import { traverseJson } from '../utils/helpers.js';
 import { EntityName, RefLocation } from '../utils/types.js';
 
 export class RefRegistry {
@@ -39,27 +40,24 @@ export class RefRegistry {
     filepath: string,
     entities: {
       name: string;
-      entity: unknown;
+      entity: Record<string, unknown>;
     }[]
   ) {
-    const refs = entities.flatMap<RefLocation>((entityDef) =>
-      Object.entries(entityDef.entity as Record<string, unknown>)
-        .filter(
-          ([_, value]) =>
-            typeof value === 'string' && value.startsWith(this.prefix)
-        )
-        .map(([key, val]) => {
-          const value = val as string;
-          return {
+    const refs = entities.flatMap<RefLocation>((entityDef) => {
+      let refsOfEntity: RefLocation[] = [];
+      traverseJson(entityDef.entity, (obj, key, val) => {
+        if (typeof val === 'string' && val.startsWith(this.prefix)) {
+          const refLoc = {
             filepath,
-            originalValue: value,
-            refValue: value.startsWith(this.prefix)
-              ? value.replace(this.prefix, '')
-              : value,
+            originalValue: val,
+            refValue: val.replace(this.prefix, ''),
             jsonpath: `${entityDef.name}.${key}`,
           };
-        })
-    );
+          refsOfEntity.push(refLoc);
+        }
+      });
+      return refsOfEntity;
+    });
     refs.forEach((ref) => this.setRef(ref));
   }
 

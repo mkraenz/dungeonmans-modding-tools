@@ -61,13 +61,18 @@ export class RefScanner {
     }
   }
 
+  /** Assumption: Every root-level key in the file is the name of an entity. */
   private async scanFileForRefs(filepath: string) {
     try {
       const json = await this.fs.readJsonFile(filepath);
 
       const entities = Object.entries(json)
         .filter(([key, _]) => key !== '$schema')
-        .map(([key, entity]) => ({ name: key, entity }));
+        .map(([key, entity]) => ({
+          name: key,
+          // TODO this is insecure. We should validate that entity is an json
+          entity: entity as Record<string, unknown>,
+        }));
       entities.forEach(({ name, entity }) => {
         if (this.entityRegistry.has(name)) {
           const filepaths = this.duplicateEntities.get(name) ?? new Set();
