@@ -45,7 +45,18 @@ export class RefRegistry {
   ) {
     const refs = entities.flatMap<RefLocation>((entityDef) => {
       let refsOfEntity: RefLocation[] = [];
-      traverseJson(entityDef.entity, (obj, key, val) => {
+      traverseJson(entityDef.entity, (_obj, key, val) => {
+        if (typeof key === 'string' && key.startsWith(this.prefix)) {
+          const refLoc: RefLocation = {
+            filepath,
+            originalValue: key,
+            refValue: key.replace(this.prefix, ''),
+            jsonpath: `${entityDef.name}.${key}`,
+            refInKey: true,
+          };
+          refsOfEntity.push(refLoc);
+          // no return here because we could theoretically have a ref in the key and another in the value of the key-value pair
+        }
         if (typeof val === 'string' && val.startsWith(this.prefix)) {
           const refLoc = {
             filepath,

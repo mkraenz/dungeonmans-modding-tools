@@ -112,7 +112,13 @@ export class ModBuilder {
       traverseJson(json, (obj, key, val) => {
         // strip prefix from keys
         if (key.startsWith(prefix)) {
-          obj[key] = key.replace(prefix, '');
+          const value =
+            typeof val === 'string' && val.startsWith(prefix)
+              ? val.replace(prefix, '')
+              : val;
+          obj[key.replace(prefix, '')] = value;
+          delete obj[key];
+          return; // returning or otherwise we might risk
         }
         // strip prefix from values
         if (typeof val === 'string' && val.startsWith(prefix)) {

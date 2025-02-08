@@ -45,9 +45,15 @@ export class ConsoleRefReporter implements IRefReporter {
 
   private reportMissingRefs(missingRefs: RefLocation[]) {
     missingRefs.forEach((ref) => {
-      Logger.warn(
-        `WARNING: Missing entity named "${ref.refValue}" in file "${ref.filepath}" with json path "${ref.jsonpath}". Is it native in Dungeonmans?`
-      );
+      if (ref.refInKey) {
+        Logger.warn(
+          `WARNING: Missing entity named "${ref.refValue}" referenced in file "${ref.filepath}" in key with with json path "${ref.jsonpath}". Does the entity exist in Vanilla Dungeonmans?`
+        );
+      } else {
+        Logger.warn(
+          `WARNING: Missing entity named "${ref.refValue}" referenced in file "${ref.filepath}" in value with json path "${ref.jsonpath}". Does the entity exist in Vanilla Dungeonmans?`
+        );
+      }
     });
   }
 

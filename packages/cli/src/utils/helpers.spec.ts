@@ -127,6 +127,40 @@ describe('traverseJson(..)', () => {
     ]);
   });
 
+  it('sets only the unref-ed key and unref-ed value when both key and value are references', () => {
+    const prefix = '@ref_';
+    const input1 = {
+      '@ref_key': '@ref_val',
+      noref_key: '@ref_val',
+    };
+    const input2 = {
+      '@ref_key': 'noref_val',
+    };
+
+    const traverse = (param0: Parameters<typeof traverseJson>[0]) =>
+      traverseJson(param0, (obj, key, val) => {
+        // strip prefix from keys
+        if (key.startsWith(prefix)) {
+          const value =
+            typeof val === 'string' && val.startsWith(prefix)
+              ? val.replace(prefix, '')
+              : val;
+          obj[key.replace(prefix, '')] = value;
+          delete obj[key];
+          return; // returning or otherwise we might risk
+        }
+        // strip prefix from values
+        if (typeof val === 'string' && val.startsWith(prefix)) {
+          obj[key] = val.replace(prefix, '');
+        }
+      });
+    traverse(input1);
+    traverse(input2);
+
+    expect(input1).toEqual({ key: 'val', noref_key: 'val' });
+    expect(input2).toEqual({ key: 'noref_val' });
+  });
+
   it('handles empty arrays well', () => {
     const keys: string[] = [];
 

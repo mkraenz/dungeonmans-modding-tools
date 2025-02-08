@@ -53,10 +53,18 @@ On that note, getting such a list is probably mainly a question of running the e
 
 This is another instance of where it becomes imminent that references need a type. Our current approach looks for entities, so for example a sprite entity's `texturename` property will never be identified as existent entity, because `texturename` is the name of a `.png` file and not an entity.
 
-References to code has the same flaw with our current approach to references.
+References to code has the same flaw with our current approach to references. Code is worse in that any solution to this problem requires some form of C#-code parsing - at least for `verify-refs`. For building we could just go ahead and do a "stupid" (read: simple) global string replacement on the csharp file.
 
-## References in property names
+## References in property keys (Resolved in v0.3.0.)
 
-Some entity types require you to use the name of an entity as a property name instead of its value. These are currently not being checked, so use the plaintext version without `@ref_`.
+Update: Resolved in v0.3.0.
+
+Limitations: The ref detection inside property keys only works for key-value pairs that have a primitive datatype as value, for example an entity like `{"@ref_demonlord": 1}` will be correctly detected. Its build output will be `{"demonlord": 1}`.
+
+If however, your property key has a value that is another object or an array, it will not be detected, so `{"@ref_demonlord": {} }` will stay identical on build. AFAIK there are no occurrences in Dungeonmans that would require this functionality. If you do find one, please report in a [GitHub issue](https://github.com/mkraenz/dungeonmans-mod-tools/issues).
+
+### Original problem statement
+
+Some entity types require you to use the name of an entity as a property key instead of its value. ~~These are currently not being checked, so use the plaintext version without `@ref_`.~~
 
 Examples include entities in `encounterdata/` and `tabledata/`.
