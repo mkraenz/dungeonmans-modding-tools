@@ -1,3 +1,14 @@
+## 0.2.3 (2025-02-08)
+
+### 🩹 Fixes
+
+- **cli:** exit with error code 1 if build or verify-refs finds errors - but not on warnings ([ba40ec4](https://github.com/mkraenz/dungeonmans-mod-tools/commit/ba40ec4))
+- **js-to-entitydef:** strip ref prefix from keys ([4b174a0](https://github.com/mkraenz/dungeonmans-mod-tools/commit/4b174a0))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.2.2 (2025-02-08)
 
 ### 🩹 Fixes
