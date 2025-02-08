@@ -73,7 +73,7 @@ export class ModBuilder {
           const dir = path.join(this.outDir, dirent.name);
           await this.fs.makeDir(dir);
 
-          if (this.shouldCopyJsonAsIs(subdirent, dirent)) {
+          if (this.shouldCopyJsonAsIs(subdirent)) {
             await this.copyFileAsIs(dirent.name, subdirent.name);
           } else if (
             dmansDirectoriesThatSupportJsonNatively.includes(dirent.name) &&
@@ -158,7 +158,7 @@ export class ModBuilder {
     }
   }
 
-  private shouldCopyJsonAsIs(subdirent: fs.Dirent, dirent: fs.Dirent) {
+  private shouldCopyJsonAsIs(subdirent: fs.Dirent) {
     return fileTypesCopiedAsIs.some((ext) => isFile(subdirent, ext));
   }
 

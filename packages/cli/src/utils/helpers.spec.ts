@@ -77,7 +77,7 @@ describe('traverseJson(..)', () => {
   it('visits each key with primitive value including nested', () => {
     const keys: string[] = [];
 
-    traverseJson(inputJson, (obj, key, val) => {
+    traverseJson(inputJson, (_obj, key, _val) => {
       keys.push(key);
     });
 
@@ -104,7 +104,7 @@ describe('traverseJson(..)', () => {
   it('visits each key value pair with primitive value including nested', () => {
     const keyValuePairs: { key: string; val: unknown }[] = [];
 
-    traverseJson(inputJson, (obj, key, val) => {
+    traverseJson(inputJson, (_obj, key, val) => {
       keyValuePairs.push({ key, val });
     });
 
@@ -164,7 +164,7 @@ describe('traverseJson(..)', () => {
   it('handles empty arrays well', () => {
     const keys: string[] = [];
 
-    traverseJson({ arrayProp: [] }, (obj, key, val) => {
+    traverseJson({ arrayProp: [] }, (_obj, key, _val) => {
       keys.push(key);
     });
 
@@ -175,7 +175,7 @@ describe('traverseJson(..)', () => {
   it('handles empty object well', () => {
     const keys: string[] = [];
 
-    traverseJson({}, (obj, key, val) => {
+    traverseJson({}, (_obj, key, _val) => {
       keys.push(key);
     });
 

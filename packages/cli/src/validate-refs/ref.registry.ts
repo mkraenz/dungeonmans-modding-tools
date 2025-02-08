@@ -44,7 +44,7 @@ export class RefRegistry {
     }[]
   ) {
     const refs = entities.flatMap<RefLocation>((entityDef) => {
-      let refsOfEntity: RefLocation[] = [];
+      const refsOfEntity: RefLocation[] = [];
       traverseJson(entityDef.entity, (_obj, key, val) => {
         if (typeof key === 'string' && key.startsWith(this.prefix)) {
           const refLoc: RefLocation = {

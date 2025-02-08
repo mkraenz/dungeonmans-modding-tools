@@ -77,6 +77,7 @@ export class RefScanner {
         if (this.entityRegistry.has(name)) {
           const filepaths = this.duplicateEntities.get(name) ?? new Set();
           filepaths.add(filepath);
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           filepaths.add(this.entityRegistry.get(name)!.filepath);
           this.duplicateEntities.set(name, filepaths);
           return;
