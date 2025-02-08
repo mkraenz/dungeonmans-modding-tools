@@ -2,8 +2,8 @@ import { jsToManyEntityDefs } from '@dungeonmans-mod-tools/js-to-entitydef';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FileSystem, isFile } from '../utils/filesystem.js';
-import { traverseJson } from '../utils/helpers.js';
 import { Logger } from '../utils/logger.js';
+import { traverseJson } from '../utils/traverse-json.js';
 
 const dmansDirectoriesThatSupportJsonNatively = [
   'plotdata',

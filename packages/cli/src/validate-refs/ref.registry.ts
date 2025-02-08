@@ -1,4 +1,4 @@
-import { traverseJson } from '../utils/helpers.js';
+import { traverseJson } from '../utils/traverse-json.js';
 import { EntityName, RefLocation } from '../utils/types.js';
 
 export class RefRegistry {

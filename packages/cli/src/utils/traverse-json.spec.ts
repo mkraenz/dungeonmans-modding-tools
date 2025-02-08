@@ -1,4 +1,4 @@
-import { traverseJson } from './helpers.js';
+import { traverseJson } from './traverse-json.js';
 
 const baseJson = {
   tstt_plot_stronkest: {
