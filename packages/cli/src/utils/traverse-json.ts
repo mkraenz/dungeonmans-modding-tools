@@ -7,15 +7,21 @@ type JsonObj = Record<string, unknown>;
  */
 export const traverseJson = (
   obj: JsonObj | unknown[],
-  fnOnPrimitive: (directParentObj: JsonObj, key: string, val: unknown) => void
+  fnOnPrimitive: (
+    directParentObj: JsonObj,
+    key: string,
+    val: unknown,
+    jsonPath: string
+  ) => void,
+  jsonpath = ''
 ) => {
   Object.entries(obj).forEach(([key, val]) => {
     if (typeof val === 'object' && val !== null) {
-      return traverseJson(val as JsonObj, fnOnPrimitive);
+      return traverseJson(val as JsonObj, fnOnPrimitive, `${jsonpath}.${key}`);
     }
     if (Array.isArray(val)) {
-      return traverseJson(val, fnOnPrimitive);
+      return traverseJson(val, fnOnPrimitive, `${jsonpath}.${key}`);
     }
-    return fnOnPrimitive(obj as JsonObj, key, val);
+    return fnOnPrimitive(obj as JsonObj, key, val, `${jsonpath}.${key}`);
   });
 };
