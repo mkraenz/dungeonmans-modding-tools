@@ -37,6 +37,7 @@ Finally, start the game, select it in the mod loader popup, and enjoy Dungeonman
 - [Modding Dungeonmans docs](https://dungeonmans.fandom.com/wiki/Mod_Packages)
 - [Example Mod by the Dungeonmans Creator](https://github.com/jim-adventureprogames/dmans-tutorial-mod/tree/main)
 - [Dungeonmans Discord](https://discord.gg/stremf)
+- [Best Practices for using Dungeonmans Mod Tools](https://github.com/mkraenz/dungeonmans-mod-tools/blob/main/Learnings-modding-dungeonmans.md)
 - [Dungeonmans Mod Tools Github](https://github.com/mkraenz/dungeonmans-modding-tools)
 - [CLI Docs on NPM](https://www.npmjs.com/package/@dungeonmans-mod-tools/cli)
 `;
