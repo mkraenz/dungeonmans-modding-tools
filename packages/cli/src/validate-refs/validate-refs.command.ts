@@ -7,7 +7,7 @@ export const createValidateRefCommand = () => {
     .command('validate-refs')
     .alias('verify-refs')
     .description(
-      'Checks for existence of references, i.e. any strings or part of strings marked with `@ref(..)`. References can appear in both string values as well as property keys.'
+      'Checks for existence of references, i.e. any string or substring marked with `@ref(..)`. References can appear in both string values as well as property keys.'
     )
     .addHelpText(
       'after',

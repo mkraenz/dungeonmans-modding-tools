@@ -97,20 +97,23 @@ Example C (dry-run):      @dungeonmans-mod-tools/cli build ./src ./dist/mymodnam
 `npx @dungeonmans-mod-tools/cli validate-refs --help`
 
 ```log
-Usage: @dungeonmans-mod-tools/cli validate-refs [options] <srcDir>
+Usage: @dungeonmans-mod-tools/cli validate-refs|verify-refs [options] <srcDir>
 
-Checks for existence of references, i.e. strings prefixed with `@ref_`.
+Checks for existence of references, i.e. any string or substring marked with `@ref(..)`. References can appear in both string values as well as property keys.
 
 Arguments:
-  srcDir             Source directory containing your mod, that is, the directory your modinfo.txt lives.
+  srcDir      Source directory containing your mod, that is, the directory your modinfo.txt lives.
 
 Options:
-  --prefix <prefix>  Prefix that marks references. (default: "@ref_")
-  --verbose          Print additional info.
-  -h, --help         display help for command
+  --verbose   Print additional info.
+  --debug     Print addditional debug info. Implies --verbose.
+  -h, --help  display help for command
 
-Example A:           @dungeonmans-mod-tools/cli validate-refs path/to/src
-Example B:           @dungeonmans-mod-tools/cli validate-refs path/to/src --prefix '@ref_'
+Note: Only looks for references as of the 2nd level of objects. In other words, references in root-level property keys are ignored. The first level is assumed to be the entity name.
+
+Example A:                @dungeonmans-mod-tools/cli validate-refs path/to/src
+Example B (verbose):      @dungeonmans-mod-tools/cli validate-refs path/to/src --verbose
+Example C (debug):        @dungeonmans-mod-tools/cli validate-refs path/to/src --debug
 ```
 
 ## For Tool Developers
