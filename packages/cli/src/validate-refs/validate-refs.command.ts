@@ -1,5 +1,4 @@
 import { Command } from '@commander-js/extra-typings';
-import { CLI_CONSTANTS } from '../constants.js';
 import { ConsoleRefReporter } from './console.ref-reporter.js';
 import { ReferencesValidator } from './validate-refs.executor.js';
 
@@ -8,28 +7,30 @@ export const createValidateRefCommand = () => {
     .command('validate-refs')
     .alias('verify-refs')
     .description(
-      'Checks for existence of references, i.e. strings prefixed with `@ref_`.'
+      'Checks for existence of references, i.e. any strings or part of strings marked with `@ref(..)`. References can appear in both string values as well as property keys.'
     )
     .addHelpText(
       'after',
       `
-Example A:           @dungeonmans-mod-tools/cli validate-refs path/to/src
-Example B:           @dungeonmans-mod-tools/cli validate-refs path/to/src --prefix '${CLI_CONSTANTS.defaultRefPrefix}'`
+Note: Only looks for references as of the 2nd level of objects. In other words, references in root-level property keys are ignored. The first level is assumed to be the entity name.
+
+Example A:                @dungeonmans-mod-tools/cli validate-refs path/to/src
+Example B (verbose):      @dungeonmans-mod-tools/cli validate-refs path/to/src --verbose
+Example C (debug):        @dungeonmans-mod-tools/cli validate-refs path/to/src --debug`
     )
     .argument(
       '<srcDir>',
       'Source directory containing your mod, that is, the directory your modinfo.txt lives.'
     )
-    .option(
-      '--prefix <prefix>',
-      'Prefix that marks references.',
-      CLI_CONSTANTS.defaultRefPrefix
-    )
     .option('--verbose', 'Print additional info.')
+    .option('--debug', 'Print addditional debug info. Implies --verbose.')
     .action(async (srcDir, options) => {
       const validator = new ReferencesValidator(
         srcDir,
-        new ConsoleRefReporter(options),
+        new ConsoleRefReporter({
+          ...options,
+          verbose: options.debug ?? options.verbose,
+        }),
         options
       );
       await validator.run();

@@ -4,6 +4,7 @@ import { IRefReporter } from './types.js';
 
 type Options = {
   verbose?: boolean;
+  debug?: boolean;
 };
 
 /** Receives the data extracted in previous step to report back to the user using console stdout. */
@@ -23,6 +24,13 @@ export class ConsoleRefReporter implements IRefReporter {
   }) {
     const warnings = missingRefs.length + duplicateEntities.size;
 
+    if (this.options.debug) {
+      Logger.log('Found references:');
+      this.debugRefs(foundRefs);
+      Logger.log('Missing references:');
+      this.debugRefs(missingRefs);
+    }
+
     this.reportFoundRefs(foundRefs);
     this.reportMissingRefs(missingRefs);
 
@@ -33,6 +41,7 @@ export class ConsoleRefReporter implements IRefReporter {
     errors.forEach((e) =>
       Logger.error(`ERROR: Failed to parse or process JSON file: ${e.filepath}`)
     );
+
     if (errors.length) this.logCompletedWithErrors(errors.length, warnings);
     else if (warnings) this.logCompletedWithWarnings(warnings);
     else this.logCompletedSuccessfully();
@@ -43,6 +52,10 @@ export class ConsoleRefReporter implements IRefReporter {
   private reportFoundRefs(refs: RefLocation[]) {
     if (this.options.verbose)
       Logger.log(`Found references: ${refs.map((r) => r.refValue).join(',')}`);
+  }
+
+  private debugRefs(refs: RefLocation[]) {
+    console.table(refs);
   }
 
   private reportMissingRefs(missingRefs: RefLocation[]) {

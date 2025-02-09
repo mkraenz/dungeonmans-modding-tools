@@ -70,15 +70,16 @@ export class RefScanner {
         .filter(([key, _]) => key !== '$schema')
         .map(([key, entity]) => ({
           name: key,
-          // TODO this is insecure. We should validate that entity is an json
+          // TODO #12 this is insecure. We should validate that entity is an json
           entity: entity as Record<string, unknown>,
         }));
       entities.forEach(({ name, entity }) => {
         if (this.entityRegistry.has(name)) {
           const filepaths = this.duplicateEntities.get(name) ?? new Set();
           filepaths.add(filepath);
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          filepaths.add(this.entityRegistry.get(name)!.filepath);
+          const entity = this.entityRegistry.get(name);
+          if (!entity) throw Error('make ts happy');
+          filepaths.add(entity.filepath);
           this.duplicateEntities.set(name, filepaths);
           return;
         }

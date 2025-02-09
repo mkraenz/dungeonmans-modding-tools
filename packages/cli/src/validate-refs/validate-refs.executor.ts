@@ -8,7 +8,6 @@ import { IRefReporter } from './types.js';
 
 type Options = {
   verbose?: boolean;
-  prefix: string;
 };
 
 // TODO trying to make this testable shows that it is probably useful to split between the reporting (i.e. logging), and the results as a datastructure
@@ -16,7 +15,7 @@ type Options = {
 /**
  * Command line script that receives a directory for scanning and an output directory
  * Scans the given directory including subdirectories for files.
- * From all JSON files, it scans for string values that start with `options.prefix`.
+ * From all JSON files, it scans for property keys or string values that contain `@ref(..)` (potentially multiple in the same string).
  * All references are put into a collection for later analysis.
  */
 export class ReferencesValidator {
@@ -33,7 +32,7 @@ export class ReferencesValidator {
       this.srcDir,
       new FileSystem({ verbose: this.options.verbose }),
       new EntityRegistry(),
-      new RefRegistry(this.options.prefix)
+      new RefRegistry()
     );
     await refs.scanDirectoryStructure();
 
