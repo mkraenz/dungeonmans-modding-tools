@@ -1,5 +1,4 @@
 import { Command } from '@commander-js/extra-typings';
-import { CLI_CONSTANTS } from '../constants.js';
 import { ModBuilder } from './build-mod.executor.js';
 
 export const createBuildCommand = () => {
@@ -14,8 +13,6 @@ export const createBuildCommand = () => {
 Example A:                @dungeonmans-mod-tools/cli build ./src ./dist/mymodname
 Example B:                @dungeonmans-mod-tools/cli build path/to/src path/to/dist/mymodname
 Example C (dry-run):      @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --dry-run
-Example D (refs):         @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs
-Example E (custom refs):  @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs --ref-prefix '${CLI_CONSTANTS.defaultRefPrefix}'
 `
     )
     .argument(
@@ -28,24 +25,12 @@ Example E (custom refs):  @dungeonmans-mod-tools/cli build ./src ./dist/mymodnam
     If outDir directory does not exist, creates it and its parents as necessary.`
     )
     .option(
-      '--marked-refs',
-      'Strips prefix from all strings to allow extended validation of your entities and references. To customize the prefix, see --ref-prefix.'
-    )
-    .option(
-      '--ref-prefix <refPrefix>',
-      'Strips prefix from all strings to allow extended validation of your entities and references. Only active when --marked-refs flag is set.',
-      CLI_CONSTANTS.defaultRefPrefix
-    )
-    .option(
       '--dry-run',
       'Simulate the execution of the command without actually changing anything.'
     )
     .option('--verbose', 'Print additional info.')
     .action(async (srcDir, outDir, options) => {
-      const builder = new ModBuilder(srcDir, outDir, {
-        ...options,
-        refPrefix: options.markedRefs ? options.refPrefix : undefined,
-      });
+      const builder = new ModBuilder(srcDir, outDir, options);
       await builder.run();
     });
 };

@@ -2,7 +2,7 @@
   "tstt_sprite_evil": {
     "width": 80,
     "height": 128,
-    "texturename": "sometexture.png",
+    "texturename": "sometexture",
     "xloc": 0,
     "yloc": 0
   }

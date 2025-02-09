@@ -49,11 +49,11 @@ entityDef "tstt_actor_another"
 `);
   });
 
-  it('emits the output with ref prefix stripped', async () => {
+  it('emits the output with refs stripped', async () => {
     const outfile = 'monsters-with-ref.txt';
     const outDir = path.join(__dirname, 'test', 'out');
     const emittedFilePath = path.join(outDir, 'actordata', outfile);
-    const builder = new ModBuilder(srcDir, outDir, { refPrefix: '@ref_' });
+    const builder = new ModBuilder(srcDir, outDir);
 
     await builder.run();
 
@@ -61,6 +61,38 @@ entityDef "tstt_actor_another"
     expect(contents).toEqual(`entityDef "tstt_actor_evil_ref"
 {
     sprite "tstt_sprite_evil"
+}
+`);
+  });
+
+  it('emits the output with refs stripped from keys', async () => {
+    const outfile = 'monsters-with-ref-in-key.txt';
+    const outDir = path.join(__dirname, 'test', 'out');
+    const emittedFilePath = path.join(outDir, 'actordata', outfile);
+    const builder = new ModBuilder(srcDir, outDir);
+
+    await builder.run();
+
+    const contents = await fs.readFile(emittedFilePath);
+    expect(contents).toEqual(`entityDef "tstt_actor_mon_key_ref"
+{
+    tstt_something 123
+}
+`);
+  });
+
+  it('emits the output with refs stripped from both keys and values', async () => {
+    const outfile = 'monsters-with-ref-in-key-and-val.txt';
+    const outDir = path.join(__dirname, 'test', 'out');
+    const emittedFilePath = path.join(outDir, 'actordata', outfile);
+    const builder = new ModBuilder(srcDir, outDir);
+
+    await builder.run();
+
+    const contents = await fs.readFile(emittedFilePath);
+    expect(contents).toEqual(`entityDef "tstt_actor_mon_key_val_ref"
+{
+    tstt_some_key "tstt_1,0,tstt_2,100,1"
 }
 `);
   });

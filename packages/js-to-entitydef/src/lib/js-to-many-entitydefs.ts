@@ -1,14 +1,16 @@
+import { identity } from './helpers/identity.js';
 import {
   EntityDefKeyValuePairValue,
   jsToEntitydef,
 } from './js-to-entitydef.js';
 
 type Options = {
-  /** Removes the prefix from all string values and keys. Default '', i.e. no stripping. */
-  stripPrefix?: string;
+  keyTransform?: (key: string) => string;
+  valueTransform?: (val: unknown) => unknown;
 };
 const defaultOptions = {
-  stripPrefix: '',
+  keyTransform: identity,
+  valueTransform: identity,
 };
 export const jsToManyEntityDefs = (
   definitions: Record<string, Record<string, EntityDefKeyValuePairValue>>,
