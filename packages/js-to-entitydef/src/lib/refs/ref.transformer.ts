@@ -2,6 +2,9 @@ const pattern = /@ref\(.*\)/;
 const patternLeft = '@ref(';
 const patternRight = ')';
 
+export const stripRefs = <T>(val: T) =>
+  typeof val === 'string' ? new RefTransformer(val).strippedStr : val;
+
 export class RefTransformer {
   static includesRef(str: string) {
     return str.match(pattern);

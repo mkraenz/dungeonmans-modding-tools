@@ -1,4 +1,5 @@
 import { jsToEntitydef } from './js-to-entitydef.js';
+import { stripRefs } from './refs/ref.transformer.js';
 
 describe('jsToEntitydef', () => {
   it('should work', () => {
@@ -17,27 +18,34 @@ describe('jsToEntitydef', () => {
 `);
   });
 
-  it('should strip ref prefixes', () => {
+  it('should strip refs if syntax is correct', () => {
     const result = jsToEntitydef(
       'mymonster',
       {
         test: 1,
         hello: false,
-        shouldGetStripped: '@ref_totally nice string',
-        shouldStay1: 'totally nice string_@ref_',
+        shouldGetStrippedAll: '@ref(totally nice string)',
+        shouldGetStrippedEmpty: '@ref()thats an empty ref call',
+        shouldGetStrippedMiddle: 'this calls @ref(the) ref in the middle',
+        shouldGetStrippedMulti:
+          '@ref(this) @ref(here) has multiple ref @ref(calls)',
+        shouldStay1: 'totally nice string_@ref',
         shouldStay2: 'totally nice @ref_string',
         shouldStay3: '@reftotally nice _string',
-        '@ref_shouldGetStrippedRefKey': 'hello',
+        '@ref(shouldGetStrippedRefKey)': 'hello',
       },
-      { stripPrefix: '@ref_' }
+      { keyTransform: stripRefs, valueTransform: stripRefs }
     );
 
     expect(result).toEqual(`entityDef "mymonster"
 {
     test 1
     hello false
-    shouldGetStripped "totally nice string"
-    shouldStay1 "totally nice string_@ref_"
+    shouldGetStrippedAll "totally nice string"
+    shouldGetStrippedEmpty "thats an empty ref call"
+    shouldGetStrippedMiddle "this calls the ref in the middle"
+    shouldGetStrippedMulti "this here has multiple ref calls"
+    shouldStay1 "totally nice string_@ref"
     shouldStay2 "totally nice @ref_string"
     shouldStay3 "@reftotally nice _string"
     shouldGetStrippedRefKey "hello"

@@ -78,29 +78,23 @@ Usage: @dungeonmans-mod-tools/cli build [options] <srcDir> <outDir>
 Build your mod into entitydefs for copy-and-paste into the Dungeonmans mod directory.
 
 Arguments:
-  srcDir                    Source directory containing your mod, that is, the directory your modinfo.txt lives.
-  outDir                    Ouput directory. This is the directory you copy-paste into c:\users\[you]\appdata\roaming\Dungeonmans\modcontent\mods\ directory to play your mod in Dungeonmans.
+  srcDir      Source directory containing your mod, that is, the directory your modinfo.txt lives.
+  outDir      Ouput directory. This is the directory you copy-paste into c:\users\[you]\appdata\roaming\Dungeonmans\modcontent\mods\ directory to play your mod in Dungeonmans.
       If outDir directory does not exist, creates it and its parents as necessary.
 
 Options:
-  --marked-refs             Strips prefix from all strings to allow extended validation of your entities and references. To
-                            customize the prefix, see --ref-prefix.
-  --ref-prefix <refPrefix>  Strips prefix from all strings to allow extended validation of your entities and references. Only
-                            active when --marked-refs flag is set. (default: "@ref_")
-  --dry-run                 Simulate the execution of the command without actually changing anything.
-  --verbose                 Print additional info.
-  -h, --help                display help for command
+  --dry-run   Simulate the execution of the command without actually changing anything.
+  --verbose   Print additional info.
+  -h, --help  display help for command
 
 Example A:                @dungeonmans-mod-tools/cli build ./src ./dist/mymodname
 Example B:                @dungeonmans-mod-tools/cli build path/to/src path/to/dist/mymodname
 Example C (dry-run):      @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --dry-run
-Example D (refs):         @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs
-Example E (custom refs):  @dungeonmans-mod-tools/cli build ./src ./dist/mymodname --marked-refs --ref-prefix '@ref_'
 ```
 
-## Verify Refs command
+## Validate Refs command
 
-`npx @dungeonmans-mod-tools/cli verify-refs --help`
+`npx @dungeonmans-mod-tools/cli validate-refs --help`
 
 ```log
 Usage: @dungeonmans-mod-tools/cli validate-refs [options] <srcDir>

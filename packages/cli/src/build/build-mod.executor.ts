@@ -1,4 +1,8 @@
-import { jsToManyEntityDefs } from '@dungeonmans-mod-tools/js-to-entitydef';
+import {
+  jsToManyEntityDefs,
+  RefTransformer,
+  stripRefs,
+} from '@dungeonmans-mod-tools/js-to-entitydef';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FileSystem, isFile } from '../utils/filesystem.js';
@@ -11,13 +15,10 @@ const dmansDirectoriesThatSupportJsonNatively = [
 ];
 
 const fileTypesCopiedAsIs = ['.txt', '.png', '.cs'];
-const definitelyNotAUserPrefix = '!@#%%^&8';
 
 type Options = {
   dryRun?: boolean;
   verbose?: boolean;
-  /** if undefined or empty string, builds the code without any prefix stripping on strings. */
-  refPrefix?: string;
 };
 
 /**
@@ -111,21 +112,16 @@ export class ModBuilder {
     const destPath = path.join(this.outDir, dirent.name, subdirent.name);
     try {
       const json = await this.fs.readJsonFile(srcPath);
-      const prefix = this.options.refPrefix ?? definitelyNotAUserPrefix;
       traverseJson(json, (obj, key, val) => {
-        // strip prefix from keys
-        if (key.startsWith(prefix)) {
-          const value =
-            typeof val === 'string' && val.startsWith(prefix)
-              ? val.replace(prefix, '')
-              : val;
-          obj[key.replace(prefix, '')] = value;
+        // strip refs from keys
+        if (RefTransformer.includesRef(key)) {
+          obj[stripRefs(key)] = stripRefs(val);
           delete obj[key];
-          return; // returning or otherwise we might risk
+          return; // returning since otherwise we risk adding the original key (with refs) back in
         }
-        // strip prefix from values
-        if (typeof val === 'string' && val.startsWith(prefix)) {
-          obj[key] = val.replace(prefix, '');
+        // strip refs from values
+        if (typeof val === 'string' && RefTransformer.includesRef(val)) {
+          obj[key] = stripRefs(val);
         }
       });
       const outputJson = json;
@@ -152,7 +148,8 @@ export class ModBuilder {
     try {
       const json = await this.fs.readJsonFile(srcPath);
       const entityDef = jsToManyEntityDefs(json, {
-        stripPrefix: this.options.refPrefix,
+        keyTransform: stripRefs,
+        valueTransform: stripRefs,
       });
       await this.fs.writeFile(destPath, entityDef);
     } catch (_error) {

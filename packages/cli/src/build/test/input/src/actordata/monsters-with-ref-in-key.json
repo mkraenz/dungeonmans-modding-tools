@@ -1,0 +1,5 @@
+{
+  "tstt_actor_mon_key_ref": {
+    "@ref(tstt_something)": 123
+  }
+}

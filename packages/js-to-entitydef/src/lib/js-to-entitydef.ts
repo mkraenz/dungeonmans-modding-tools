@@ -1,22 +1,28 @@
+import { identity } from './helpers/identity.js';
+
 export type EntityDefKeyValuePairValue = number | boolean | string;
 
 type Options = {
-  /** Removes the prefix from all string variables. Default '', i.e. no stripping. */
-  stripPrefix?: string;
+  keyTransform?: (key: string) => string;
+  valueTransform?: (val: unknown) => unknown;
 };
 const defaultOptions = {
-  stripPrefix: '',
+  keyTransform: identity,
+  valueTransform: identity,
 };
 
 class JsToEntityDefTransformer {
-  private readonly prefixToStrip: string;
+  private readonly keyTransform: (key: string) => string;
+  private readonly valueTransform: (key: unknown) => unknown;
 
   constructor(
     private readonly entityName: string,
     private readonly keyValuePairs: Record<string, EntityDefKeyValuePairValue>,
     options: Options = {}
   ) {
-    this.prefixToStrip = options.stripPrefix ?? defaultOptions.stripPrefix;
+    this.keyTransform = options.keyTransform ?? defaultOptions.keyTransform;
+    this.valueTransform =
+      options.valueTransform ?? defaultOptions.valueTransform;
   }
 
   toEntityDef() {
@@ -31,20 +37,15 @@ class JsToEntityDefTransformer {
   }
 
   private toPrintedKey(key: string) {
-    const strippedKey = this.withPrefixStripped(key);
+    const strippedKey = this.keyTransform(key);
     if (key.includes(' ')) return `"${strippedKey}"`;
     return strippedKey;
   }
 
   private toPrintedValue(val: EntityDefKeyValuePairValue) {
-    if (typeof val === 'string') return `"${this.withPrefixStripped(val)}"`;
-    return val;
-  }
-
-  private withPrefixStripped(str: string) {
-    return str.startsWith(this.prefixToStrip)
-      ? str.replace(this.prefixToStrip, '')
-      : str;
+    return typeof val === 'string'
+      ? `"${this.valueTransform(val)}"`
+      : this.valueTransform(val);
   }
 }
 

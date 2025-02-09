@@ -1,4 +1,4 @@
-import { kebabCase } from 'lodash-es';
+import kebabCase from 'lodash-es/kebabCase.js';
 
 export const readmeTemplate = (modname: string) => `# ${modname}
 
