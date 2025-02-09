@@ -1,3 +1,17 @@
+## 0.3.0 (2025-02-09)
+
+### 🚀 Features
+
+- **cli:** init creates gitignore including dist/ by default ([9e05d9b](https://github.com/mkraenz/dungeonmans-mod-tools/commit/9e05d9b))
+- **cli:** generated readme links to best practices for using dmans mod tools ([45b385e](https://github.com/mkraenz/dungeonmans-mod-tools/commit/45b385e))
+- **cli:** build commands strips all @ref(..) markers in prop keys and values #12 ([#12](https://github.com/mkraenz/dungeonmans-mod-tools/issues/12))
+- **cli:** validate-refs commands strips all @ref(..) markers in prop keys and values #12 ([#12](https://github.com/mkraenz/dungeonmans-mod-tools/issues/12))
+- **cli:** document validate-refs command in readme generated on init ([2529c3d](https://github.com/mkraenz/dungeonmans-mod-tools/commit/2529c3d))
+
+### ❤️ Thank You
+
+- Mirco Kraenz @mkraenz
+
 ## 0.2.3 (2025-02-08)
 
 ### 🩹 Fixes
